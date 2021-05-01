@@ -1,11 +1,9 @@
 # Power Automate Samples
 
 
-> TODO: Update the text here
-
 This repository contains community samples that demonstrate different usage patterns for Power Automate.
 
-> We do welcome community contributions to the samples folder in this repository for demonstrating different use cases with Power Automate. 
+> We welcome community contributions to the `samples` folder in this repository for demonstrating different use cases with Power Automate. 
 
 ## Have issues or questions?
 
