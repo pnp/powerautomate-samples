@@ -35,3 +35,7 @@ This sample demonstrates the following concepts:
 * Use of standard Power Automate Approvals
 * Adding Guest users to Tenant via Custom Connector/Graph API
 * Adding user to Team
+
+## Disclaimer
+
+**THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
