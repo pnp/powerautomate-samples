@@ -40,8 +40,8 @@ Power Automate has the ['Do Until' action](https://docs.microsoft.com/en-us/azur
 If an unexpected error, i.e. an exception, would occur in a long running loop, it is not easily visible in Power Automate. Only after the run has fully finished you see the results. So, most of the time it is preferred to stop the loop if an exception has occured. 
 
 In this sample we use a Scope inside the 'Do Until'-loop. Now, a Scope does fail immediately if one of the child actions fail. By setting the 'Configure run after' to run only on error of the Scope we can set a variable only if an error has occured.
-![Go to Run After](assets/runAfter.png) 
-![Go to Run After](assets/runAfterSettings.png)
+![Go to Run After](assets/RunAfter.png) 
+![Go to Run After](assets/RunAfterSettings.png)
 
 Just as in de documentation we use a variable in the condition of the loop to check if the loop should continue. This variable is also used afte the loop to determine if the loop has been succesful or resulted in an exception. In this sample it is used to terminate the Flow with the correct status. This makes it easy to see if a Flow run has failed or not. 
 
