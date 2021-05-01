@@ -30,7 +30,7 @@ Version|Date|Comments
 
 ## Minimal Path to Awesome
 
-* [Download](solution\PatternTry-Catch-Finally.zip) the `.zip` from the `solution` folder
+* [Download](solution/PatternTry-Catch-Finally.zip) the `.zip` from the `solution` folder
 * [Import](https://flow.microsoft.com/en-us/blog/import-export-bap-packages/) the `.zip` file using **My Flows** > **Import** > **Upload** within Microsoft Flow.
 
 ## Features
