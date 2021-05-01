@@ -22,17 +22,6 @@ Version|Date|Comments
 -------|----|--------
 1.0|May 01, 2021|Initial release
 
-## Disclaimer
-
-**THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
-
----
-
-## Minimal Path to Awesome
-
-* [Download](solution/PatternExceptionhandingin'Dountil'-loop.zip) the `.zip` from the `solution` folder
-* [Import](https://flow.microsoft.com/en-us/blog/import-export-bap-packages/) the `.zip` file using **My Flows** > **Import** > **Upload** within Microsoft Flow.
-
 ## Features
 
 Power Automate has the ['Do Until' action](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-control-flow-loops#until-loop), which allows the actions within to be repeated until a condition is met. You can configure how often and how long this is repeated. This way you can create long running processes (up to 30 days). By default, if an error occurs in the loop then it just continues with the next cycle in the loop. 
@@ -48,5 +37,31 @@ Just as in de documentation we use a variable in the condition of the loop to ch
 Note: there is a clear distinctin between an expected and unexpected error. For example, if you call a webservice and it is documented a HTTP 404 status is returned, then Power Automate will see this as an error, but we can expect this to happen and should handle this gracefully. On the other hand, if a HTTP 500 error occurs then this is unexpected and an exception, the flow should now probably fail so you can investiage whats wrong as soon as possible.
 
 Note 2: Make sure that you setup the correct retry policies on the individual actions. This makes sure that intermittened failures caused by, for example, network issues or a server with a hickup do not result in errors in your Flow. See [Retry policy in Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-exception-handling) for more information.
+
+## Disclaimer
+
+**THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
+
+---
+
+## Minimal Path to Awesome
+
+* [Download](solution/PatternExceptionhandingin'Dountil'-loop.zip) the `.zip` from the `solution` folder
+* [Import](https://flow.microsoft.com/en-us/blog/import-export-bap-packages/) the `.zip` file using **My Flows** > **Import** > **Upload** within Microsoft Flow.
+
+## Support
+
+> Note: don't worry about this section, we'll update the links.
+
+While we don't support samples, if you encounter any issues while using this sample, you can [create a new issue](https://github.com/pnp/powerautomate-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug-report.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+
+For questions regarding this sample, [create a new question](https://github.com/pnp/powerautomate-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=question.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+
+Finally, if you have an idea for improvement, [make a suggestion](https://github.com/pnp/powerautomate-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=suggestion.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
+
+## For more information
+
+- [Create your first flow](https://docs.microsoft.com/en-us/power-automate/getting-started#create-your-first-flow)
+- [Microsoft Power Automate documentation](https://docs.microsoft.com/en-us/power-automate/)
 
 <img src="https://telemetry.sharepointpnp.com/powerfx-samples/samples/readme-template" />
