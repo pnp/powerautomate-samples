@@ -30,7 +30,7 @@ Version|Date|Comments
 
 ## Minimal Path to Awesome
 
-* [Download](solution\PatternExceptionhandingin'Dountil'-loop.zip) the `.zip` from the `solution` folder
+* [Download](solution/PatternExceptionhandingin'Dountil'-loop.zip) the `.zip` from the `solution` folder
 * [Import](https://flow.microsoft.com/en-us/blog/import-export-bap-packages/) the `.zip` file using **My Flows** > **Import** > **Upload** within Microsoft Flow.
 
 ## Features
