@@ -44,6 +44,7 @@ This sample demonstrates the following concepts:
 
 ## Minimal Path to Awesome
 
+### Configure Azure Application
 As we are using the Graph API, you need to allow your Power Automate to access it. This is done in Azure Active Directory and you need the appropriate rights on your tenant to do this. It is an administrative function, so check with your Azure Administrator.
 
 1.  Connect to [https://aad.portal.azure.com/](https://aad.portal.azure.com/) and sign in with an appropriate administrator account.
@@ -59,5 +60,44 @@ As we are using the Graph API, you need to allow your Power Automate to access i
 
 ![](https://user-images.githubusercontent.com/43988771/116809721-5c98c980-ab37-11eb-9cae-ba07ea5e8d75.png)
 
-*   [Download](https://github.com/pnp/powerautomate-samples/blob/main/samples/teams-invites-via-graph-api/customconnector/GraphAPI.swagger.json) the '.json' file from the customconnector folder.
-*   Use the JSON file to create a new custom connector via
+8.  Next, select API Permissions from the menu on left, then Add a permission
+9.  Here, ensure you give your application 3 delegated permissions, as listed below  
+    1. Directory.ReadWrite.All
+    2. User.Invite.All
+    3. User.ReadWrite.All  
+10. The permissions should match the screenshot below
+
+![image](https://user-images.githubusercontent.com/43988771/116816002-29b2fd80-ab58-11eb-948d-3e6235c2778c.png)
+
+11. Select the Grant admin consent button
+
+### Import and configure Custom Connector
+
+The custom connector is defined in the JSON file in the customconnector file
+
+12.  [Download](https://github.com/pnp/powerautomate-samples/blob/main/samples/teams-invites-via-graph-api/customconnector/GraphAPI.swagger.json) the '.json' file from the customconnector folder.
+13.  Use the JSON file to create a new custom connector. Open  [https://make.powerapps.com/](https://make.powerapps.com/). Select Data, Custom connectors, New Custom Connector, Import an OpenAPI file.
+  
+![2021-05-02_10-52-05](https://user-images.githubusercontent.com/43988771/116816635-ac3cbc80-ab5a-11eb-800e-78bfce8a9f9a.png)
+
+14.   Select the file using the Import button and give the connector a name
+15.   Once imported, go to the security tab. In the tab, enter the Client id (from instruction 4) and Client secret (from instruction 7) in the boxes.
+16.   The Resource URL is populated with https://graph.microsoft.com
+17.   Select Create connector.
+18.   Make note of the Redirect URL.
+19.   Back in the Azure Application portal, on the overview pane, select the hyperlink below Redirect URI and Add a Platform.
+20.   Select Web and enter the value from instruction 18 in the box. Select Configure.
+21.   Once done, you can test your connector by navigating to the Test tab. Firstlly create a connection by selecting New connection and  by ensuring the Me operation is selected and select Test operation. This should give you a 200 response and details about who you are logged in as.
+
+### Import Solution
+
+22.   Download the solution found under the solution folder
+23.   Import the Flow Solution. Open  [https://flow.microsoft.com/](https://flow.microsoft.com/). Open My Flows, Import.
+24.   Browse to the file you downloaded and select Upload. You will be presented with the screen below.
+
+![image](https://user-images.githubusercontent.com/43988771/116817270-62a1a100-ab5d-11eb-85d1-ebe5fed5e13a.png)
+
+25.   Select the Action icon corresponding to Approve Guest user access to team, change the Setup to Create as new.
+26.   For the Connector, select the action icon and choose the connector you have just imported.
+27.   For the others, establish new or use existing for each of the connections
+28.   Once complete, select Import.
