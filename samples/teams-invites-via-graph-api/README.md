@@ -12,13 +12,7 @@ This sample project allows a guest user to request access to a Team. The owner(s
 
 ![Premium License](https://img.shields.io/badge/Premium%20Power%20Automate-Required-orange)
 
-  
- 
-
 ![On-Premises Connectors](https://img.shields.io/badge/On--Premises%20Connectors-No-green.svg)
-
-  
- 
 
 ![Custom Connectors](https://img.shields.io/badge/Custom%20Connectors-%20Required-orange.svg)
 
@@ -56,6 +50,8 @@ As we are using the Graph API, you need to allow your Power Automate to access i
 2.  Select Azure Active Directory/App Registrations
 3.  Select New Registration, enter a name and press Register.
 4.  Take Note of the Application (client) ID value, marked in yellow in screenshot below
+
+![](https://user-images.githubusercontent.com/43988771/116809570-843b6200-ab36-11eb-881d-89319dff5fbb.png)
 
 *   [Download](https://github.com/pnp/powerautomate-samples/blob/main/samples/teams-invites-via-graph-api/customconnector/GraphAPI.swagger.json) the '.json' file from the customconnector folder.
 *   Use the JSON file to create a new custom connector via
