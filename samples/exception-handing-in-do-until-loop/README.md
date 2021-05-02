@@ -42,7 +42,7 @@ In this sample we use a Scope inside the 'Do Until'-loop. Now, a Scope does fail
 
 Just as in de documentation we use a variable in the condition of the loop to check if the loop should continue. This variable is also used after the loop to determine if the loop has been successful or resulted in an exception. In this sample it is used to terminate the Flow with the correct status. This makes it easy to see if a Flow run has failed or not.
 
-Note: there is a clear distinction between an expected and unexpected error. For example, if you call a web service and it is documented a HTTP 404 status is returned, then Power Automate will see this as an error, but we can expect this to happen and should handle this gracefully. On the other hand, if a HTTP 500 error occurs then this is unexpected and an exception, the flow should now probably fail so you can investigate whats wrong as soon as possible.
+Note: there is a clear distinction between an expected and unexpected error. For example, if you call a web service and it is documented a HTTP 404 status is returned, then Power Automate will see this as an error, but we can expect this to happen and should handle this gracefully. On the other hand, if a HTTP 500 error occurs then this is unexpected and an exception, the flow should now probably fail so you can investigate what's wrong as soon as possible.
 
 Note 2: Make sure that you setup the correct retry policies on the individual actions. This makes sure that intermittent failures caused by, for example, network issues or a server with a hiccup do not result in errors in your Flow. See [Retry policy in Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-exception-handling) for more information.
 

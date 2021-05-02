@@ -47,10 +47,9 @@
         ],
         "authors": [
             {
-                "gitHubAccount": "LinkeD365",
-                "name": "Carl Cookson",
-                "pictureUrl": "https://github.com/LinkeD365.png",
-                "twitter": "https://twitter.com/LinkeD365"
+                "gitHubAccount": "remyblok",
+                "name": "remyblok",
+                "pictureUrl": "https://github.com/remyblok.png"
             }
         ],
         "references": [
@@ -63,6 +62,11 @@
                 "name": "Microsoft Power Automate documentation",
                 "description": "Power Automate is a service that helps you create automated workflows between your favorite apps and services to synchronize files, get notifications, collect data, and more.",
                 "url": "https://docs.microsoft.com/en-us/power-automate/"
+            },
+            {
+                "name": "Original Blog Article",
+                "description": "Original blog article by Pieter Veenstra explaining this pattern.",
+                "url": "https://sharepains.com/2018/02/07/power-automate-try-catch-finally-flow/"
             }
         ]
     }
