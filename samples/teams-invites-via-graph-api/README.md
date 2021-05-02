@@ -6,36 +6,58 @@ This sample project allows a guest user to request access to a Team. The owner(s
 
 ## Applies to
 
-* [Micorosoft Power Automate](https://docs.microsoft.com/power-automate/)
+*   [Micorosoft Power Automate](https://docs.microsoft.com/power-automate/)
 
 ## Compatibility
 
-![Premium License](https://img.shields.io/badge/Premium%20Power%20Automate-Required-orange "Premium Power Apps license required")
-![On-Premises Connectors](https://img.shields.io/badge/On--Premises%20Connectors-No-green.svg "Does not use on-premise connectors")
-![Custom Connectors](https://img.shields.io/badge/Custom%20Connectors-%20Required-orange.svg "Uses custom connectors")
+![Premium License](https://img.shields.io/badge/Premium%20Power%20Automate-Required-orange)
+
+![On-Premises Connectors](https://img.shields.io/badge/On--Premises%20Connectors-No-green.svg)
+
+![Custom Connectors](https://img.shields.io/badge/Custom%20Connectors-%20Required-orange.svg)
 
 ## Authors
 
-Solution|Author(s)
---------|---------
-Teams-Invites-Via-Graph-API | [Carl Cookson](https://github.com/LinkeD365) ([@LinkeD365](https://twitter.com/LinkeD365))
+| Solution | Author(s) |
+| --- | --- |
+| Teams-Invites-Via-Graph-API | [Carl Cookson](https://github.com/LinkeD365) ([@LinkeD365](https://twitter.com/LinkeD365)) |
 
 ## Version history
 
-Version|Date|Comments
--------|----|--------
-1.0|May 1st, 2021|Initial release
+| Version | Date | Comments |
+| --- | --- | --- |
+| 1.0 | May 1st, 2021 | Initial release |
 
 ## Features
 
 This sample demonstrates the following concepts:
 
-* Use of Microsoft Forms input to trigger Power Automate
-* Development of a Custom Connector to connect to Microsoft Graph API
-* Use of standard Power Automate Approvals
-* Adding Guest users to Tenant via Custom Connector/Graph API
-* Adding user to Team
+*   Use of Microsoft Forms input to trigger Power Automate
+*   Development of a Custom Connector to connect to Microsoft Graph API
+*   Use of standard Power Automate Approvals
+*   Adding Guest users to Tenant via Custom Connector/Graph API
+*   Adding user to Team
 
 ## Disclaimer
 
-**THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
+**THIS CODE IS PROVIDED** _**AS IS**_ **WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
+
+## Minimal Path to Awesome
+
+As we are using the Graph API, you need to allow your Power Automate to access it. This is done in Azure Active Directory and you need the appropriate rights on your tenant to do this. It is an administrative function, so check with your Azure Administrator.
+
+1.  Connect to [https://aad.portal.azure.com/](https://aad.portal.azure.com/) and sign in with an appropriate administrator account.
+2.  Select Azure Active Directory/App Registrations
+3.  Select New Registration, enter a name and press Register.
+4.  Take Note of the Application (client) ID value, marked in yellow in the screenshot below
+
+![](https://user-images.githubusercontent.com/43988771/116809570-843b6200-ab36-11eb-881d-89319dff5fbb.png)
+
+5.  Select Certificates & secrets then New client secret
+6.  Enter a Description and Expires option then select Add.
+7.  Once saved, ensure you copy the value in Value, marked in purple in the screenshot below. It will only remain available while this screen is active, so don't miss it.
+
+![](https://user-images.githubusercontent.com/43988771/116809721-5c98c980-ab37-11eb-9cae-ba07ea5e8d75.png)
+
+*   [Download](https://github.com/pnp/powerautomate-samples/blob/main/samples/teams-invites-via-graph-api/customconnector/GraphAPI.swagger.json) the '.json' file from the customconnector folder.
+*   Use the JSON file to create a new custom connector via
