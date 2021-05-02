@@ -1,0 +1,164 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "GraphAPI",
+    "description": "",
+    "version": "1.0"
+  },
+  "host": "graph.microsoft.com",
+  "basePath": "/v1.0",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/me": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "me",
+        "description": "me",
+        "operationId": "me",
+        "parameters": []
+      }
+    },
+    "/invitations": {
+      "post": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "Invite",
+        "operationId": "Invite",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "invitedUserEmailAddress": {
+                  "type": "string",
+                  "description": "invitedUserEmailAddress"
+                },
+                "inviteRedirectUrl": {
+                  "type": "string",
+                  "description": "inviteRedirectUrl"
+                },
+                "invitedUserDisplayName": {
+                  "type": "string",
+                  "description": "invitedUserDisplayName"
+                },
+                "sendInvitationMessage": {
+                  "type": "boolean",
+                  "description": "sendInvitationMessage",
+                  "title": "Send Invite Message",
+                  "enum": [
+                    "",
+                    true,
+                    false
+                  ],
+                  "default": true,
+                  "x-ms-visibility": "internal"
+                }
+              },
+              "required": [
+                "sendInvitationMessage"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "/users": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "Get Guest Users",
+        "description": "Get Guest Users",
+        "operationId": "GetGuestUsers",
+        "parameters": [
+          {
+            "name": "$filter",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "default": "userType eq 'guest'",
+            "x-ms-visibility": "internal"
+          }
+        ]
+      }
+    },
+    "/groups/{teamId}/owners": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "operationId": "GetOwners",
+        "description": "Get Owners",
+        "summary": "Get Owners",
+        "parameters": [
+          {
+            "name": "teamId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/users/": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "GetUser",
+        "operationId": "GetUser",
+        "parameters": [
+          {
+            "name": "$filter",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "undefined": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "authorizationUrl": "https://login.windows.net/common/oauth2/authorize",
+      "tokenUrl": "https://login.windows.net/common/oauth2/authorize",
+      "scopes": {}
+    }
+  },
+  "security": [
+    {
+      "undefined": []
+    }
+  ],
+  "tags": []
+}
