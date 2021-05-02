@@ -49,9 +49,15 @@ As we are using the Graph API, you need to allow your Power Automate to access i
 1.  Connect to [https://aad.portal.azure.com/](https://aad.portal.azure.com/) and sign in with an appropriate administrator account.
 2.  Select Azure Active Directory/App Registrations
 3.  Select New Registration, enter a name and press Register.
-4.  Take Note of the Application (client) ID value, marked in yellow in screenshot below
+4.  Take Note of the Application (client) ID value, marked in yellow in the screenshot below
 
 ![](https://user-images.githubusercontent.com/43988771/116809570-843b6200-ab36-11eb-881d-89319dff5fbb.png)
+
+5.  Select Certificates & secrets then New client secret
+6.  Enter a Description and Expires option then select Add.
+7.  Once saved, ensure you copy the value in Value, marked in purple in the screenshot below. It will only remain available while this screen is active, so don't miss it.
+
+![](https://user-images.githubusercontent.com/43988771/116809721-5c98c980-ab37-11eb-9cae-ba07ea5e8d75.png)
 
 *   [Download](https://github.com/pnp/powerautomate-samples/blob/main/samples/teams-invites-via-graph-api/customconnector/GraphAPI.swagger.json) the '.json' file from the customconnector folder.
 *   Use the JSON file to create a new custom connector via
