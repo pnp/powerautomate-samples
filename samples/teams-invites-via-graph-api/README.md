@@ -6,7 +6,7 @@ This sample project allows a guest user to request access to a Team. The owner(s
 
 ## Applies to
 
-*   [Micorosoft Power Automate](https://docs.microsoft.com/power-automate/)
+*   [Microsoft Power Automate](https://docs.microsoft.com/power-automate/)
 
 ## Compatibility
 

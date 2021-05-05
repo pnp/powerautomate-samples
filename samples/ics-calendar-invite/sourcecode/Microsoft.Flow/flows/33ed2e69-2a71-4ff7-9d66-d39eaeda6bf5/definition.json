@@ -1,0 +1,202 @@
+{
+    "name": "72e30c80-9a7a-4622-926f-3289ca097b28",
+    "id": "/providers/Microsoft.Flow/flows/72e30c80-9a7a-4622-926f-3289ca097b28",
+    "type": "Microsoft.Flow/flows",
+    "properties": {
+        "apiId": "/providers/Microsoft.PowerApps/apis/shared_logicflows",
+        "displayName": "ICS Invite",
+        "definition": {
+            "metadata": {
+                "workflowEntityId": null,
+                "flowclientsuspensionreason": "None",
+                "flowclientsuspensiontime": null,
+                "creator": {
+                    "id": "902d4e3c-1184-4f3f-bae7-7fae94b33419",
+                    "type": "User",
+                    "tenantId": "1bfe8a0b-4429-450d-90d0-0ad3fe8c5a18"
+                },
+                "provisioningMethod": "FromDefinition",
+                "failureAlertSubscription": true,
+                "clientLastModifiedTime": "2021-04-21T19:23:18.8618306Z"
+            },
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "contentVersion": "1.0.0.0",
+            "parameters": {
+                "$connections": {
+                    "defaultValue": {},
+                    "type": "Object"
+                },
+                "$authentication": {
+                    "defaultValue": {},
+                    "type": "SecureObject"
+                }
+            },
+            "triggers": {
+                "When_an_item_is_created": {
+                    "recurrence": {
+                        "frequency": "Minute",
+                        "interval": 3
+                    },
+                    "splitOn": "@triggerBody()?['value']",
+                    "metadata": {
+                        "flowSystemMetadata": {
+                            "swaggerOperationId": "GetOnNewItems"
+                        }
+                    },
+                    "type": "ApiConnection",
+                    "inputs": {
+                        "host": {
+                            "connection": {
+                                "name": "@parameters('$connections')['shared_sharepointonline']['connectionId']"
+                            },
+                            "api": {
+                                "runtimeUrl": "https://flow-apim-msmanaged-na-northcentralus-01.azure-apim.net/apim/sharepointonline"
+                            }
+                        },
+                        "method": "get",
+                        "path": "/datasets/@{encodeURIComponent(encodeURIComponent('https://activeinetservices.sharepoint.com/sites/PowerAppsDemos'))}/tables/@{encodeURIComponent(encodeURIComponent('Events'))}/onnewitems",
+                        "authentication": "@parameters('$authentication')"
+                    }
+                }
+            },
+            "actions": {
+                "formatStartTime": {
+                    "runAfter": {},
+                    "type": "Compose",
+                    "inputs": "@Replace(replace(triggerBody()?['EventDate'],'-',''),':','')"
+                },
+                "formatEndTime": {
+                    "runAfter": {
+                        "formatStartTime": [
+                            "Succeeded"
+                        ]
+                    },
+                    "type": "Compose",
+                    "inputs": "@Replace(replace(triggerBody()?['EndDate'],'-',''),':','')"
+                },
+                "formatICS": {
+                    "runAfter": {
+                        "formatEndTime": [
+                            "Succeeded"
+                        ]
+                    },
+                    "type": "Compose",
+                    "inputs": "BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nURL:@{triggerBody()?['{Link}']}\nDTSTART:@{outputs('formatStartTime')}\nDTEND:@{outputs('formatEndTime')}\nSUMMARY:@{triggerBody()?['Title']}\nDESCRIPTION:@{triggerBody()?['Description']}\nLOCATION: @{triggerBody()?['Location']}\nEND:VEVENT\nEND:VCALENDAR"
+                },
+                "Create_ICS_file": {
+                    "runAfter": {
+                        "formatICS": [
+                            "Succeeded"
+                        ]
+                    },
+                    "metadata": {
+                        "flowSystemMetadata": {
+                            "swaggerOperationId": "CreateFile"
+                        }
+                    },
+                    "type": "ApiConnection",
+                    "inputs": {
+                        "host": {
+                            "connection": {
+                                "name": "@parameters('$connections')['shared_sharepointonline']['connectionId']"
+                            },
+                            "api": {
+                                "runtimeUrl": "https://flow-apim-msmanaged-na-northcentralus-01.azure-apim.net/apim/sharepointonline"
+                            }
+                        },
+                        "method": "post",
+                        "body": "@outputs('formatICS')",
+                        "path": "/datasets/@{encodeURIComponent(encodeURIComponent('https://activeinetservices.sharepoint.com/sites/PowerAppsDemos'))}/files",
+                        "queries": {
+                            "folderPath": "/Shared Documents",
+                            "name": "@{triggerBody()?['Title']}@{triggerBody()?['ID']}.ics",
+                            "queryParametersSingleEncoded": true
+                        },
+                        "authentication": "@parameters('$authentication')"
+                    }
+                },
+                "Get_file_content": {
+                    "runAfter": {
+                        "Create_ICS_file": [
+                            "Succeeded"
+                        ]
+                    },
+                    "metadata": {
+                        "flowSystemMetadata": {
+                            "swaggerOperationId": "GetFileContent"
+                        }
+                    },
+                    "type": "ApiConnection",
+                    "inputs": {
+                        "host": {
+                            "connection": {
+                                "name": "@parameters('$connections')['shared_sharepointonline']['connectionId']"
+                            },
+                            "api": {
+                                "runtimeUrl": "https://flow-apim-msmanaged-na-northcentralus-01.azure-apim.net/apim/sharepointonline"
+                            }
+                        },
+                        "method": "get",
+                        "path": "/datasets/@{encodeURIComponent(encodeURIComponent('https://activeinetservices.sharepoint.com/sites/PowerAppsDemos'))}/files/@{encodeURIComponent(body('Create_ICS_file')?['Id'])}/content",
+                        "queries": {
+                            "inferContentType": true
+                        },
+                        "authentication": "@parameters('$authentication')"
+                    }
+                },
+                "Send_an_email_(V2)": {
+                    "runAfter": {
+                        "Get_file_content": [
+                            "Succeeded"
+                        ]
+                    },
+                    "metadata": {
+                        "flowSystemMetadata": {
+                            "swaggerOperationId": "SendEmailV2"
+                        }
+                    },
+                    "type": "ApiConnection",
+                    "inputs": {
+                        "host": {
+                            "connection": {
+                                "name": "@parameters('$connections')['shared_office365']['connectionId']"
+                            },
+                            "api": {
+                                "runtimeUrl": "https://flow-apim-msmanaged-na-eastus2-01.azure-apim.net/apim/office365"
+                            }
+                        },
+                        "method": "post",
+                        "body": {
+                            "To": "@{triggerBody()?['Author']?['Email']};",
+                            "Subject": "New Event Added - @{triggerBody()?['Title']}",
+                            "Body": "<p>A new event has been added:<br>\n<br>\nTitle: @{triggerBody()?['Title']}<br>\nStart: &nbsp;@{triggerBody()?['EventDate']}<br>\nEnd: &nbsp;@{triggerBody()?['EndDate']}<br>\nLocation: &nbsp;@{triggerBody()?['Location']}<br>\nDescription: &nbsp;@{triggerBody()?['Description']}</p>",
+                            "Attachments": [
+                                {
+                                    "Name": "@body('Create_ICS_file')?['Name']",
+                                    "ContentBytes": "@{base64(body('Get_file_content'))}"
+                                }
+                            ]
+                        },
+                        "path": "/v2/Mail",
+                        "authentication": "@parameters('$authentication')"
+                    }
+                }
+            }
+        },
+        "connectionReferences": {
+            "shared_sharepointonline": {
+                "connectionName": "7a5f29a6c4e81f9b3af9e6f0fdddf9f1",
+                "source": "Embedded",
+                "id": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
+                "tier": "NotSpecified"
+            },
+            "shared_office365": {
+                "connectionName": "shared-office365-747f586d-20c3-4e50-9a6b-f91a852703ad",
+                "source": "Embedded",
+                "id": "/providers/Microsoft.PowerApps/apis/shared_office365",
+                "tier": "NotSpecified"
+            }
+        },
+        "flowFailureAlertSubscribed": false
+    }
+}
