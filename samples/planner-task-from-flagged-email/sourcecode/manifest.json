@@ -1,0 +1,112 @@
+{
+    "schema": "1.0",
+    "details": {
+        "displayName": "Create Planner Task from Flagged Email",
+        "description": "",
+        "createdTime": "2021-05-04T02:55:50.9288779Z",
+        "packageTelemetryId": "328f4e22-4658-4921-841c-83931ee367d8",
+        "creator": "N/A",
+        "sourceEnvironment": ""
+    },
+    "resources": {
+        "d6e47e17-ac6c-4273-93e0-8da48178f6b4": {
+            "type": "Microsoft.Flow/flows",
+            "suggestedCreationType": "New",
+            "creationType": "Existing, New, Update",
+            "details": {
+                "displayName": "Flagged Email to Planner"
+            },
+            "configurableBy": "User",
+            "hierarchy": "Root",
+            "dependsOn": [
+                "a4b43a46-5680-4a79-b74b-2dc62d773be2",
+                "33049df0-273b-4f59-b56f-3a8460cc2d06",
+                "2954cece-ca45-4b33-b2e6-b56d020de6ad",
+                "b07fb8fc-322f-45fd-82ec-cfa9a177fe38",
+                "56e2170d-a356-4a1c-b855-48e1b0528d88",
+                "d42b7bf8-2a73-4502-a9a4-a21d055f3f61"
+            ]
+        },
+        "a4b43a46-5680-4a79-b74b-2dc62d773be2": {
+            "id": "/providers/Microsoft.PowerApps/apis/shared_conversionservice",
+            "name": "shared_conversionservice",
+            "type": "Microsoft.PowerApps/apis",
+            "suggestedCreationType": "Existing",
+            "details": {
+                "displayName": "Content Conversion",
+                "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1458/1.0.1458.2381/conversionservice/icon.png"
+            },
+            "configurableBy": "System",
+            "hierarchy": "Child",
+            "dependsOn": []
+        },
+        "33049df0-273b-4f59-b56f-3a8460cc2d06": {
+            "type": "Microsoft.PowerApps/apis/connections",
+            "suggestedCreationType": "Existing",
+            "creationType": "Existing",
+            "details": {
+                "displayName": "Content Conversion",
+                "iconUri": "https://connectoricons-prod.azureedge.net/conversionservice/icon_1.0.1299.1858.png"
+            },
+            "configurableBy": "User",
+            "hierarchy": "Child",
+            "dependsOn": [
+                "a4b43a46-5680-4a79-b74b-2dc62d773be2"
+            ]
+        },
+        "2954cece-ca45-4b33-b2e6-b56d020de6ad": {
+            "id": "/providers/Microsoft.PowerApps/apis/shared_planner",
+            "name": "shared_planner",
+            "type": "Microsoft.PowerApps/apis",
+            "suggestedCreationType": "Existing",
+            "details": {
+                "displayName": "Planner",
+                "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1456/1.0.1456.2375/planner/icon.png"
+            },
+            "configurableBy": "System",
+            "hierarchy": "Child",
+            "dependsOn": []
+        },
+        "b07fb8fc-322f-45fd-82ec-cfa9a177fe38": {
+            "type": "Microsoft.PowerApps/apis/connections",
+            "suggestedCreationType": "Existing",
+            "creationType": "Existing",
+            "details": {
+                "displayName": "Planner",
+                "iconUri": "https://connectoricons-prod.azureedge.net/planner/icon_1.0.1288.1786.png"
+            },
+            "configurableBy": "User",
+            "hierarchy": "Child",
+            "dependsOn": [
+                "2954cece-ca45-4b33-b2e6-b56d020de6ad"
+            ]
+        },
+        "56e2170d-a356-4a1c-b855-48e1b0528d88": {
+            "id": "/providers/Microsoft.PowerApps/apis/shared_office365",
+            "name": "shared_office365",
+            "type": "Microsoft.PowerApps/apis",
+            "suggestedCreationType": "Existing",
+            "details": {
+                "displayName": "Office 365 Outlook",
+                "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1464/1.0.1464.2404/office365/icon.png"
+            },
+            "configurableBy": "System",
+            "hierarchy": "Child",
+            "dependsOn": []
+        },
+        "d42b7bf8-2a73-4502-a9a4-a21d055f3f61": {
+            "type": "Microsoft.PowerApps/apis/connections",
+            "suggestedCreationType": "Existing",
+            "creationType": "Existing",
+            "details": {
+                "displayName": "Outlook 365",
+                "iconUri": "https://connectoricons-prod.azureedge.net/office365/icon_1.0.1297.1825.png"
+            },
+            "configurableBy": "User",
+            "hierarchy": "Child",
+            "dependsOn": [
+                "56e2170d-a356-4a1c-b855-48e1b0528d88"
+            ]
+        }
+    }
+}
