@@ -115,6 +115,7 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 
 ## For more information
 
+- [Companion blog post about this sample](https://techcommunity.microsoft.com/t5/microsoft-365-pnp-blog/using-power-automate-and-graph-api-to-manage-external-access-to/ba-p/2330775?WT.mc_id=m365-24198-cxa)
 - [Create your first flow](https://docs.microsoft.com/en-us/power-automate/getting-started#create-your-first-flow)
 - [Microsoft Power Automate documentation](https://docs.microsoft.com/en-us/power-automate/)
 
