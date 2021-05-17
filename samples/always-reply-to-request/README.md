@@ -21,7 +21,7 @@ A pattern for making sure that the Flow always provides a responds to a request.
 
 Solution|Author(s)
 --------|---------
-always-respond-to-request | [Remy Blok](https://github.com/remyblok), Prodware
+always-reply-to-request | [Remy Blok](https://github.com/remyblok), Prodware
 
 ## Version history
 
@@ -50,7 +50,7 @@ Note 2: The reason that the OK response is outside the Scope in stead of having 
 
 ## Minimal Path to Awesome
 
-* [Download](solution/always-respond-to-request.zip) the `.zip` from the `solution` folder
+* [Download](solution/always-reply-to-request.zip) the `.zip` from the `solution` folder
 * [Import](https://flow.microsoft.com/en-us/blog/import-export-bap-packages/) the `.zip` file using **My Flows** > **Import** > **Upload** within Microsoft Flow.
 
 ## Disclaimer
