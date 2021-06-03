@@ -4,7 +4,7 @@
 
 This will set a Home page with Web Parts on a newly created Site using a Site Design 
 
-![Preview](/assets/preview.png)
+![Preview](/assets/preview.png "Automation Preview Image")
 
 ## Applies to
 
