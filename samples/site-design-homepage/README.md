@@ -1,4 +1,4 @@
-# Set Organization Home Page Template after Site Design Applied
+# Set Organization Home Page Template after Site Design is applied
 
 ## Summary
 
@@ -44,7 +44,8 @@ This sample demonstrates the following concepts:
 
 Before you can use this sample flow, you'll need to create a Home Page Template.
 
-*   Add Details here
+*   Create a new Modern Web Page in a current site that you wish to use as a Home Page for all newly created sites using a Site Design Template.
+*   Create a document library in an existing site to store the template in.
 
 ### Import Solution
 
