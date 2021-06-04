@@ -1,0 +1,13 @@
+<environmentvariabledefinition schemaname="fvsd_accept">
+  <defaultvalue>application/json;odata=verbose</defaultvalue>
+  <description default="HTTP Request Header">
+    <label description="HTTP Request Header" languagecode="1033" />
+  </description>
+  <displayname default="Accept">
+    <label description="Accept" languagecode="1033" />
+  </displayname>
+  <introducedversion>1.0.0.0</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <type>100000000</type>
+</environmentvariabledefinition>

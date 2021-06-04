@@ -1,0 +1,13 @@
+<environmentvariabledefinition schemaname="fvsd_contenttype">
+  <defaultvalue>application/json;odata=verbose</defaultvalue>
+  <description default="HTTP Request Header">
+    <label description="HTTP Request Header" languagecode="1033" />
+  </description>
+  <displayname default="Content-Type">
+    <label description="Content-Type" languagecode="1033" />
+  </displayname>
+  <introducedversion>1.0.0.0</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <type>100000000</type>
+</environmentvariabledefinition>
