@@ -4,7 +4,7 @@
 
 This will set a Home page with Web Parts on a newly created Site using a Site Design 
 
-![Preview](/assets/preview.png "Automation Preview Image")
+![Preview](./assets/preview.png) "Automation Preview Image")
 
 ## Applies to
 
@@ -39,6 +39,8 @@ This sample demonstrates the following concepts:
 
 
 ## Minimal Path to Awesome
+* [Download](solution/SiteDesignHomePage_1_0_0_1.zip) the `.zip` from the `solution` folder
+* [Import](https://flow.microsoft.com/en-us/blog/import-export-bap-packages/) the `.zip` file using **My Flows** > **Import** > **Upload** within Microsoft Flow.
 
 ### Create Home Page Template
 
