@@ -32,32 +32,41 @@ This will set a Home page with Web Parts on a newly created Site using a Site De
 
 This sample demonstrates the following concepts:
 
-*   Receive a request from a Site Design activation
-*   Get a Home Page Template from a ShrePoint Library
-*   Copy the Template to where Site Design was applied.
-*   Publish the File
+* Copy Template from Site Pages to Template Library
+* Receive request from Site Design activation.
+* Copy Template to Site with Design activation.
+* Publish template as Home Page.
 
 
 ## Minimal Path to Awesome
-* [Download](samples/site-design-homepage/solution/SiteDesignHomePage_1_0_0_1.zip) the `.zip` from the `solution` folder
-* [Import](https://flow.microsoft.com/en-us/blog/import-export-bap-packages/) the `.zip` file using **My Flows** > **Import** > **Upload** within Microsoft Flow.
+* [Download](solution/CopyTemplate.zip) the `CopyTemplate.zip` from the `solution` folder
+* [Import](https://flow.microsoft.com/en-us/blog/import-export-bap-packages/) the `CopyTemplate.zip` file using **My Flows** > **Import** > **Upload** within Microsoft Flow.
 
 ### Create Home Page Template
 
-Before you can use this sample flow, you'll need to create a Home Page Template.
+Before you can use this sample flow, you'll need to create a Home Page Template and Library to hold your template.
 
-*   Create a new Modern Web Page in a current site that you wish to use as a Home Page for all newly created sites using a Site Design Template.
-*   Create a document library in an existing site to store the template in.
+* Create new Web Page Template in any site you have access to.
+* Create new document library in an existing site to store the template in.
 
-### Import Solution
+![Preview](assets/homepagetemplate.png "Automation Preview Image")
+
+### Import Copy Template Solution
 
 1.   Download the solution found under the `solution` folder
 1.   Import the Flow Solution. Open  [https://flow.microsoft.com/](https://flow.microsoft.com/). Open **My Flows**, **Import**.
 1.   Browse to the file you downloaded and select **Upload**.
+1.   In the **Import package** screen, select the **SharePoint Connection**, under **Related Resources** and use the **Select during import** to select an existing connection or create a new SharePoint connection.
+     ![Import](./assets/ImportCopyTemplate.png)
+1.   Once complete, select **Import**.
 
-### Configure Flow
+### Configure Copy Template Flow
 
 1. Once the solution is imported, edit it
+1. Select the **Copy Master Template to Document Library** action and replace the ***Current Site Address*** and the ***File to Copy*** to point to your Hope Page Template as well as the  ***Destination Site Address*** and the ***Destination Folder*** to point to your Template Library
+   ![Configure Copy Template Flow](assets/ConfigureCopyFlow.png)
+1. Save your flow and run it.
+1. Open **Template Library** and rename copied file to ***Home.aspx***.
 
 ## Disclaimer
 
