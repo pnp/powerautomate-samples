@@ -1,10 +1,10 @@
-# Set Organization Home Page Template after Site Design is applied
+# Set Home Page Template after Site Design is applied
 
 ## Summary
 
 This will set a Home page with Web Parts on a newly created Site using a Site Design 
 
-![Preview](assets/preview.PNG "Automation Preview Image")
+![Preview](assets/preview.png "Automation Preview Image")
 
 ## Applies to
 
@@ -12,7 +12,7 @@ This will set a Home page with Web Parts on a newly created Site using a Site De
 
 ## Compatibility
 
-![Premium License](https://img.shields.io/badge/Premium%20License-Not%20Required-green.svg "Premium license not required")
+![Premium License](https://img.shields.io/badge/Premium%20License-Required-green.svg "required")
 ![On-Premises Connectors](https://img.shields.io/badge/On--Premises%20Connectors-No-green.svg "Does not use on-premise connectors")
 ![Custom Connectors](https://img.shields.io/badge/Custom%20Connectors-Not%20Required-green.svg "Does not use custom connectors")
 
@@ -40,7 +40,8 @@ This sample demonstrates the following concepts:
 
 ## Minimal Path to Awesome
 * [Download](solution/CopyTemplate.zip) the `CopyTemplate.zip` from the `solution` folder
-* [Import](https://flow.microsoft.com/en-us/blog/import-export-bap-packages/) the `CopyTemplate.zip` file using **My Flows** > **Import** > **Upload** within Microsoft Flow.
+* [Download](solution/ApplyTemplate.zip) the `ApplyTemplate.zip` from the `solution` folder
+* [Import](https://flow.microsoft.com/en-us/blog/import-export-bap-packages/) the `CopyTemplate.zip` and `ApplyTemplate.zip`file using **My Flows** > **Import** > **Upload** within Microsoft Flow.
 
 ### Create Home Page Template
 
@@ -63,10 +64,37 @@ Before you can use this sample flow, you'll need to create a Home Page Template 
 ### Configure Copy Template Flow
 
 1. Once the solution is imported, edit it
-1. Select the **Copy Master Template to Document Library** action and replace the ***Current Site Address*** and the ***File to Copy*** to point to your Hope Page Template as well as the  ***Destination Site Address*** and the ***Destination Folder*** to point to your Template Library
+1. Select the **Copy Master Template to Document Library** action and replace the ***Current Site Address*** and the ***File to Copy*** to point to your Home Page Template as well as the  ***Destination Site Address*** and the ***Destination Folder*** to point to your Template Library
    ![Configure Copy Template Flow](assets/ConfigureCopyFlow.png)
 1. Save your flow and run it.
 1. Open **Template Library** and rename copied file to ***Home.aspx***.
+
+### Import Apply Template Solution
+
+1.   Download the solution found under the `solution` folder
+1.   Import the Flow Solution. Open  [https://flow.microsoft.com/](https://flow.microsoft.com/). Open **My Flows**, **Import**.
+1.   Browse to the file you downloaded and select **Upload**.
+1.   In the **Import package** screen, select the **SharePoint Connection**, under **Related Resources** and use the **Select during import** to select an existing connection or create a new SharePoint connection.
+     ![Import](./assets/ImportApplyTemplate.png)
+1.   Once complete, select **Import**.
+
+### Configure Apply Template Flow
+
+1. Once the solution is imported, edit it
+1. Select the **Get Master Home Page Template** action and replace the ***Site Address*** and the ***Library Name*** to point to your Home Page Template Library.
+   ![Configure Copy Template Flow](assets/ConfigureApplyFlow1.png)
+1. Select the **Set Title for New Shared Site** action and replace the ***Site Address*** and the ***Library Name*** to point to your Home Page Template Library.
+   ![Configure Copy Template Flow](assets/ConfigureApplyFlow2.png)
+1. Select the **Copy Master Template to Provisioned Site** action and replace the ***Site Address*** and the ***Library Name*** to point to your Home Page Template Library.
+   ![Configure Copy Template Flow](assets/ConfigureApplyFlow3.png)
+1. Select the **When a HTTP request is recieved** trigger and copy the ***HTTP Post URL***.
+   ![Configure Copy Template Flow](assets/ConfigureApplyFlow4.png)      
+1. Save your flow.
+
+### Add HTTP Post URl to Site Design
+1. Add ***triggerFlow*** verb to Site Design Script replacing ***url*** with previously copied ***HTTP Post URL***.
+   ![Configure Copy Template Flow](assets/ConfigureSiteDesign.png)      
+
 
 ## Disclaimer
 
