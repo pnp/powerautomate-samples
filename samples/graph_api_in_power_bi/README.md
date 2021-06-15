@@ -4,6 +4,8 @@
 
 This sample project enables Graph API data to be refreshed within the Power BI Service. 
 
+![Preview](assets/preview.png "Automation Preview Image")
+
 ## Applies to
 
 *   [Microsoft Power Automate](https://docs.microsoft.com/power-automate/)
