@@ -80,38 +80,39 @@ As we are using the Graph API, you need to allow your Power Automate to access i
 
 1.  [Download](/customconnector/Microsoft-Graph-API-Sample.swagger.json) the `Microsoft-Graph-API-Sample.swagger.json` file from the `customconnector` folder.
 1.  Use the `Microsoft-Graph-API-Sample.swagger.json` file to create a new custom connector. Open  [https://make.powerapps.com/](https://make.powerapps.com/). Select **Data**, **Custom connectors**, **New Custom Connector**, **Import an OpenAPI file**.
-  
+
     ![Import an OpenAPI file](assets/importopenapi.png "Import an OpenAPI file")
 
-1.   Select the file using the **Import** button and give the connector a name.
+1.  Select the file using the **Import** button and give the connector a name.
 
     ![Create Connector](assets/createconnector.png "Create Connector")
 
-1.   Once imported, go to the **Security** tab. 
-1.   Set the Security fields for the new Connector: -  
-*   **Authentication Type** OAuth 2.0
-*   **Identity provider** Azure Active Directory
-*   **Client ID** Copied from registered application
-*   **Client Secret** Copied from registered application
-*   **Login URL** leave default
-*   **Tenant ID** leave default
-*   **Resource URL** https://graph.microsoft.com
-*   **Scope** https://graph.microsoft.com/.default
+1.  Once imported, go to the **Security** tab. 
+1.  Set the Security fields for the new Connector:
+    | Field | Value |
+    |---|---
+    |**Authentication Type**| OAuth 2.0
+    |**Identity provider**| Azure Active Directory
+    |**Client ID**| Copied from registered application
+    |**Client Secret**| Copied from registered application
+    |**Login URL**| leave default
+    |**Tenant ID**| leave default
+    |**Resource URL**| https://graph.microsoft.com
+    |**Scope**| https://graph.microsoft.com/.default
 
     ![Connector Security](assets/connectorsecurity.png "Connector Security")
 
-1.   Select **Create connector**.
-1.   Copy the **Redirect URL**.
-1.   Return to App Registration Page in Azure, press  **Redirect URls** link located at the top of the screen. Press **Add URI** under the Web Container and paste in the Redirect URL from the Custom Connector. Press **Save** at the top of the page.
+1.  Select **Create connector**.
+1.  Copy the **Redirect URL**.
+1.  Return to App Registration Page in Azure, press  **Redirect URls** link located at the top of the screen. Press **Add URI** under the Web Container and paste in the Redirect URL from the Custom Connector. Press **Save** at the top of the page.
+    ![Redirect URL](assets/redirecturl.png "Redirect URL")
 
-![Redirect URL](assets/redirecturl.png "Redirect URL")
-
-1.   Test connector by navigating to the **Test** tab. 
-1   First, create a connection by selecting **New connection** and  by ensuring the **Me** operation is selected and select **Test** operation. This should give you a `200` response and details about who you are logged in as.
+1.  Test connector by navigating to the **Test** tab. 
+1.  First, create a connection by selecting **New connection** and  by ensuring the **Me** operation is selected and select **Test** operation. This should give you a `200` response and details about who you are logged in as.
 
 ### Import Solution
 
-![README](README.md "README")
+[Get Graph API Data within Power BI Reports](README.md "Get Graph API Data within Power BI Reports")
 ## Disclaimer
 
 **THIS CODE IS PROVIDED** _**AS IS**_ **WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
