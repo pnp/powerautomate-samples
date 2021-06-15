@@ -1,10 +1,10 @@
-# Configure Azure Application
+# Configure Azure Application and Import Custom Connector
 
 ## Summary
 
 As we are using the Graph API, you need to allow your Power Automate to access it. This is done in Azure Active Directory and you need the appropriate rights on your tenant to do this. It is an administrative function, so check with your Azure Administrator.
 
-![Preview](assets/preview.png "Automation Preview Image")
+![Preview](assets/connectorpreview.png "Automation Preview Image")
 
 ## Applies to
 
@@ -30,13 +30,13 @@ As we are using the Graph API, you need to allow your Power Automate to access i
 
 This sample demonstrates the following concepts:
 
+*   App Registration within Azure Active Directory
 *   Custom Connector for Microsoft Graph API
 *   Get Organization Users within Graph API
 
 ## Minimal Path to Awesome
-* [Download](solution/CopyTemplate.zip) the `CopyTemplate.zip` from the `solution` folder
-* [Download](solution/ApplyTemplate.zip) the `ApplyTemplate.zip` from the `solution` folder
-* [Import](https://flow.microsoft.com/en-us/blog/import-export-bap-packages/) the `CopyTemplate.zip` and `ApplyTemplate.zip`file using **My Flows** > **Import** > **Upload** within Microsoft Flow.
+* [Download](customconnector/Microsoft-Graph-API-Sample.swagger.json) the `Microsoft-Graph-API-Sample.swagger.json` from the `customconnector` folder
+* [Import](https://docs.microsoft.com/en-us/connectors/custom-connectors/define-openapi-definition) the `Microsoft-Graph-API-Sample.swagger.json` using **Data** > **Custom connectors** > **Import an OpenAPI file** within Power Automate.
 
 ### Configure Azure Application
 

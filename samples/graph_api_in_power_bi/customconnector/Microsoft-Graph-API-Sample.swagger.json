@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Microsoft Graph API Demo",
+    "title": "Microsoft Graph API Sample Connector",
     "description": "Microsoft Graph API Sample Connector\nhttps://docs.microsoft.com/power-automate/",
     "version": "1.0"
   },
