@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/column-formatting.schema.json",
+  "elmType": "a",
+  "attributes": {
+    "iconName": "OpenFolderHorizontal",
+    "class": "ms-fontColor-themeDark",
+    "href": "='https://yourSPSiteURL/Lists/Feedback/AllItems.aspx?FilterField1=ItemID&FilterValue1=' + [$ID]",
+    "target": "_blank"
+  },
+  "style": {
+    "font-size": "18px",
+    "text-decoration": "none",
+    "padding-left": "15px",
+    "font-weight": "bold"
+  }
+}
