@@ -4,7 +4,7 @@
 
 Hides the SharePoint page title, and shows it back in case the flow is executed against the same page.
 
-![picture of the sample](assets/flow-overview.png)
+![picture of the sample](assets/flow-overview.PNG)
 
 ## Applies to
 
