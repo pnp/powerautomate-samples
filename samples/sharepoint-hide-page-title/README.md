@@ -32,7 +32,7 @@ Version|Date|Comments
 
 ## Features
 
-For any SharePoint modern page is created from the SharePoint UI, there always be a page title cannot be removed using the SharePoint UI at the moment.
+For any SharePoint modern page is created from the SharePoint UI, there will always be a page title cannot be removed using the SharePoint UI at the moment.
 
 ![page title](assets/page-title.PNG)
 
