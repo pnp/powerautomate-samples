@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2021/03/ProvisioningSchema">
+  <pnp:Preferences Generator="PnP.Framework, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null" />
+  <pnp:Templates ID="CONTAINER-TEMPLATE-C041A74B94C04AF9AF7554712C339084">
+    <pnp:ProvisioningTemplate ID="TEMPLATE-C041A74B94C04AF9AF7554712C339084" Version="1" BaseSiteTemplate="SITEPAGEPUBLISHING#0" Scope="RootSite">
+      <pnp:Lists>
+        <pnp:ListInstance Title="NewEmployeeTips" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/NewEmployeeTips" EnableVersioning="true" MinorVersionLimit="0" MaxVersionLimit="50" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/NewEmployeeTips/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/NewEmployeeTips/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/NewEmployeeTips/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{27CE3992-68FA-4835-8585-957678BAF5F6}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="Wszystkie elementy" Url="{site}/Lists/NewEmployeeTips/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query />
+              <ViewFields>
+                <FieldRef Name="TipId" />
+                <FieldRef Name="Tip" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <Aggregations Value="Off" />
+              <JSLink>clienttemplates.js</JSLink>
+              <ViewData />
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field Type="Note" DisplayName="Tip" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" NumLines="6" RichText="FALSE" RichTextMode="Compatible" IsolateStyles="FALSE" Sortable="FALSE" ID="{c64a09d9-f975-43db-b60d-aa4f706fee4d}" SourceID="{{listid:NewEmployeeTips}}" StaticName="Tip" Name="Tip" ColName="ntext2" RowOrdinal="0" CustomFormatter="" RestrictedMode="TRUE" AppendOnly="FALSE" Version="3" />
+            <Field Type="Number" DisplayName="TipId" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" ID="{c9a8baf9-bb99-4c16-93b4-ef6df5cd402c}" SourceID="{{listid:NewEmployeeTips}}" StaticName="TipId" Name="TipId" ColName="float1" RowOrdinal="0" />
+          </pnp:Fields>
+          <pnp:Webhooks>
+            <pnp:Webhook ServerNotificationUrl="https://eastus0.pushnp.svc.ms/notifications?token=334fb77d-a166-4abf-b4f0-4fc16f6c68d9" ExpiresInDays="1" />
+          </pnp:Webhooks>
+        </pnp:ListInstance>
+      </pnp:Lists>
+    </pnp:ProvisioningTemplate>
+  </pnp:Templates>
+</pnp:Provisioning>
