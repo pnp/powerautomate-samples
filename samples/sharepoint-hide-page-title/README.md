@@ -12,8 +12,6 @@ Hides the SharePoint page title, and shows it back in case the flow is executed 
 
 ## Compatibility
 
-> Don't worry about this section, we'll take care of it. Unless you really want to...
-
 ![Premium License](https://img.shields.io/badge/Premium%20License-Not%20Required-green.svg "Premium license not required")
 ![On-Premises Connectors](https://img.shields.io/badge/On--Premises%20Connectors-No-green.svg "Does not use on-premise connectors")
 ![Custom Connectors](https://img.shields.io/badge/Custom%20Connectors-Not%20Required-green.svg "Does not use custom connectors")
@@ -32,7 +30,7 @@ Version|Date|Comments
 
 ## Features
 
-For any SharePoint modern page is created from the SharePoint UI, there will always be a page title cannot be removed using the SharePoint UI at the moment.
+For any SharePoint modern page that is created from the SharePoint UI, there will always be a page title which cannot be removed using the SharePoint UI at the moment.
 
 ![page title](assets/page-title.PNG)
 
@@ -53,6 +51,7 @@ You can also use SharePoint column formatting to call the same flow from other l
 
 * [Download](solution/switch-page-type.zip) the `.zip` from the `solution` folder
 * [Import](https://flow.microsoft.com/en-us/blog/import-export-bap-packages/) the `.zip` file using **My Flows** > **Import** > **Upload** within Microsoft Flow.
+* In the "Review Package Content" section, click the "Update" option for Import Setup on the Switch Page Type Resource and change it to New.
 * After the flow is imported, edit the Flow trigger to point to a site in your tenant.
 * Edit the Document library id to the Site Pages library id from the site you chose. The id can be found on the Library Settings page URL as a QueryString parameter:
  ![library id](assets/lib-id.PNG)
@@ -64,8 +63,6 @@ You can also use SharePoint column formatting to call the same flow from other l
 **THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
 
 ## Help
-
-> Note: don't worry about this section, we'll update the links.
 
 We do not support samples, but we this community is always willing to help, and we want to improve these samples. We use GitHub to track issues, which makes it easy for  community members to volunteer their time and help resolve issues.
 
@@ -79,6 +76,7 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 
 - [Create your first flow](https://docs.microsoft.com/en-us/power-automate/getting-started#create-your-first-flow)
 - [Microsoft Power Automate documentation](https://docs.microsoft.com/en-us/power-automate/)
+- [Working with the SharePoint HTTP Action in Power Automate](https://docs.microsoft.com/en-us/sharepoint/dev/business-apps/power-automate/guidance/working-with-send-sp-http-request)
 
 
 <img src="https://telemetry.sharepointpnp.com/powerautomate-samples/samples/readme-template" />
