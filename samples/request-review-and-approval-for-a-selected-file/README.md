@@ -14,16 +14,12 @@ This flow utilizes a SharePoint document library and Approvals to request that a
 
 ## Compatibility
 
-> Don't worry about this section, we'll take care of it. Unless you really want to...
 
 ![Premium License](https://img.shields.io/badge/Premium%20License-Not%20Required-green.svg "Premium license not required")
 ![On-Premises Connectors](https://img.shields.io/badge/On--Premises%20Connectors-No-green.svg "Does not use on-premise connectors")
 ![Custom Connectors](https://img.shields.io/badge/Custom%20Connectors-Not%20Required-green.svg "Does not use custom connectors")
 
 ## Authors
-
-> One author per line, please
-> DELETE THIS PARAGRAPH BEFORE SUBMITTING
 
 Solution|Author(s)
 --------|---------
@@ -62,20 +58,11 @@ Note that if you want to allow for more than one supervisor to be added as a rev
 ![The button to check when changing the field](./assets/FlowTip1.png)
 ![What it should look like](./assets/FlowTip2.png)
 
-
-## Using the Source
-
-  You can also use the source and create your own `.zip` file by following these steps:
-
-* ...
-
 ## Disclaimer
 
 **THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
 
 ## Help
-
-> Note: don't worry about this section, we'll update the links.
 
 We do not support samples, but we this community is always willing to help, and we want to improve these samples. We use GitHub to track issues, which makes it easy for  community members to volunteer their time and help resolve issues.
 
