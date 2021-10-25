@@ -41,7 +41,7 @@
             {
                 "type": "image",
                 "order": 100,
-                "url": "https://github.com/pnp/powerautomate-samples/blob/main/samples/request-review-and-approval-for-a-selected-file/assets/preview.png?raw=true",
+                "url": "https://raw.githubusercontent.com/pnp/powerautomate-samples/main/samples/request-review-and-approval-for-a-selected-file/assets/preview.png",
                 "alt": "Preview of the solution"
             }
         ],

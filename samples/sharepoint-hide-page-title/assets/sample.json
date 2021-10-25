@@ -41,7 +41,7 @@
             {
                 "type": "image",
                 "order": 100,
-                "url": "https://github.com/pnp/powerautomate-samples/blob/main/samples/sharepoint-hide-page-title/assets/preview.png?raw=true",
+                "url": "https://raw.githubusercontent.com/pnp/powerautomate-samples/main/samples/sharepoint-hide-page-title/assets/preview.gif",
                 "alt": "Preview of the solution"
             }
         ],

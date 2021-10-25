@@ -4,7 +4,7 @@
 
 Hides the SharePoint page title, and shows it back in case the flow is executed against the same page.
 
-![picture of the sample](assets/flow-overview.PNG)
+![picture of the sample](assets/flow-overview.png)
 
 ## Applies to
 
@@ -32,7 +32,7 @@ Version|Date|Comments
 
 For any SharePoint modern page that is created from the SharePoint UI, there will always be a page title which cannot be removed using the SharePoint UI at the moment.
 
-![page title](assets/page-title.PNG)
+![page title](assets/page-title.png)
 
 There are known options to remove the page title using PnP PowerShell and Microsoft 365 CLI. The logic behind those options is that on the background they change a hidden field in the Page, which is the PageLayoutType field.
 
@@ -45,7 +45,7 @@ This sample flow switches the page layout by updating the PageLayoutType field.
 If it is a normal page (Article), this flow will switch it to a page with the 'Home' page layout (no title), and vice versa (in case there is a need to show the title again).
 
 You can also use SharePoint column formatting to call the same flow from other libraries:
-![flow from column formatting](assets/switch-flow-columnFormatting.PNG)
+![flow from column formatting](assets/switch-flow-columnFormatting.png)
 
 ## Minimal Path to Awesome
 
@@ -54,7 +54,7 @@ You can also use SharePoint column formatting to call the same flow from other l
 * In the "Review Package Content" section, click the "Update" option for Import Setup on the Switch Page Type Resource and change it to New.
 * After the flow is imported, edit the Flow trigger to point to a site in your tenant.
 * Edit the Document library id to the Site Pages library id from the site you chose. The id can be found on the Library Settings page URL as a QueryString parameter:
- ![library id](assets/lib-id.PNG)
+ ![library id](assets/lib-id.png)
 
 > Note: If you want to reuse the same flow on other sites you can add the custom column formatting [JSON](solution/SwitchLayout_ColumnFormat.json) to a dummy column in the Site Pages library.
 

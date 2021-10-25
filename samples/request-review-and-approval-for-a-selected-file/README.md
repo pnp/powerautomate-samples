@@ -4,9 +4,9 @@
 
 This flow utilizes a SharePoint document library and Approvals to request that a supervisor or user review a file, approve or reject the file, and updates the SharePoint library with this information.  Common error handling is included
 
-![An overview of the flow](./assets/Flow1.PNG)
-![More detail on the inside of the File Not Found check](./assets/Flow2.PNG)
-![Detail on the inside of the If Rejected check](./assets/Flow3.PNG)
+![An overview of the flow](./assets/Flow1.png)
+![More detail on the inside of the File Not Found check](./assets/Flow2.png)
+![Detail on the inside of the If Rejected check](./assets/Flow3.png)
 
 ## Applies to
 
@@ -44,7 +44,7 @@ This sample illustrates the following concepts:
 A SharePoint document library with columns for a SupervisorReviewer (person or group), SupervisorReviewStatus (choice column, with Yes, No, and Pending), and SupervisorReviewComments (multi-line text)
 
 Note that if you want to allow for more than one supervisor to be added as a reviewer, make sure to configure the SupervisorReviewer field the following way:
-![The proper configuration](./assets/FlowColumnTip1.PNG)
+![The proper configuration](./assets/FlowColumnTip1.png)
 
 ## Minimal Path to Awesome
 
@@ -55,8 +55,8 @@ Note that if you want to allow for more than one supervisor to be added as a rev
 * Select **Import**
 * Customize the flow with your own SharePoint library and column names
 * Go to the "Update file properties" action within the "Do until - Add approver name to SP and lock email if it fails" action and if you are allowing more than one reviewer, you may need to change the "SupervisorReviewer" field to "Switch to input entire array" before you can add the "supervisorReviewers" array variable
-![The button to check when changing the field](./assets/FlowTip1.PNG)
-![What it should look like](./assets/FlowTip2.PNG)
+![The button to check when changing the field](./assets/FlowTip1.png)
+![What it should look like](./assets/FlowTip2.png)
 
 ## Disclaimer
 
