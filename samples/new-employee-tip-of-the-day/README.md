@@ -5,7 +5,7 @@
 
 ![flow](assets/flow.png "flow")
 
-The flow was created to fulfill real case scenario to improve new employee introduction process. Every new employee at the beginning may be overwhelmed with the amout of knowladge they need to learn. The flow is supposed to run every day (once a day). Retrieves employees added from newEmployee list (gets the emails). 
+The flow was created to fulfill real case scenario to improve new employee introduction process. Every new employee at the beginning may be overwhelmed with the amount of knowledge they need to learn. The flow is supposed to run every day (once a day). Retrieves employees added from newEmployee list (gets the emails). 
 
 ![newEmployeeList](assets/newEmployeeList.jpg "newEmployeeList")
 
