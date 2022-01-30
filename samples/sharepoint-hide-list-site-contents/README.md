@@ -37,7 +37,7 @@ Even if we restrict permissions to read only in the list, this can cause some co
 
 Using SharePoint Designer we can mark a list as hidden from the site contents easily, and the same can also be done using PowerShell or SharePoint APIs.
 
-But not all the time it's possible to use/install PowerShell or SharePoint Designer our computers. And also it's important to bear in mind that SharePoint designer will be discontinued at some point in the near future.
+But not all the time it's possible to use/install PowerShell or SharePoint Designer in our computers. And also it's important to bear in mind that SharePoint designer will be discontinued at some point in the near future.
 
 This sample flow hides a list or makes a hidden list visible again using the SharePoint Rest API.
 
