@@ -4,7 +4,7 @@
 
 Hides a SharePoint list from the site contents menu.
 
-![picture of the sample](assets/flow-overview.PNG)
+![picture of the sample](assets/flow-overview.png)
 
 ## Applies to
 
