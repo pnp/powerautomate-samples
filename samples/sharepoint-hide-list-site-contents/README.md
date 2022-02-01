@@ -60,7 +60,6 @@ For failed runs, the link to the failed flow run will be sent to the user.
 * [Import](https://flow.microsoft.com/en-us/blog/import-export-bap-packages/) the `.zip` file using **My Flows** > **Import** > **Upload** within Microsoft Flow.
 * After the flow is imported, edit the below compose action to contain the path to your Power Automate home page url: 
 
-You can also use SharePoint column formatting to call the same flow from other libraries:
 ![compose update](assets/compose-update.PNG)
 
 ## Disclaimer
