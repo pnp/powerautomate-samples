@@ -22,7 +22,7 @@ Hides a SharePoint list from the site contents menu.
 
 Solution|Author(s)
 --------|---------
-sharepoint-hide-page-title | [Michel Mendes](https://github.com/michelcarlo) ([@michelcarlo](https://twitter.com/michelcarlo))
+sharepoint-hide-list-site-contents | [Michel Mendes](https://github.com/michelcarlo) ([@michelcarlo](https://twitter.com/michelcarlo))
 
 ## Version history
 
