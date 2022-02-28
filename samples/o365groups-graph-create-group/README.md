@@ -5,7 +5,7 @@
 Creates Microsoft 365 Groups using the Office 365 Groups Connector action 'Send an HTTP Request' and the Microsoft Graph Groups endpoint.
 Adds members to the group if specified.
 
-![picture of the sample](assets/flow-overview.PNG)
+![picture of the sample](assets/flow-overview.png)
 
 ## Applies to
 
