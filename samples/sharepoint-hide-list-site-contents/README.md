@@ -1,4 +1,4 @@
-# Hide SharePoint Page Title
+# Hide SharePoint List from The Site Contents
 
 ## Summary
 
