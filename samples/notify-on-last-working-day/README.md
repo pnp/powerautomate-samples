@@ -2,8 +2,9 @@
 
 ## Summary
 
-Send an e-mail notification on the last **working** day of the month.
-The original post can be found at PowerUser community: [Send an e-mail notification the last working day of the month](https://powerusers.microsoft.com/t5/Power-Automate-Cookbook/Send-an-e-mail-notification-the-last-working-day-of-the-month/td-p/787942)
+Send an e-mail notification on the last **working** day of the month. 
+
+Read more in the [Sending an e-mail notification the last working day of the month](https://powerusers.microsoft.com/t5/Power-Automate-Community-Blog/Sending-an-e-mail-notification-the-last-working-day-of-the-month/ba-p/806320) article.
 
 
 ![picture of the sample](assets/Send_notification_flow_overview.png)
@@ -38,9 +39,9 @@ The original post can be found at PowerUser community: [Send an e-mail notificat
 This sample demonstrates:
 
 * how to get the first day of the month
-* how to get the last day of the month regardless of the leap year
+* how to get the last day of the month regardless of the leap year*
 * how to check if a particular date (by default it is the current date) is the last working day of the month regardless of the leap year
-* how to minimize the flow schedule trigger to the last 4 days of each month
+* how to minimize the flow schedule trigger to the last 4 days of each month to avoid unnecessary API calls.
 
 Assumptions:
 
@@ -48,12 +49,12 @@ Assumptions:
 * Working days are from Monday to Friday
 * Saturday and Sunday are non-working days
 
-The last day of the month is counted by subtracting one day from the first day of the next month.
+*The last day of the month is counted by subtracting one day from the first day of the next month.
 
 The scheduled flow uses trigger conditions that minimize flow runs to the last 4 days in the month (the flow is triggered if the date returned by utcNow() is greater than 4 days before the first day of the next month).
 By changing the 'date' variable in the flow you can check if the next day or day before next is the last working day of the month and be notified in advance.
 
-Because self-reference is not supported (yet) when updating the value of the variable in **Do Until** loop I had to use an extra stage variable.
+Because self-reference is not supported by Power Automate (you can vote on this [here](https://powerusers.microsoft.com/t5/Power-Automate-Ideas/Allow-self-reference-on-action-SetVariable/idi-p/62137)) when updating the value of the variable in **Do Until** loop I had to use an extra stage variable.
 
 ## Prerequisites
 
@@ -62,18 +63,11 @@ Because self-reference is not supported (yet) when updating the value of the var
 
 ## Minimal Path to Awesome
 
-* [Download](./solution/YOURSAMPLENAME.zip) the `.zip` from the `solution` folder
+* [Download](./solution/NotifyOnLastWorkingDay.zip) the `.zip` from the `solution` folder
 * Browse to [Power Automate](https://flow.microsoft.com/manage/environments) and select the environment where you wish to import the sample
 * From the toolbar, select **Import**
 * In the **Import package** page, select **Upload** and choose the `.zip` file containing the sample flow.
 * Select **Import**
-* ...
-
-## Using the Source
-
-You can also use the source and create your own `.zip` file by following these steps:
-
-* ...
 
 ## Disclaimer
 
