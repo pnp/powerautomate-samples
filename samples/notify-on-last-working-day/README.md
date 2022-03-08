@@ -69,10 +69,6 @@ Because self-reference is not supported by Power Automate (you can vote on this 
 * In the **Import package** page, select **Upload** and choose the `.zip` file containing the sample flow.
 * Select **Import**
 
-## Disclaimer
-
-**THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
-
 ## Help
 
 > Note: don't worry about this section, we'll update the links.
