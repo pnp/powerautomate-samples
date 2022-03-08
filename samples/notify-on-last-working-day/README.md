@@ -86,4 +86,4 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 - [Create your first flow](https://docs.microsoft.com/en-us/power-automate/getting-started#create-your-first-flow)
 - [Microsoft Power Automate documentation](https://docs.microsoft.com/en-us/power-automate/)
 
-<img src="https://telemetry.sharepointpnp.com/powerautomate-samples/samples/readme-template" />
+<img src="https://telemetry.sharepointpnp.com/powerautomate-samples/samples/notify-on-last-working-day" />
