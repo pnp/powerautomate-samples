@@ -16,7 +16,7 @@ This flow creates a Project for the web with a task and a project bucket.
 ## Compatibility
 
 ![Premium License](https://img.shields.io/badge/Premium%20License-Required-green.svg "required")
-![D365 for operations](https://img.shields.io/badge/Premium%20License-Required-green.svg "required")
+D365 for operations ![D365 for operations](https://img.shields.io/badge/Premium%20License-Required-green.svg "required")
 Required to allow changes/updates to Project task table [Restricted dataverse tables](https://docs.microsoft.com/en-us/powerapps/maker/data-platform/data-platform-restricted-entities) 
 ![On-Premises Connectors](https://img.shields.io/badge/On--Premises%20Connectors-No-green.svg "Does not use on-premise connectors")
 ![Custom Connectors](https://img.shields.io/badge/Custom%20Connectors-Not%20Required-green.svg "Does not use custom connectors")
