@@ -1,0 +1,205 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_sharepointonline": {
+        "runtimeSource": "invoker",
+        "connection": {
+          "connectionReferenceLogicalName": "knw365_SPgroupAutomation"
+        },
+        "api": {
+          "name": "shared_sharepointonline"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "Variable for SharePoint Site (knw365_VariableSPsite)": {
+          "defaultValue": "https://eseeconsults.sharepoint.com/sites/KickStartTeam",
+          "type": "String",
+          "metadata": {
+            "schemaName": "knw365_VariableSPsite",
+            "description": "Environment Variable for SharePoint Site"
+          }
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "a4185622-6eef-4552-9c83-75dfbbd78c79"
+          },
+          "type": "Request",
+          "kind": "Button",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {},
+              "required": []
+            }
+          }
+        }
+      },
+      "actions": {
+        "Initialize_variable_-_varSPgroupName": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "e3d15a37-d433-4b00-a741-327cb778eb50"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "varSPgroupName",
+                "type": "string",
+                "value": "Group 01"
+              }
+            ]
+          }
+        },
+        "Send_an_HTTP_request_to_SharePoint_-_CreateNewGroup": {
+          "runAfter": {
+            "Initialize_variable_-_varSPgroupName": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "f5f1891d-dde6-4c0e-a8b8-cd320de49728"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_sharepointonline",
+              "operationId": "HttpRequest",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+            },
+            "parameters": {
+              "dataset": "@parameters('Variable for SharePoint Site (knw365_VariableSPsite)')",
+              "parameters/method": "POST",
+              "parameters/uri": "_api/Web/SiteGroups",
+              "parameters/headers": {
+                "content-type": "application/json;odata=verbose"
+              },
+              "parameters/body": "{\n     \"__metadata\": {\n        \"type\": \"SP.Group\"\n    },\n    \"Title\": \"@{variables('varSPgroupName')}\",\n    \"Description\": \"Automatically created @{variables('varSPgroupName')} through Power Automate Flow\"\n}"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Initialize_variable_-_varMemberEmailAddress": {
+          "runAfter": {
+            "Initialize_variable_-_varSPgroupCreatedId": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "5339bd17-80d3-4557-b74c-5cc0130bf2e1"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "varMemberEmailAddress",
+                "type": "string",
+                "value": "MsFlow@knowhere365.space"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_-_varSPgroupCreatedId": {
+          "runAfter": {
+            "Send_an_HTTP_request_to_SharePoint_-_CreateNewGroup": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "9b51a503-a6c8-4efe-ae56-cd1779aa86ba"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "varSPgroupCreatedId",
+                "type": "string",
+                "value": "@{body('Send_an_HTTP_request_to_SharePoint_-_CreateNewGroup')['d']['Id']}"
+              }
+            ]
+          }
+        },
+        "Send_an_HTTP_request_to_SharePoint_-_AddUserToCreatedNewGroup": {
+          "runAfter": {
+            "Send_an_HTTP_request_to_SharePoint_-_EnsureUserInSite": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "f5f1891d-dde6-4c0e-a8b8-cd320de49728"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_sharepointonline",
+              "operationId": "HttpRequest",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+            },
+            "parameters": {
+              "dataset": "@parameters('Variable for SharePoint Site (knw365_VariableSPsite)')",
+              "parameters/method": "POST",
+              "parameters/uri": "_api/Web/SiteGroups/GetById(@{variables('varSPgroupCreatedId')})/Users",
+              "parameters/headers": {
+                "content-type": "application/json;odata=verbose"
+              },
+              "parameters/body": "{ \n\t\"__metadata\": \n    { \n        \"type\": \"SP.User\"\n    }, \n\t\"LoginName\":\"i:0#.f|membership|@{variables('varMemberEmailAddress')}\"\n}"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Send_an_HTTP_request_to_SharePoint_-_EnsureUserInSite": {
+          "runAfter": {
+            "Initialize_variable_-_varMemberEmailAddress": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "f5f1891d-dde6-4c0e-a8b8-cd320de49728"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_sharepointonline",
+              "operationId": "HttpRequest",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+            },
+            "parameters": {
+              "dataset": "@parameters('Variable for SharePoint Site (knw365_VariableSPsite)')",
+              "parameters/method": "POST",
+              "parameters/uri": "_api/Web/EnsureUser",
+              "parameters/headers": {
+                "content-type": "application/json;odata=verbose"
+              },
+              "parameters/body": "{ \n\t\"logonName\":\"i:0#.f|membership|@{variables('varMemberEmailAddress')}\"\n}"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        }
+      }
+    }
+  },
+  "schemaVersion": "1.0.0.0"
+}
