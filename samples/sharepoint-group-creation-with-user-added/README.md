@@ -50,12 +50,10 @@ This sample demonstrates the following concepts:
 
 1. Once the solution is imported, edit it to fit your needs by changing the variables.
 
-Depending on your updates a newly created SharePoint Group will look like:
-![Group Overview](./assets/PowerAutomate_SPgroupCreation_90_GroupResult.png)
-
-with at least one User in it:
-![Group User](./assets/PowerAutomate_SPgroupCreation_91_GroupUser.png)
-
+Depending on your updates a newly created SharePoint Group will look like:<br>
+![Group Overview](./assets/PowerAutomate_SPgroupCreation_90_GroupResult.png)<br>
+with at least one User in it:<br>
+![Group User](./assets/PowerAutomate_SPgroupCreation_91_GroupUser.png)<br>
 
 ## Disclaimer
 
