@@ -5,11 +5,7 @@
 
 ![flow](assets/flow.png "flow")
 
-<<<<<<< Updated upstream
 The flow was created to fulfill real case scenario to improve new employee introduction process. Every new employee at the beginning may be overwhelmed with the amount of knowledge they need to learn. The flow is supposed to run every day (once a day). Retrieves employees added from newEmployee list (gets the emails). 
-=======
-The flow was created to show how to improve the new employee introduction process. Every new employee at the beginning may be overwhelmed with the amount of things there are to learn. This flow runs once a day and retrieves new employees from a SharePoint List.
->>>>>>> Stashed changes
 
 ![newEmployeeList](assets/newEmployeeList.jpg "newEmployeeList")
 
@@ -39,12 +35,14 @@ When all tips are sent to the user, the next day the flow removes the  employee 
 Solution|Author(s)
 --------|---------
 new-employee-tip-of-the-day | [Adam Wójcik](https://github.com/Adam-it)
+new-employee-tip-of-the-day | [Ramin Ahmadi](https://github.com/ahmadiramin)
 
 ## Version history
 
 Version|Date|Comments
 -------|----|--------
 1.0|October 07, 2021|Initial release
+1.1|July 14,2022|Fix update employee list action
 
 ## Features
 
@@ -52,6 +50,17 @@ This sample demonstrates the following concepts:
 
 * Retreive items from SharePoint List
 * Apply adaptive card using flow to Teams user chat
+
+# Bug fixes
+
+ModifiEmployeeItem was using hard coded URL and list name, also it was updating the item in a wrong way:
+
+![ModifiEmployeeItem](assets/ModifiEmployeeItemError.png)
+
+It's now using the variables and a better way of updating the item:
+
+![ModifiEmployeeItem](assets/ModifiEmployeeItem.png)
+
 
 ## Minimal Path to Awesome
 
