@@ -2,7 +2,7 @@
 
 ## Summary
 
-A pattern for making sure that the Flow always provides a responds to a request.
+A HTTP Request via Graph API to Azure Key Vault  
 
 ![picture of the flow](assets/flow.png)
 
@@ -21,7 +21,7 @@ A pattern for making sure that the Flow always provides a responds to a request.
 
 Solution|Author(s)
 --------|---------
-azure-http-key-vault | [Remy Blok](https://github.com/remyblok), Prodware
+azure-http-key-vault | [Divya Akula](https://github.com/divya-akula)
 
 ## Version history
 
@@ -39,15 +39,16 @@ Prerequisites:
 As the app uses HTTP way to connect to Azure platform , the connector would need appropriate permissions to invoke an Azure Resource.To do this
 1. User has to navigate to [Azure Portal](https://portal.azure.com)
 2. Create new App registration as shown in the below screenshot
-![picture of the flow](assets/AppRegistration.png)
-3. Once the application is regiistered,navigate to the API Permissions --> Add Permission --> Select Microsoft Graph -->APIConnectors.Read.All
-![picture of the flow](assets/AzurePermissionRequest.png)
-4. Once the permissions are requested , the administrator has to give the consent before using the HTTP connector
-![picture of the flow](assets/AzurePermissionConfiguration.png)
 
-In this sample we use a Scope to contain all the logic of the Flow. By setting the 'Configure run after' on the error `Response`-action to run only on error we can differentiate the error between sending a OK or an Error message. By default any action's 'Configure run after' is set to 'is successful'.
-![Go to Run After](assets/RunAfter.png)
-![Go to Run After](assets/RunAfterSettings.png)
+![picture of the flow](assets/AppRegistration.png)
+
+3. Once the application is registered,navigate to the **API Permissions** > **Add Permission** > **Select Microsoft Graph** > **APIConnectors.Read.All**
+
+![picture of the flow](assets/AzurePermissionRequest.png)
+
+4. Once the permissions are requested , the administrator has to give the consent before using the HTTP connector
+
+![picture of the flow](assets/AzurePermissionConfiguration.png)
 
 ## Minimal Path to Awesome
 
