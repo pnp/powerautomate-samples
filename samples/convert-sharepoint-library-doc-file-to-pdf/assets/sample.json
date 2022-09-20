@@ -1,0 +1,70 @@
+[
+    {
+        "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+        "name": "convert-sharepoint-library-doc-file-to-pdf",
+        "version": "1.0.0.0",
+        "source": "pnp",
+        "creationDateTime": "2022-09-20T00:00:00.000Z",
+        "updateDateTime": "2022-09-20T00:00:00.000Z",
+        "title": "Convert sharepoint library document file to pdf.",
+        "shortDescription": "This sample shows how to convert a doc file to a pdf in the document library.",
+        "longDescription": [
+            "This sample shows how to convert a doc file to a pdf in the document library."
+        ],
+        "url": "https://github.com/pnp/powerautomate-samples/tree/main/samples/convert-sharepoint-library-doc-file-to-pdf",
+        "products": [
+            "Power Automate",
+            "Power Platform",
+            "SharePoint"
+        ],
+        "tags": [
+            "SHAREPOINT",
+            "PERMISSIONS"
+        ],
+        "categories": [
+            "POWERAUTOMATE"
+        ],
+        "metadata": [
+            {
+                "key": "POWERAUTOMATE-PREMIUM",
+                "value": "no"
+            },
+            {
+                "key": "POWERAUTOMATE-ONPREM",
+                "value": "No"
+            },
+            {
+                "key": "POWERAUTOMATE-CUSTOMCONNECTOR",
+                "value": "No"
+            }
+        ],
+        "thumbnails": [
+            {
+                "type": "image",
+                "order": 100,
+                "url": "https://raw.githubusercontent.com/pnp/powerautomate-samples/main/samples/convert-sharepoint-library-doc-file-to-pdf/assets/flow-overview.png",
+                "alt": "Preview of the solution"
+            }
+        ],
+        "authors": [
+            {
+                "gitHubAccount": "chandaniprajapati",
+                "name": "Chandani Prajapati",
+                "pictureUrl": "https://avatars.githubusercontent.com/u/52065929?v=4",
+                "twitter": "Chandani_SPD"
+            }
+        ],
+        "references": [
+            {
+                "name": "Create your first flow",
+                "description": "Anyone from a basic business user to an IT professional can create automated processes using Power Automate's no-code/low-code platform.",
+                "url": "https://docs.microsoft.com/en-us/power-automate/getting-started#create-your-first-flow"
+            },
+            {
+                "name": "Microsoft Power Automate documentation",
+                "description": "Power Automate is a service that helps you create automated workflows between your favorite apps and services to synchronize files, get notifications, collect data, and more.",
+                "url": "https://docs.microsoft.com/en-us/power-automate/"
+            }
+        ]
+    }
+]
