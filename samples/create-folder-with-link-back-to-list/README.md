@@ -4,7 +4,7 @@
 
 This sample creates a folder in a *SharePoint* document library and then stores the link to the newly created folder inside of *Microsoft Lists* using *Power Automate*. The folder name is based on a combination of list columns and provides a better link experience compared to the default URL. 
 
-![Flow overview](/create-folder-with-link-back-to-list/assets/flow-overview.png "Flow overview")
+![Flow overview](/samples/create-folder-with-link-back-to-list/assets/flow-overview.png "Flow overview")
 
 
 ## Applies to
@@ -53,89 +53,88 @@ This Flow requires the following list columns and settings:
 
 ## Minimal Path to Awesome
 
-1. Download the solution file [CreateFolderWithLinkBackToList.zip](/create-folder-with-link-back-to-list/solution/CreateFolderWithLinkBackToList.zip)
+1. Download the solution file [CreateFolderWithLinkBackToList.zip](/samples/create-folder-with-link-back-to-list/solution/CreateFolderWithLinkBackToList.zip)
 
 2. Import the solution using *Power Automate*. Click **My flows**, click **Import** and then click **Import Package (Legacy)**
 
- 	![Flow import](/create-folder-with-link-back-to-list/assets/flow-import.png "Flow import")
+ 	![Flow import](/samples/create-folder-with-link-back-to-list/assets/flow-import.png "Flow import")
 
 3. Upload the solution by clicking **Upload** and select the downloaded file from Step 1
 
-	![Upload package](/create-folder-with-link-back-to-list/assets/upload-package.png "Upload package")
+	![Upload package](/samples/create-folder-with-link-back-to-list/assets/upload-package.png "Upload package")
 
 4. Configure the *Flow* connections by clicking on **Configuration** for the *SharePoint Connection*
 
- 	![Import configuration before image](/create-folder-with-link-back-to-list/assets/import-configuration-before.png "Import configuration before image")
+ 	![Import configuration before image](/samples/create-folder-with-link-back-to-list/assets/import-configuration-before.png "Import configuration before image")
 
 5. Select an existing connection and click **Save** or add a new *SharePoint Connection* by clicking **Create new** (see Steps 5a, 5b)
 
-	![Existing or new connection](/create-folder-with-link-back-to-list/assets/existing-new-connection.png "Existing or new connection")
+	![Existing or new connection](/samples/create-folder-with-link-back-to-list/assets/existing-new-connection.png "Existing or new connection")
 
 	5a. Click **Create a connection**, click **SharePoint** and then click **Create**
 
-	![New SharePoint connection](/create-folder-with-link-back-to-list/assets/sharepoint-connection.png "New SharePoint connection")
+	![New SharePoint connection](/samples/create-folder-with-link-back-to-list/assets/sharepoint-connection.png "New SharePoint connection")
 
 	5b. Select your account in the *Pick your account screen*
 
 	5c. Return to the *Import setup* screen, select your newly created *SharePoint Connection* and click **Save**
 
-	![New SharePoint connection](/create-folder-with-link-back-to-list/assets/save-sharepoint-connection.png "New SharePoint connection")
+	![New SharePoint connection](/samples/create-folder-with-link-back-to-list/assets/save-sharepoint-connection.png "New SharePoint connection")
 
 6. After our Flow connections have been created click **Import** to import the solution file.
 
-	![Import configuration after](/create-folder-with-link-back-to-list/assets/import-configuration-after.png "Import configuration after")
+	![Import configuration after](/samples/create-folder-with-link-back-to-list/assets/import-configuration-after.png "Import configuration after")
 
 	**Note:** If you receive a "GetTable" error during the import, click the **Save as a new flow** option and manually update the connections references. This error is caused by importing and exporting *Flows* between tenants.
 
-	![Flow import error](/create-folder-with-link-back-to-list/assets/flow-import-error.png "Flow import error")
+	![Flow import error](/samples/create-folder-with-link-back-to-list/assets/flow-import-error.png "Flow import error")
 	
 	Select your target connection to fix the "Invalid connection" error. Repeat for all SharePoint actions.
-	![Fix connections](/create-folder-with-link-back-to-list/assets/flow-fix-connections.png "Fix connections")
+	![Fix connections](/samples/create-folder-with-link-back-to-list/assets/flow-fix-connections.png "Fix connections")
 
 7. Click **Open flow** to further configure the flow
 
-	![Open flow](/create-folder-with-link-back-to-list/assets/open-flow.png "Open flow")
+	![Open flow](/samples/create-folder-with-link-back-to-list/assets/open-flow.png "Open flow")
 	
 8. Expand the *When an item is created*, change the *Site address* and *List name* to your desired site and list 
 
-	![Configure When an item is created](/create-folder-with-link-back-to-list/assets/when-an-item-is-created.png "Configure When an item is created")
+	![Configure When an item is created](/samples/create-folder-with-link-back-to-list/assets/when-an-item-is-created.png "Configure When an item is created")
 
 9.  Expand *Initialize variable - varParameters*, change the *Site address* and *List name* to your desired site and list
 
-	![Configure Initialize variable](/create-folder-with-link-back-to-list/assets/initialize-variable.png "Configure Initialize variable")
+	![Configure Initialize variable](/samples/create-folder-with-link-back-to-list/assets/initialize-variable.png "Configure Initialize variable")
 
 	Name | Value
 	---- | ------
 	*varSiteURL* | Replace with your site URL
-	*varListInternalName* | Replace with your internal list name; **Tip:** Use this API call in your browser to obtain the internal list name: *https://<YourTenantName>.sharepoint.com/sites/<YourSiteName>/_api/Web/Lists/GetByTitle('<YourListNameWithSpaces')?$select=ListItemEntityTypeFullName*
+	*varListInternalName* | Replace with your internal list name; **Tip:** Use this API call in your browser to obtain the internal list name: *https://YourTenantName.sharepoint.com/sites/YourSiteName/_api/Web/Lists/GetByTitle('<YourListNameWithSpaces')?$select=ListItemEntityTypeFullName*
 	*varListDisplayName* | Replace with your list display name
 	*varColumnInternalName* | Replace with the internal column name; **Tip:** Use the list column settings to see the internal name at the end of the URL string
 	*varDocumentDisplayLibraryName* | Replace with the Document Library display name.
 	*varFolderName* | Update the expression as required; by default the expression concatenates the list ID column with the Title column values: *concat(triggerOutputs()?['body/ID'], '-', triggerOutputs()?['body/Title'])*
 
-
 10. Click **Save** to save your changes
 
-	![Save](/create-folder-with-link-back-to-list/assets/save.png "Save")
+	![Save](/samples/create-folder-with-link-back-to-list/assets/save.png "Save")
 
 11. Click **Go back to previous page**
 
-	![Previous page](/create-folder-with-link-back-to-list/assets/previous-page.png "Previous page")
+	![Previous page](/samples/create-folder-with-link-back-to-list/assets/previous-page.png "Previous page")
 
 12. Click **Turn on** to enable your Flow
 
-	![Turn on Flow](/create-folder-with-link-back-to-list/assets/turn-on.png "Turn on Flow")
+	![Turn on Flow](/samples/create-folder-with-link-back-to-list/assets/turn-on.png "Turn on Flow")
 
 13. Test your *Flow* by adding a new item to your list. If successful the Flow will:
     1.  Create a folder in our target *SharePoint* Document Library with a name that concatenates the *ID* and *Title* columns
     2.  Update list item *FolderLocation* column to match the folder name
-![Your flow ran successfully](/create-folder-with-link-back-to-list/assets/flow-run.png "Your flow ran successfully")
+![Your flow ran successfully](/samples/create-folder-with-link-back-to-list/assets/flow-run.png "Your flow ran successfully")
 
 Our list item looks like the image below. Clicking on the *FolderLocation* link will take you to the folder location. 
 
-![List item](/create-folder-with-link-back-to-list/assets/list-item.png "List item")
+![List item](/samples/create-folder-with-link-back-to-list/assets/list-item.png "List item")
 
-![Folder](/create-folder-with-link-back-to-list/assets/folder.png "Folder")
+![Folder](/samples/create-folder-with-link-back-to-list/assets/folder.png "Folder")
 
 
 ## Disclaimer
