@@ -25,7 +25,7 @@
 
 Solution|Author(s)
 --------|---------
-send-name-pronunciation-recording-to-library | [Taylor Becktod](https://github.com/TBecktold) ([@BecktoldTaylor](https://twitter.com/BecktoldTaylor)), RSM US LLP
+set-dataverse-lookups | [Taylor Becktod](https://github.com/TBecktold) ([@BecktoldTaylor](https://twitter.com/BecktoldTaylor)), RSM US LLP
 
 ## Version history
 
@@ -60,11 +60,6 @@ This flow creates records in Dataverse. You will need a connection to Dataverse 
 * Select **Import**
 * ...
 
-## Using the Source
-
-  You can also use the source and create your own `.zip` file by following these steps:
-
-* ...
 
 ## Disclaimer
 
