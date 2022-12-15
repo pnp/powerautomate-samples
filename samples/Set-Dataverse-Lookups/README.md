@@ -3,9 +3,8 @@
 ## Summary
 
  A pattern that shows two ways to set a Dataverse lookup field with both an expression and the 'relate rows' action. Taylor Becktold's original blogpost can be found here: https://azwhizkid.com/dataverse-power-automate-lookups/
-![Screenshot of the Power Automate flow as a whole](assets/Screenshot1.PNG)
-![Screenshot of the three variables initialized in the flow, meant to transform the audio file into an appropriate format and then to store the site and library names for easier importing.](assets/Screenshot2.PNG)
-![Screenshot of the SharePoint actions in the flow - creating the file and adding the duration length to the document library.](assets/Screenshot3.PNG)
+![Screenshot of the Power Automate flow as a whole](assets/screenshot1.PNG)
+![Continued screenshot of  the Power Automate flow as a whole](assets/screenshot2.PNG)
 
 ## Applies to
 
@@ -89,4 +88,4 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 - [Microsoft Power Automate documentation](https://docs.microsoft.com/en-us/power-automate/)
 
 
-<img src="https://telemetry.sharepointpnp.com/powerautomate-samples/samples/send-name-pronunciation-recording-to-library" />
+
