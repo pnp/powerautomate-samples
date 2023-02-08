@@ -49,7 +49,7 @@ This sample demonstrates the following concepts:
 ### Import Get Organization Users Solution
 
 1.   Download the solution found under the `solution` folder
-1.   Import the Flow Solution. Open  [https://flow.microsoft.com/](https://flow.microsoft.com/). Open **My Flows**, **Import**.
+1.   Import the Flow Solution. Open  [https://make.powerautomate.com/](https://make.powerautomate.com/). Open **My Flows**, **Import**.
 1.   Browse to the file you downloaded and select **Upload**.
 1.   In the **Import package** screen, select the **Microsoft Graph API Demo**, under **Related Resources** > **Select during import** and select the Custom Connector previously created.
 1.  select the **Microsoft Graph API Demo Connection**, under **Related Resources** > **Select during import** and select the Custom Connector Connection previously created.

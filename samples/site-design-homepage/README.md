@@ -56,7 +56,7 @@ Before you can use this sample flow, you'll need to create a Home Page Template 
 ### Import Copy Template Solution
 
 1.   Download the solution found under the `solution` folder
-1.   Import the Flow Solution. Open  [https://flow.microsoft.com/](https://flow.microsoft.com/). Open **My Flows**, **Import**.
+1.   Import the Flow Solution. Open  [https://make.powerautomate.com](https://make.powerautomate.com/). Open **My Flows**, **Import**.
 1.   Browse to the file you downloaded and select **Upload**.
 1.   In the **Import package** screen, select the **SharePoint Connection**, under **Related Resources** and use the **Select during import** to select an existing connection or create a new SharePoint connection.
      ![Import](./assets/ImportCopyTemplate.png)
@@ -73,7 +73,7 @@ Before you can use this sample flow, you'll need to create a Home Page Template 
 ### Import Apply Template Solution
 
 1.   Download the solution found under the `solution` folder
-1.   Import the Flow Solution. Open  [https://flow.microsoft.com/](https://flow.microsoft.com/). Open **My Flows**, **Import**.
+1.   Import the Flow Solution. Open  [https://make.powerautomate.com/](https://make.powerautomate.com). Open **My Flows**, **Import**.
 1.   Browse to the file you downloaded and select **Upload**.
 1.   In the **Import package** screen, select the **SharePoint Connection**, under **Related Resources** and use the **Select during import** to select an existing connection or create a new SharePoint connection.
      ![Import](./assets/ImportApplyTemplate.png)
