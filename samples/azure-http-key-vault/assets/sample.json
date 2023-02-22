@@ -11,7 +11,7 @@
         "longDescription": [
             "The sample provides details on can you leverage the graph api to connect to azure platform along with the authentication details"
         ],
-        "url": "https://github.com/pnp/powerautomate-samples/tree/main/samples/always-reply-to-request",
+        "url": "https://github.com/pnp/powerautomate-samples/tree/main/samples/azure-http-key-vault",
         "products": [
             "Power Automate",
             "Azure"
