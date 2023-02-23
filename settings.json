@@ -1,0 +1,33 @@
+{
+  "EnvironmentVariables": [],
+  "ConnectionReferences": [
+    {
+      "LogicalName": "tfe_sharedoffice365_e25fb",
+      "ConnectionId": "",
+      "ConnectorId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+    },
+    {
+      "LogicalName": "tfe_sharedplanner_4c79e",
+      "ConnectionId": "",
+      "ConnectorId": "/providers/Microsoft.PowerApps/apis/shared_planner"
+    },
+    {
+      "LogicalName": "tfe_sharedtodo_5d865",
+      "ConnectionId": "",
+      "ConnectorId": "/providers/Microsoft.PowerApps/apis/shared_todo"
+    }
+  ],
+  "Workflows": [
+    {
+      "Name": "Task2Calendar Manual Flow",
+      "WorkflowId": "b8befeee-91b3-ed11-83fe-0022489acd39",
+      "UserEmail": ""
+    },
+    {
+      "Name": "Task2Calendar Scheduled Flow",
+      "WorkflowId": "f2784aea-94b3-ed11-83fe-0022489acd39",
+      "UserEmail": ""
+    }
+  ],
+  "CanvasApps": []
+}
