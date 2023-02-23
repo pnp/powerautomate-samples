@@ -1,0 +1,13 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "cleanup, export and expand",
+            "type": "shell",
+            "command": "remove-item -recurse -force Task2Calendarpublisher; remove-item -force Task2Calendarpublisher.zip; pac org select --environment '4PS Deutschland'; pac solution export -n 'Task2Calendarpublisher' -p .; expand-archive Task2Calendarpublisher.zip;",
+            "problemMatcher": []
+        }
+    ]
+}
