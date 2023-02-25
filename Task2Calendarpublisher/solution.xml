@@ -23,11 +23,6 @@
       <RootComponent type="29" id="{b8befeee-91b3-ed11-83fe-0022489acd39}" behavior="0" />
       <RootComponent type="29" id="{f2784aea-94b3-ed11-83fe-0022489acd39}" behavior="0" />
     </RootComponents>
-    <MissingDependencies>
-      <MissingDependency>
-        <Required type="connectionreference" displayName="new_sharedoffice365_7bb9b" solution="Active" id.connectionreferencelogicalname="new_sharedoffice365_7bb9b" />
-        <Dependent type="29" displayName="Task2Calendar Manual Flow" id="{b8befeee-91b3-ed11-83fe-0022489acd39}" />
-      </MissingDependency>
-    </MissingDependencies>
+    <MissingDependencies />
   </SolutionManifest>
 </ImportExportXml>

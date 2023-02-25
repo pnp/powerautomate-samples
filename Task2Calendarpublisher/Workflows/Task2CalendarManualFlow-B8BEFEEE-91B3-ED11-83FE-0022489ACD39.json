@@ -27,15 +27,6 @@
         "api": {
           "name": "shared_planner"
         }
-      },
-      "shared_office365_1": {
-        "runtimeSource": "invoker",
-        "connection": {
-          "connectionReferenceLogicalName": "new_sharedoffice365_7bb9b"
-        },
-        "api": {
-          "name": "shared_office365"
-        }
       }
     },
     "definition": {
@@ -577,7 +568,7 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
-              "connectionName": "shared_office365_1",
+              "connectionName": "shared_office365",
               "operationId": "HttpRequest",
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
             },
