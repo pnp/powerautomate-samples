@@ -27,6 +27,15 @@
         "api": {
           "name": "shared_planner"
         }
+      },
+      "shared_office365_1": {
+        "runtimeSource": "invoker",
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedoffice365_7bb9b"
+        },
+        "api": {
+          "name": "shared_office365"
+        }
       }
     },
     "definition": {
@@ -97,17 +106,17 @@
               "type": "OpenApiConnection",
               "inputs": {
                 "host": {
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365",
                   "connectionName": "shared_office365",
-                  "operationId": "V4CalendarGetItems"
+                  "operationId": "V4CalendarGetItems",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
                 },
                 "parameters": {
-                  "table": "AAMkADNjNWUyNjQzLWMzZDctNGY5OS05OTg1LWY3MWUwOTRiYWI0ZgBGAAAAAADr45QAoSa2SL9Dz0xPh1ZVBwDjndJjIogISoDbRjKkDc89AAAAAAEGAADjndJjIogISoDbRjKkDc89AAAAAH6pAAA=",
+                  "table": "@variables('calendar-id')",
                   "$filter": "categories/any(c:c+eq+'Tasks')"
                 },
                 "authentication": {
-                  "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']",
-                  "type": "Raw"
+                  "type": "Raw",
+                  "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
                 }
               }
             },
@@ -124,17 +133,17 @@
                       "type": "OpenApiConnection",
                       "inputs": {
                         "host": {
-                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365",
                           "connectionName": "shared_office365",
-                          "operationId": "CalendarDeleteItem_V2"
+                          "operationId": "CalendarDeleteItem_V2",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
                         },
                         "parameters": {
-                          "calendar": "AAMkADNjNWUyNjQzLWMzZDctNGY5OS05OTg1LWY3MWUwOTRiYWI0ZgBGAAAAAADr45QAoSa2SL9Dz0xPh1ZVBwDjndJjIogISoDbRjKkDc89AAAAAAEGAADjndJjIogISoDbRjKkDc89AAAAAH6pAAA=",
+                          "calendar": "@variables('calendar-id')",
                           "event": "@items('Iterate_over_all_events_with_task_category')?['id']"
                         },
                         "authentication": {
-                          "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']",
-                          "type": "Raw"
+                          "type": "Raw",
+                          "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
                         }
                       }
                     }
@@ -173,7 +182,11 @@
               "type": "Foreach"
             }
           },
-          "runAfter": {},
+          "runAfter": {
+            "Initialize_variable": [
+              "Succeeded"
+            ]
+          },
           "expression": {
             "equals": [
               "@triggerBody()['boolean']",
@@ -197,14 +210,14 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_todo",
               "connectionName": "shared_todo",
-              "operationId": "GetAllTodoListsV2"
+              "operationId": "GetAllTodoListsV2",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_todo"
             },
             "parameters": {},
             "authentication": {
-              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']",
-              "type": "Raw"
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
             }
           }
         },
@@ -219,17 +232,17 @@
               "type": "OpenApiConnection",
               "inputs": {
                 "host": {
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_todo",
                   "connectionName": "shared_todo",
-                  "operationId": "ListToDosByFolderV2"
+                  "operationId": "ListToDosByFolderV2",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_todo"
                 },
                 "parameters": {
                   "folderId": "@items('Iterate_over_all_To-Do_lists')?['id']",
                   "$top": 999
                 },
                 "authentication": {
-                  "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']",
-                  "type": "Raw"
+                  "type": "Raw",
+                  "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
                 }
               }
             },
@@ -262,12 +275,12 @@
                           "type": "OpenApiConnection",
                           "inputs": {
                             "host": {
-                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365",
                               "connectionName": "shared_office365",
-                              "operationId": "V4CalendarPostItem"
+                              "operationId": "V4CalendarPostItem",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
                             },
                             "parameters": {
-                              "table": "AAMkADNjNWUyNjQzLWMzZDctNGY5OS05OTg1LWY3MWUwOTRiYWI0ZgBGAAAAAADr45QAoSa2SL9Dz0xPh1ZVBwDjndJjIogISoDbRjKkDc89AAAAAAEGAADjndJjIogISoDbRjKkDc89AAAAAH6pAAA=",
+                              "table": "@variables('calendar-id')",
                               "item/subject": "@items('Iterate_over_all_tasks')?['title']",
                               "item/start": "@concat(body('Convert_time_zone_of_due_date'), 'T06:00:00')",
                               "item/end": "@concat(body('Convert_time_zone_of_due_date'), 'T06:50:00')",
@@ -278,8 +291,8 @@
                               "item/sensitivity": "private"
                             },
                             "authentication": {
-                              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']",
-                              "type": "Raw"
+                              "type": "Raw",
+                              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
                             }
                           }
                         },
@@ -295,9 +308,9 @@
                           "type": "OpenApiConnection",
                           "inputs": {
                             "host": {
-                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365",
                               "connectionName": "shared_office365",
-                              "operationId": "HttpRequest"
+                              "operationId": "HttpRequest",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
                             },
                             "parameters": {
                               "Uri": "https://graph.microsoft.com/v1.0/me/calendar/events/@{outputs('Create_event_(V4)_for_To-Do_task')?['body/id']}",
@@ -306,8 +319,8 @@
                               "ContentType": "application/json"
                             },
                             "authentication": {
-                              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']",
-                              "type": "Raw"
+                              "type": "Raw",
+                              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
                             }
                           }
                         }
@@ -385,14 +398,14 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_planner",
               "connectionName": "shared_planner",
-              "operationId": "ListMyTasks_V2"
+              "operationId": "ListMyTasks_V2",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_planner"
             },
             "parameters": {},
             "authentication": {
-              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']",
-              "type": "Raw"
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
             }
           }
         },
@@ -425,12 +438,12 @@
                       "type": "OpenApiConnection",
                       "inputs": {
                         "host": {
-                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365",
                           "connectionName": "shared_office365",
-                          "operationId": "V4CalendarPostItem"
+                          "operationId": "V4CalendarPostItem",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
                         },
                         "parameters": {
-                          "table": "AAMkADNjNWUyNjQzLWMzZDctNGY5OS05OTg1LWY3MWUwOTRiYWI0ZgBGAAAAAADr45QAoSa2SL9Dz0xPh1ZVBwDjndJjIogISoDbRjKkDc89AAAAAAEGAADjndJjIogISoDbRjKkDc89AAAAAH6pAAA=",
+                          "table": "@variables('calendar-id')",
                           "item/subject": "@items('Iterate_over_all_my_Planner_tasks')?['title']",
                           "item/start": "@concat(body('Convert_time_zone_of_due_date_2'), 'T06:00:00')",
                           "item/end": "@concat(body('Convert_time_zone_of_due_date_2'), 'T06:50:00')",
@@ -441,8 +454,8 @@
                           "item/sensitivity": "private"
                         },
                         "authentication": {
-                          "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']",
-                          "type": "Raw"
+                          "type": "Raw",
+                          "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
                         }
                       }
                     },
@@ -458,9 +471,9 @@
                       "type": "OpenApiConnection",
                       "inputs": {
                         "host": {
-                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365",
                           "connectionName": "shared_office365",
-                          "operationId": "HttpRequest"
+                          "operationId": "HttpRequest",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
                         },
                         "parameters": {
                           "Uri": "https://graph.microsoft.com/v1.0/me/calendar/events/@{outputs('Create_event_(V4)_for_To-Do_task_2')?['body/id']}",
@@ -469,8 +482,8 @@
                           "ContentType": "application/json"
                         },
                         "authentication": {
-                          "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']",
-                          "type": "Raw"
+                          "type": "Raw",
+                          "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
                         }
                       }
                     }
@@ -555,10 +568,53 @@
               }
             }
           }
+        },
+        "Get_default_calendar_id": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "130db0a1-8a5e-49bc-b1b9-e9862875375c"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_office365_1",
+              "operationId": "HttpRequest",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+            },
+            "parameters": {
+              "Uri": "https://graph.microsoft.com/v1.0/me/calendar",
+              "Method": "GET",
+              "ContentType": "application/json"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Initialize_variable": {
+          "runAfter": {
+            "Get_default_calendar_id": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "199a342f-075c-45c4-b52b-60aad779ca5c"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "calendar-id",
+                "type": "string",
+                "value": "@{body('get_default_calendar_id')?['id']}"
+              }
+            ]
+          }
         }
       }
     },
-    "templateName": null
+    "templateName": ""
   },
   "schemaVersion": "1.0.0.0"
 }

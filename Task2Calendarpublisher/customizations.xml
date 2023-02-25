@@ -20,10 +20,10 @@
       <IsTransacted>1</IsTransacted>
       <IntroducedVersion>1.0.0.0</IntroducedVersion>
       <IsCustomizable>1</IsCustomizable>
-      <BusinessProcessType>0</BusinessProcessType>
+      <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
       <PrimaryEntity>none</PrimaryEntity>
       <LocalizedNames>
-        <LocalizedName languagecode="1033" description="Task2Calendar Manual Flow" />
+        <LocalizedName languagecode="1043" description="Task2Calendar Manual Flow" />
       </LocalizedNames>
     </Workflow>
     <Workflow WorkflowId="{f2784aea-94b3-ed11-83fe-0022489acd39}" Name="Task2Calendar Scheduled Flow">
@@ -38,16 +38,16 @@
       <TriggerOnDelete>0</TriggerOnDelete>
       <AsyncAutodelete>0</AsyncAutodelete>
       <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
-      <StateCode>1</StateCode>
-      <StatusCode>2</StatusCode>
+      <StateCode>0</StateCode>
+      <StatusCode>1</StatusCode>
       <RunAs>1</RunAs>
       <IsTransacted>1</IsTransacted>
       <IntroducedVersion>1.0.0.0</IntroducedVersion>
       <IsCustomizable>1</IsCustomizable>
-      <BusinessProcessType>0</BusinessProcessType>
+      <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
       <PrimaryEntity>none</PrimaryEntity>
       <LocalizedNames>
-        <LocalizedName languagecode="1033" description="Task2Calendar Scheduled Flow" />
+        <LocalizedName languagecode="1043" description="Task2Calendar Scheduled Flow" />
       </LocalizedNames>
     </Workflow>
   </Workflows>
@@ -83,7 +83,6 @@
     </connectionreference>
   </connectionreferences>
   <Languages>
-    <Language>1033</Language>
-    <Language>1031</Language>
+    <Language>1043</Language>
   </Languages>
 </ImportExportXml>

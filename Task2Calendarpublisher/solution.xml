@@ -1,8 +1,8 @@
-<ImportExportXml version="9.2.23014.178" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.23014.178" SolutionPackageVersion="9.2" languagecode="1043" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>Task2Calendarpublisher</UniqueName>
     <LocalizedNames>
-      <LocalizedName description="Task2Calendar publisher" languagecode="1033" />
+      <LocalizedName description="Task2Calendar publisher" languagecode="1043" />
     </LocalizedNames>
     <Descriptions />
     <Version>1.0.0.0</Version>
@@ -10,18 +10,24 @@
     <Publisher>
       <UniqueName>PublisherTFE</UniqueName>
       <LocalizedNames>
-        <LocalizedName description="Publisher TFE" languagecode="1033" />
+        <LocalizedName description="Publisher TFE" languagecode="1043" />
       </LocalizedNames>
       <Descriptions />
       <EMailAddress xsi:nil="true"></EMailAddress>
       <SupportingWebsiteUrl xsi:nil="true"></SupportingWebsiteUrl>
       <CustomizationPrefix>tfe</CustomizationPrefix>
       <CustomizationOptionValuePrefix>92963</CustomizationOptionValuePrefix>
+      <Addresses />
     </Publisher>
     <RootComponents>
       <RootComponent type="29" id="{b8befeee-91b3-ed11-83fe-0022489acd39}" behavior="0" />
       <RootComponent type="29" id="{f2784aea-94b3-ed11-83fe-0022489acd39}" behavior="0" />
     </RootComponents>
-    <MissingDependencies />
+    <MissingDependencies>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="new_sharedoffice365_7bb9b" solution="Active" id.connectionreferencelogicalname="new_sharedoffice365_7bb9b" />
+        <Dependent type="29" displayName="Task2Calendar Manual Flow" id="{b8befeee-91b3-ed11-83fe-0022489acd39}" />
+      </MissingDependency>
+    </MissingDependencies>
   </SolutionManifest>
 </ImportExportXml>
