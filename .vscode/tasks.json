@@ -4,15 +4,27 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "cleanup, export and expand from 4PS Deutschland",
+            "label": "cleanup, export and expand from 4PS (default)",
             "type": "shell",
-            "command": "remove-item -recurse -force Task2Calendarpublisher; remove-item -force Task2Calendarpublisher.zip; pac auth select -n '4PS DE'; pac org select --environment '4PS Deutschland'; pac solution export -n 'Task2Calendarpublisher' -p .; expand-archive Task2Calendarpublisher.zip;",
+            "command": "remove-item -recurse -force Task2Calendarpublisher; remove-item -force Task2Calendarpublisher.zip; pac auth select -n '4PS DE'; pac org select --environment '4PS (default)'; pac solution export -n 'Task2Calendarpublisher' -p .; expand-archive Task2Calendarpublisher.zip;",
             "problemMatcher": []
         },
         {
             "label": "import to ars solvendi",
             "type": "shell",
-            "command": "pac auth select -n 'ars solvendi'; pac org select --environment 'ars solvendi'; pac solution import -p Task2Calendarpublisher.zip",
+            "command": "pac auth select -n 'ars solvendi'; pac org select --environment 'ars solvendi'; pac solution import -p Task2Calendarpublisher.zip --settings-file settings_ars-solvendi.json",
+            "problemMatcher": []
+        },
+        {
+            "label": "import to 4PS",
+            "type": "shell",
+            "command": "pac auth select -n '4PS DE'; pac org select --environment '4PS (default)'; pac solution import -p Task2Calendarpublisher.zip --settings-file settings_4PS.json",
+            "problemMatcher": []
+        },
+        {
+            "label": "create settings",
+            "type": "shell",
+            "command": "pac solution create-settings -s settings.json -z Task2Calendarpublisher.zip",
             "problemMatcher": []
         }
     ]
