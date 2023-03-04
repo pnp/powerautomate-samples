@@ -89,28 +89,6 @@
       "actions": {
         "Check_if_existing_calendar_events_should_be_deleted": {
           "actions": {
-            "Get_events_(V4)_with_task_category": {
-              "runAfter": {},
-              "metadata": {
-                "operationMetadataId": "0053ace6-ac9f-4804-b8a3-d1d4f6880fe9"
-              },
-              "type": "OpenApiConnection",
-              "inputs": {
-                "host": {
-                  "connectionName": "shared_office365",
-                  "operationId": "V4CalendarGetItems",
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
-                },
-                "parameters": {
-                  "table": "@variables('calendar-id')",
-                  "$filter": "categories/any(c:c+eq+'Tasks')"
-                },
-                "authentication": {
-                  "type": "Raw",
-                  "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
-                }
-              }
-            },
             "Iterate_over_all_events_with_task_category": {
               "foreach": "@outputs('Get_events_(V4)_with_task_category')?['body/value']",
               "actions": {
@@ -162,11 +140,7 @@
                   "type": "If"
                 }
               },
-              "runAfter": {
-                "Get_events_(V4)_with_task_category": [
-                  "Succeeded"
-                ]
-              },
+              "runAfter": {},
               "metadata": {
                 "operationMetadataId": "1f5dcca4-dffa-444a-aa9a-4505a7f47726"
               },
@@ -174,9 +148,34 @@
             }
           },
           "runAfter": {
-            "Initialize_variable": [
+            "Initialize_variable_2": [
               "Succeeded"
             ]
+          },
+          "else": {
+            "actions": {
+              "Remember_all_subjects": {
+                "foreach": "@outputs('Get_events_(V4)_with_task_category')?['body/value']",
+                "actions": {
+                  "Append_to_array_variable": {
+                    "runAfter": {},
+                    "metadata": {
+                      "operationMetadataId": "9a5980d8-c521-4ec6-9710-733dd96aa174"
+                    },
+                    "type": "AppendToArrayVariable",
+                    "inputs": {
+                      "name": "eventSubjects",
+                      "value": "@items('Remember_all_subjects')?['subject']"
+                    }
+                  }
+                },
+                "runAfter": {},
+                "metadata": {
+                  "operationMetadataId": "c6df4440-5e66-4649-a52d-6aaa0ecf2681"
+                },
+                "type": "Foreach"
+              }
+            }
           },
           "expression": {
             "equals": [
@@ -240,7 +239,7 @@
             "Iterate_over_all_tasks": {
               "foreach": "@body('List_to-do''s_by_folder_(V2)')",
               "actions": {
-                "Check_if_due_date_is_set": {
+                "Check_if_due_date_is_set_and_event_doesn't_already_exist": {
                   "actions": {
                     "Convert_time_zone_of_due_date": {
                       "runAfter": {},
@@ -272,7 +271,7 @@
                             },
                             "parameters": {
                               "table": "@variables('calendar-id')",
-                              "item/subject": "@items('Iterate_over_all_tasks')?['title']",
+                              "item/subject": "☑️ @{item()?['title']}",
                               "item/start": "@concat(body('Convert_time_zone_of_due_date'), 'T06:00:00')",
                               "item/end": "@concat(body('Convert_time_zone_of_due_date'), 'T06:50:00')",
                               "item/timeZone": "(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna",
@@ -306,7 +305,7 @@
                             "parameters": {
                               "Uri": "https://graph.microsoft.com/v1.0/me/calendar/events/@{outputs('Create_event_(V4)_for_To-Do_task')?['body/id']}",
                               "Method": "PATCH",
-                              "Body": "{\n    \"subject\":\"☑️ @{outputs('Create_event_(V4)_for_To-Do_task')?['body/subject']}\",\n    \"categories\":[\"Tasks\"]\n}",
+                              "Body": "{\n    \"categories\":[\"Tasks\"]\n}",
                               "ContentType": "application/json"
                             },
                             "authentication": {
@@ -345,9 +344,21 @@
                   },
                   "runAfter": {},
                   "expression": {
-                    "equals": [
-                      "@empty(item()?['dueDateTime/dateTime'])",
-                      "@false"
+                    "and": [
+                      {
+                        "equals": [
+                          "@empty(item()?['dueDateTime/dateTime'])",
+                          "@false"
+                        ]
+                      },
+                      {
+                        "not": {
+                          "contains": [
+                            "@variables('eventSubjects')",
+                            "@concat('☑️ ', items('Iterate_over_all_tasks')?['title'])"
+                          ]
+                        }
+                      }
                     ]
                   },
                   "metadata": {
@@ -403,7 +414,7 @@
         "Iterate_over_all_my_Planner_tasks": {
           "foreach": "@outputs('List_my_tasks')?['body/value']",
           "actions": {
-            "Condition": {
+            "Check_if_due_date_is_set_and_event_doesn't_already_exist_2": {
               "actions": {
                 "Convert_time_zone_of_due_date_2": {
                   "runAfter": {},
@@ -435,7 +446,7 @@
                         },
                         "parameters": {
                           "table": "@variables('calendar-id')",
-                          "item/subject": "@items('Iterate_over_all_my_Planner_tasks')?['title']",
+                          "item/subject": "☑️ @{items('Iterate_over_all_my_Planner_tasks')?['title']}",
                           "item/start": "@concat(body('Convert_time_zone_of_due_date_2'), 'T06:00:00')",
                           "item/end": "@concat(body('Convert_time_zone_of_due_date_2'), 'T06:50:00')",
                           "item/timeZone": "(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna",
@@ -469,7 +480,7 @@
                         "parameters": {
                           "Uri": "https://graph.microsoft.com/v1.0/me/calendar/events/@{outputs('Create_event_(V4)_for_To-Do_task_2')?['body/id']}",
                           "Method": "PATCH",
-                          "Body": "{\n    \"subject\":\"☑️ @{outputs('Create_event_(V4)_for_To-Do_task_2')?['body/subject']}\",\n    \"categories\":[\"Tasks\"]\n}",
+                          "Body": "{\n    \"categories\":[\"Tasks\"]\n}",
                           "ContentType": "application/json"
                         },
                         "authentication": {
@@ -508,9 +519,21 @@
               },
               "runAfter": {},
               "expression": {
-                "equals": [
-                  "@empty(items('Iterate_over_all_my_Planner_tasks')?['dueDateTime'])",
-                  "@false"
+                "and": [
+                  {
+                    "equals": [
+                      "@empty(items('Iterate_over_all_my_Planner_tasks')?['dueDateTime'])",
+                      "@false"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "contains": [
+                        "@variables('eventSubjects')",
+                        "@concat('☑️ ', items('Iterate_over_all_my_Planner_tasks')?['title'])"
+                      ]
+                    }
+                  }
                 ]
               },
               "metadata": {
@@ -599,6 +622,52 @@
                 "name": "calendar-id",
                 "type": "string",
                 "value": "@{body('get_default_calendar_id')?['id']}"
+              }
+            ]
+          }
+        },
+        "Get_events_(V4)_with_task_category": {
+          "runAfter": {
+            "Initialize_variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "0053ace6-ac9f-4804-b8a3-d1d4f6880fe9"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_office365",
+              "operationId": "V4CalendarGetItems",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+            },
+            "parameters": {
+              "table": "@variables('calendar-id')",
+              "$filter": "categories/any(c:c+eq+'Tasks') and start/dateTime gt '@{triggerBody()['date']}T00:00:00' and end/dateTime lt '@{triggerBody()['date_1']}T23:59:59'"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Initialize_variable_2": {
+          "runAfter": {
+            "Get_events_(V4)_with_task_category": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "664d1192-331f-4677-b706-4598322c662c"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "eventSubjects",
+                "type": "array",
+                "value": []
               }
             ]
           }
