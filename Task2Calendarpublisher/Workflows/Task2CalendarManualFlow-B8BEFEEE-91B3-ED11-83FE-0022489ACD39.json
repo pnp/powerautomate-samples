@@ -239,7 +239,7 @@
             "Iterate_over_all_tasks": {
               "foreach": "@body('List_to-do''s_by_folder_(V2)')",
               "actions": {
-                "Check_if_due_date_is_set_and_event_doesn't_already_exist": {
+                "Check_due_date_is_set,_event_doesn't_exist,_task_not_completed": {
                   "actions": {
                     "Convert_time_zone_of_due_date": {
                       "runAfter": {},
@@ -358,6 +358,14 @@
                             "@concat('☑️ ', items('Iterate_over_all_tasks')?['title'])"
                           ]
                         }
+                      },
+                      {
+                        "not": {
+                          "equals": [
+                            "@item()?['status']",
+                            "completed"
+                          ]
+                        }
                       }
                     ]
                   },
@@ -414,7 +422,7 @@
         "Iterate_over_all_my_Planner_tasks": {
           "foreach": "@outputs('List_my_tasks')?['body/value']",
           "actions": {
-            "Check_if_due_date_is_set_and_event_doesn't_already_exist_2": {
+            "Check_due_date_is_set,_event_doesn't_exist,_task_not_completed_2": {
               "actions": {
                 "Convert_time_zone_of_due_date_2": {
                   "runAfter": {},
@@ -533,6 +541,12 @@
                         "@concat('☑️ ', items('Iterate_over_all_my_Planner_tasks')?['title'])"
                       ]
                     }
+                  },
+                  {
+                    "less": [
+                      "@items('Iterate_over_all_my_Planner_tasks')?['percentComplete']",
+                      100
+                    ]
                   }
                 ]
               },
