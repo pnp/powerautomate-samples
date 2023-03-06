@@ -56,7 +56,7 @@ The feedback list will look like this:
 ### Import Solution
 
 1.   Download the solution found under the `solution` folder here: [Collect Feedback Zip](./solution/SharePointCollectFeedback)
-1.   Import the Flow Solution. Open  [https://flow.microsoft.com/](https://flow.microsoft.com/). Open **My Flows**, **Import**.
+1.   Import the Flow Solution. Open  [https://make.powerautomate.com/](https://make.powerautomate.com/). Open **My Flows**, **Import**.
 1.   Browse to the file you downloaded and select **Upload**.
 1.   In the **Import package** screen, select the **SharePoint Event List**, under **Related Resources** and use the **Select during import** to select an existing connection or create a new SharePoint connection.
      ![Import](./assets/import1.jpg)

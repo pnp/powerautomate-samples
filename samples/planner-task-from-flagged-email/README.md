@@ -47,7 +47,7 @@ You'll need a Planner plan and an Outlook 365 inbox
 ### Import Solution
 
 1.   [Download the solution](./solution/planner-task-from-flagged-email.zip) found under the `solution` folder
-1.   Import the Flow Solution. Open  [https://flow.microsoft.com/](https://flow.microsoft.com/). Open **My Flows**, **Import**.
+1.   Import the Flow Solution. Open  [https://make.powerautomate.com/](https://make.powerautomate.com/). Open **My Flows**, **Import**.
 1.   Browse to the file you downloaded and select **Upload**.
      ![Import](./assets/import1.png)
 1.   In the **Import package** screen, select the **Content Conversion**, under **Related Resources** and use the **Select during import** to create a new **Content Conversion** connection.
