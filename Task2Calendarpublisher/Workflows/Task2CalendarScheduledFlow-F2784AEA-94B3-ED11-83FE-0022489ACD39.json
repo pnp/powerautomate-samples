@@ -13,14 +13,11 @@
       "triggers": {
         "Recurrence": {
           "recurrence": {
-            "frequency": "Week",
+            "frequency": "Day",
             "interval": 1,
             "timeZone": "W. Europe Standard Time",
             "startTime": "2023-02-26T01:01:01",
             "schedule": {
-              "weekDays": [
-                "Sunday"
-              ],
               "hours": [
                 "18"
               ],
@@ -91,7 +88,7 @@
         }
       }
     },
-    "templateName": null
+    "templateName": ""
   },
   "schemaVersion": "1.0.0.0"
 }
