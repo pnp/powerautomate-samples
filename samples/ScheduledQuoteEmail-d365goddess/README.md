@@ -56,8 +56,8 @@ This sample demonstrates:
 * Send an email containing the list of rows in an HTML table 
 
 ## Preview
-![Preview](./assets/emailmessage.png)  
-![Preview](./assets/scheduledquoteemailflow.png)  
+![Preview](./assets/EmailMessage.png)  
+![Preview](./assets/ScheduledQuoteEmailFlow.png)  
 
 ## Installing the power automate flow
 ### Minimal Path to Awesome
