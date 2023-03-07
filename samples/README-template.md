@@ -69,7 +69,7 @@ This sample illustrates the following concepts:
 ## Minimal Path to Awesome
 
 * [Download](./solution/YOURSAMPLENAME.zip) the `.zip` from the `solution` folder
-* Browse to [Power Automate](https://flow.microsoft.com/manage/environments) and select the environment where you wish to import the sample
+* Browse to [Power Automate](https://make.powerautomate.com/) and select the environment where you wish to import the sample
 * From the toolbar, select **Import**
 * In the **Import package** page, select **Upload** and choose the `.zip` file containing the sample flow.
 * Select **Import**
