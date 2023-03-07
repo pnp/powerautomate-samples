@@ -94,7 +94,7 @@
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
             },
             "parameters": {
-              "dataset": "https://qorerauk.sharepoint.com/sites/Retail",
+              "dataset": "https://contoso.sharepoint.com/sites/Retail",
               "parameters/method": "GET",
               "parameters/uri": "_api/web/lists/getbytitle('@{variables('LibraryName')}')/Views?$filter=Title eq '@{variables('ViewName')}'&$select=Id",
               "parameters/headers": {
@@ -126,7 +126,7 @@
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
             },
             "parameters": {
-              "dataset": "https://qorerauk.sharepoint.com/sites/Retail",
+              "dataset": "https://contoso.sharepoint.com/sites/Retail",
               "parameters/method": "POST",
               "parameters/uri": "_api/web/lists/getbytitle('@{variables('LibraryName')}')/Views/getById('@{body('Send_an_HTTP_request_to_SharePoint_-_GetView')?['value'][0]['Id']}')",
               "parameters/headers": {
