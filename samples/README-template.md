@@ -68,18 +68,20 @@ This sample illustrates the following concepts:
 
 ## Minimal Path to Awesome
 
-* [Download](./solution/YOURSAMPLENAME.zip) the `.zip` from the `solution` folder
-* Browse to [Power Automate](https://make.powerautomate.com/) and select the environment where you wish to import the sample
-* From the toolbar, select **Import**
-* In the **Import package** page, select **Upload** and choose the `.zip` file containing the sample flow.
-* Select **Import**
-* ...
+* [Download](./solution/Sample.zip) the `.zip` from the `solution` folder
+* Within **Power Automate Studio**, import the solution `.zip` file using **Solutions** > **Import Solution** and select the `.zip` file you just packed.
 
-## Using the Source
+## Using the Source Code
 
-  You can also use the source and create your own `.zip` file by following these steps:
+You can also use the [Power Apps CLI](https://docs.microsoft.com/powerapps/developer/data-platform/powerapps-cli) to pack the source code by following these steps::
 
-* ...
+* Clone the repository to a local drive
+* Pack the source files back into a solution `.zip` file:
+  ```bash
+  pac solution pack --zipfile pathtodestinationfile --folder pathtosourcefolder --processCanvasApps
+  ```
+  Making sure to replace `pathtosourcefolder` to point to the path to this sample's `sourcecode` folder, and `pathtodestinationfile` to point to the path of this solution's `.zip` file (located under the `solution` folder)
+* Within **Power Automate Studio**, import the solution `.zip` file using **Solutions** > **Import Solution** and select the `.zip` file you just packed.
 
 ## Disclaimer
 
