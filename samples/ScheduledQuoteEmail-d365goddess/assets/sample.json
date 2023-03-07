@@ -1,24 +1,25 @@
 [
     {
         "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
-        "name": "pnp-powerautomate-samples-azure-http-key-vault",
+        "name": "pnp-powerautomate-samples-ScheduledQuoteEmail",
         "version": "1.0.0.0",
         "source": "pnp",
-        "creationDateTime": "2022-09-16T00:00:00.000Z",
-        "updateDateTime": "2021-09-16T00:00:00.000Z",
-        "title": "Leveraging Graph API to get password from Azure Key Vault",
-        "shortDescription": "A sample for geeting the keyvault details using graph api",
+        "creationDateTime": "2023-02-01T00:00:00.000Z",
+        "updateDateTime": "2023-02-01T00:00:00.000Z",
+        "title": "Scheduled Quote Email - D365",
+        "shortDescription": "Schedule a weekly email send containing a list of quote rows that need follow up, including a clickable link to each quote row.",
         "longDescription": [
-            "The sample provides details on can you leverage the graph api to connect to azure platform along with the authentication details"
+            "Schedule a weekly email send containing a list of quote rows that need follow up, including a clickable link to each quote row. "
         ],
-        "url": "https://github.com/pnp/powerautomate-samples/tree/main/samples/azure-http-key-vault",
+        "url": "https://github.com/pnp/powerautomate-samples/tree/main/samples/ScheduledQuoteEmail-d365goddess",
         "products": [
             "Power Automate",
-            "Azure"
+            "Power Platform",
+            "D365"
         ],
         "tags": [
-            "PATTERNS",
-            "EXCEPTION-HANDLING"
+            "D365",
+            "Emails"
         ],
         "categories": [
             "POWERAUTOMATE"
@@ -26,7 +27,7 @@
         "metadata": [
             {
                 "key": "POWERAUTOMATE-PREMIUM",
-                "value": "yes"
+                "value": "Yes"
             },
             {
                 "key": "POWERAUTOMATE-ONPREM",
@@ -41,15 +42,15 @@
             {
                 "type": "image",
                 "order": 100,
-                "url": "https://github.com/pnp/powerautomate-samples/blob/main/samples/azure-http-key-vault/assets/flow.png?raw=true",
+                "url": "https://github.com/pnp/powerautomate-samples/blob/main/samples/ScheduledQuoteEmail-d365goddess/assets/ScheduledQuoteEmailFlow.webp?raw=true",
                 "alt": "Preview of the solution"
             }
         ],
         "authors": [
             {
-                "gitHubAccount": "divya-akula",
-                "name": "Divya Akula",
-                "pictureUrl": "https://avatars.githubusercontent.com/u/9211327?v=4"
+                "gitHubAccount": "d365goddess",
+                "name": "Dian Taylor",
+                "pictureUrl": "https://github.com/d365goddess.png"
             }
         ],
         "references": [
@@ -64,9 +65,9 @@
                 "url": "https://docs.microsoft.com/en-us/power-automate/"
             },
             {
-                "name": "Application Registration in Azure",
-                "description": "Application registration would be needed whenever we are trying to access any of the graph APIs",
-                "url": "https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-access-web-apis"
+                "name": "Original Blog Article",
+                "description": "Original blog article by Pieter Veenstra explaining this pattern.",
+                "url": "https://sharepains.com/2018/02/07/power-automate-try-catch-finally-flow/"
             }
         ]
     }

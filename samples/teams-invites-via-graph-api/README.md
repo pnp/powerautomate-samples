@@ -92,7 +92,7 @@ The custom connector is defined in the `.json` file in the **customconnector** f
 ### Import Solution
 
 1.   Download the solution found under the `solution` folder
-1.   Import the Flow Solution. Open  [https://flow.microsoft.com/](https://flow.microsoft.com/). Open **My Flows**, **Import**.
+1.   Import the Flow Solution. Open  [https://make.powerautomate.com/](https://make.powerautomate.com/). Open **My Flows**, **Import**.
 1.   Browse to the file you downloaded and select **Upload**. You will be presented with the screen below.
  ![image](https://user-images.githubusercontent.com/43988771/116817270-62a1a100-ab5d-11eb-85d1-ebe5fed5e13a.png)
 
