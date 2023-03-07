@@ -1,0 +1,152 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_sharepointonline": {
+        "runtimeSource": "invoker",
+        "connection": {
+          "connectionReferenceLogicalName": "exp_sharedsharepointonline_e5efa"
+        },
+        "api": {
+          "name": "shared_sharepointonline"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "8391f266-c415-4fef-9e6e-6294a29ff88e"
+          },
+          "type": "Request",
+          "kind": "Button",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {},
+              "required": []
+            }
+          }
+        }
+      },
+      "actions": {
+        "Initialize_variable_-_LibraryName": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "b327ed86-16e1-404a-9a25-3a4ee9319c4f"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "LibraryName",
+                "type": "string",
+                "value": "Documents"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_-_ViewName": {
+          "runAfter": {
+            "Initialize_variable_-_LibraryName": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "546be6df-c80f-486a-9a46-f8dbf0d98f31"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "ViewName",
+                "type": "string",
+                "value": "View with Folders"
+              }
+            ]
+          }
+        },
+        "Send_an_HTTP_request_to_SharePoint_-_GetView": {
+          "runAfter": {
+            "Initialize_variable_-_ViewName": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "1acfd373-e669-42f9-a5ed-9eaeedfe6b64"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_sharepointonline",
+              "operationId": "HttpRequest",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+            },
+            "parameters": {
+              "dataset": "https://qorerauk.sharepoint.com/sites/Retail",
+              "parameters/method": "GET",
+              "parameters/uri": "_api/web/lists/getbytitle('@{variables('LibraryName')}')/Views?$filter=Title eq '@{variables('ViewName')}'&$select=Id",
+              "parameters/headers": {
+                "Accept": "application/json;odata=nometadata",
+                "Content-Type": "application/json;odata=nometadata"
+              }
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          },
+          "description": "Use this first Request to retrieve the Id of the view you want to update"
+        },
+        "Send_an_HTTP_request_to_SharePoint_-_UpdateView": {
+          "runAfter": {
+            "Send_an_HTTP_request_to_SharePoint_-_GetView": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "bac07b0a-c691-4b42-86c0-09f5f3816cae"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_sharepointonline",
+              "operationId": "HttpRequest",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+            },
+            "parameters": {
+              "dataset": "https://qorerauk.sharepoint.com/sites/Retail",
+              "parameters/method": "POST",
+              "parameters/uri": "_api/web/lists/getbytitle('@{variables('LibraryName')}')/Views/getById('@{body('Send_an_HTTP_request_to_SharePoint_-_GetView')?['value'][0]['Id']}')",
+              "parameters/headers": {
+                "Accept": "application/json;odata=verbose",
+                "Content-Type": "application/json;odata=verbose",
+                "If-Match": "*",
+                "X-HTTP-Method": "PATCH"
+              },
+              "parameters/body": "{\n\"__metadata\": { \"type\": \"SP.View\"},\n\"Scope\": 1\n}"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          },
+          "description": "body('Send_an_HTTP_request_to_SharePoint_-_GetView')?['value'][0]['Id']"
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}
