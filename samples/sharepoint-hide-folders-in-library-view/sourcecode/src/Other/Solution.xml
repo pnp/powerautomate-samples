@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.23022.174" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.23023.168" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>PowerAutomateSamples</UniqueName>
     <LocalizedNames>
@@ -82,11 +82,6 @@
     <RootComponents>
       <RootComponent type="29" id="{096175f7-d8bc-ed11-83fe-00224807864e}" behavior="0" />
     </RootComponents>
-    <MissingDependencies>
-      <MissingDependency>
-        <Required type="connectionreference" displayName="exp_sharedsharepointonline_e5efa" solution="Active" id.connectionreferencelogicalname="exp_sharedsharepointonline_e5efa" />
-        <Dependent type="29" displayName="SharePoint Hide folders in document library view" id="{096175f7-d8bc-ed11-83fe-00224807864e}" />
-      </MissingDependency>
-    </MissingDependencies>
+    <MissingDependencies />
   </SolutionManifest>
 </ImportExportXml>
