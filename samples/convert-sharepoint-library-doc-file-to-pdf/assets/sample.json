@@ -42,7 +42,7 @@
             {
                 "type": "image",
                 "order": 100,
-                "url": "https://raw.githubusercontent.com/pnp/powerautomate-samples/main/samples/convert-sharepoint-library-doc-file-to-pdf/assets/flow-overview.png",
+                "url": "https://raw.githubusercontent.com/pnp/powerautomate-samples/main/samples/convert-sharepoint-library-doc-file-to-pdf/assets/flow.png",
                 "alt": "Preview of the solution"
             }
         ],
