@@ -22,6 +22,14 @@
         "$authentication": {
           "defaultValue": {},
           "type": "SecureObject"
+        },
+        "SPOSiteCollection_PowerUsers (exp_SPOSiteCollection_PowerUsers)": {
+          "defaultValue": "https://qorerauk.sharepoint.com/sites/PowerUsers",
+          "type": "String",
+          "metadata": {
+            "schemaName": "exp_SPOSiteCollection_PowerUsers",
+            "description": "SPOSiteCollection_PowerUsers"
+          }
         }
       },
       "triggers": {
@@ -94,7 +102,7 @@
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
             },
             "parameters": {
-              "dataset": "https://qorerauk.sharepoint.com/sites/Retail",
+              "dataset": "@parameters('SPOSiteCollection_PowerUsers (exp_SPOSiteCollection_PowerUsers)')",
               "parameters/method": "GET",
               "parameters/uri": "_api/web/lists/getbytitle('@{variables('LibraryName')}')/Views?$filter=Title eq '@{variables('ViewName')}'&$select=Id",
               "parameters/headers": {
@@ -126,7 +134,7 @@
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
             },
             "parameters": {
-              "dataset": "https://qorerauk.sharepoint.com/sites/Retail",
+              "dataset": "@parameters('SPOSiteCollection_PowerUsers (exp_SPOSiteCollection_PowerUsers)')",
               "parameters/method": "POST",
               "parameters/uri": "_api/web/lists/getbytitle('@{variables('LibraryName')}')/Views/getById('@{body('Send_an_HTTP_request_to_SharePoint_-_GetView')?['value'][0]['Id']}')",
               "parameters/headers": {
@@ -146,7 +154,7 @@
         }
       }
     },
-    "templateName": null
+    "templateName": ""
   },
   "schemaVersion": "1.0.0.0"
 }
