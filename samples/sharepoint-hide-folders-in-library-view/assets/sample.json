@@ -1,0 +1,63 @@
+[
+    {
+        "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+        "name": "pnp-powerautomate-samples-sharepoint-hide-folders-in-library-view",
+        "version": "1.0.0.0",
+        "source": "pnp",
+        "creationDateTime": "2023-03-16T00:00:00.000Z",
+        "updateDateTime": "2023-03-16T00:00:00.000Z",
+        "title": "Hide folders in a SharePoint Document library view",
+        "shortDescription": "Hide folders in a SharePoint Document library view with the SharePoint HTTP action.",
+        "longDescription": [
+            "Hide folders in a SharePoint Document library view with the SharePoint HTTP action."
+        ],
+        "url": "https://github.com/pnp/powerautomate-samples/tree/main/samples/sharepoint-hide-folders-in-library-view",
+        "products": [
+            "Power Automate",
+            "Power Platform"
+        ],
+        "tags": [
+            "HTTP",
+            "SHAREPOINT"
+        ],
+        "categories": [
+            "POWERAUTOMATE"
+        ],
+        "metadata": [
+            {
+                "key": "POWERAUTOMATE-PREMIUM",
+                "value": "No"
+            },
+            {
+                "key": "POWERAUTOMATE-ONPREM",
+                "value": "No"
+            },
+            {
+                "key": "POWERAUTOMATE-CUSTOMCONNECTOR",
+                "value": "No"
+            }
+        ],
+        "thumbnails": [       
+            {
+                "type": "image",
+                "order": 100,
+                "url": "https://github.com/pnp/powerautomate-samples/blob/main/samples/sharepoint-hide-folders-in-library-view/assets/preview.png?raw=true",
+                "alt": "Preview of the cloud flow"
+            },
+            {
+                "type": "image",
+                "order": 200,
+                "url": "https://github.com/pnp/powerautomate-samples/blob/main/samples/sharepoint-hide-folders-in-library-view/assets/preview02.gif?raw=true",
+                "alt": "GIF of the before and after situation"
+            }            
+        ],
+        "authors": [
+            {
+                "gitHubAccount": "expiscornovus",
+                "name": "Dennis Goedegebuure",
+                "pictureUrl": "https://github.com/expiscornovus.png"
+            }
+        ],
+        "references": []
+    }
+]
