@@ -566,37 +566,6 @@
           },
           "type": "Foreach"
         },
-        "Respond_to_a_PowerApp_or_flow": {
-          "runAfter": {
-            "Iterate_over_all_To-Do_lists": [
-              "Succeeded"
-            ],
-            "Iterate_over_all_my_Planner_tasks": [
-              "Succeeded"
-            ]
-          },
-          "metadata": {
-            "operationMetadataId": "175a7f94-0607-4dd7-bc54-62a061ced9c6"
-          },
-          "type": "Response",
-          "kind": "PowerApp",
-          "inputs": {
-            "statusCode": 200,
-            "body": {
-              "done": "yes"
-            },
-            "schema": {
-              "type": "object",
-              "properties": {
-                "done": {
-                  "title": "Done",
-                  "x-ms-dynamically-added": true,
-                  "type": "boolean"
-                }
-              }
-            }
-          }
-        },
         "Get_default_calendar_id": {
           "runAfter": {},
           "metadata": {
@@ -684,6 +653,54 @@
                 "value": []
               }
             ]
+          }
+        },
+        "Scope": {
+          "actions": {
+            "Respond_to_a_PowerApp_or_flow_2": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "8d60920e-d260-4b30-aa85-e9435bbe2fa2"
+              },
+              "type": "Response",
+              "kind": "PowerApp",
+              "inputs": {
+                "statusCode": 200,
+                "body": {},
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "Iterate_over_all_my_Planner_tasks": [
+              "Succeeded"
+            ],
+            "Iterate_over_all_To-Do_lists": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "289afabf-a806-4d5c-bd5c-0eee0081e249"
+          },
+          "type": "Scope"
+        },
+        "Set_variable": {
+          "runAfter": {
+            "Scope": [
+              "Failed",
+              "TimedOut"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "3b43b610-f745-48b2-a59f-d1afea1fee58"
+          },
+          "type": "SetVariable",
+          "inputs": {
+            "name": "calendar-id",
+            "value": "dont care"
           }
         }
       }
