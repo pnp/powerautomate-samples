@@ -1,0 +1,711 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_office365": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "tfe_sharedoffice365_e25fb"
+        },
+        "api": {
+          "name": "shared_office365"
+        }
+      },
+      "shared_todo": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "tfe_sharedtodo_5d865"
+        },
+        "api": {
+          "name": "shared_todo"
+        }
+      },
+      "shared_planner": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "tfe_sharedplanner_4c79e"
+        },
+        "api": {
+          "name": "shared_planner"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "237d8917-d507-4e4f-9688-4d1c655949b0"
+          },
+          "type": "Request",
+          "kind": "Button",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "date": {
+                  "title": "Start date",
+                  "type": "string",
+                  "format": "date",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter or select a date (YYYY-MM-DD)",
+                  "x-ms-content-hint": "DATE"
+                },
+                "date_1": {
+                  "title": "End date",
+                  "type": "string",
+                  "format": "date",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter or select a date (YYYY-MM-DD)",
+                  "x-ms-content-hint": "DATE"
+                },
+                "boolean": {
+                  "title": "Delete existing calendar events",
+                  "type": "boolean",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please select yes or no",
+                  "x-ms-content-hint": "BOOLEAN"
+                }
+              },
+              "required": [
+                "date",
+                "date_1",
+                "boolean"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "Check_if_existing_calendar_events_should_be_deleted": {
+          "actions": {
+            "Iterate_over_all_events_with_task_category": {
+              "foreach": "@outputs('Get_events_(V4)_with_task_category')?['body/value']",
+              "actions": {
+                "Check_if_calendar_event_is_in_date_range": {
+                  "actions": {
+                    "Delete_event_(V2)": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "db2f79ac-fe87-4a07-9779-f43d5c6634cc"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_office365",
+                          "operationId": "CalendarDeleteItem_V2",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+                        },
+                        "parameters": {
+                          "calendar": "@variables('calendar-id')",
+                          "event": "@items('Iterate_over_all_events_with_task_category')?['id']"
+                        },
+                        "authentication": {
+                          "type": "Raw",
+                          "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                        }
+                      }
+                    }
+                  },
+                  "runAfter": {},
+                  "expression": {
+                    "and": [
+                      {
+                        "greaterOrEquals": [
+                          "@formatDateTime(items('Iterate_over_all_events_with_task_category')?['start'], 'yyyy-MM-dd', 'en-US')",
+                          "@triggerBody()['date']"
+                        ]
+                      },
+                      {
+                        "lessOrEquals": [
+                          "@formatDateTime(items('Iterate_over_all_events_with_task_category')?['end'], 'yyyy-MM-dd', 'en-US')",
+                          "@triggerBody()['date_1']"
+                        ]
+                      }
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "fe08f64c-c8e7-4f54-8c76-fbcdbff1576f"
+                  },
+                  "type": "If"
+                }
+              },
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "1f5dcca4-dffa-444a-aa9a-4505a7f47726"
+              },
+              "type": "Foreach"
+            }
+          },
+          "runAfter": {
+            "Initialize_variable_2": [
+              "Succeeded"
+            ]
+          },
+          "else": {
+            "actions": {
+              "Remember_all_subjects": {
+                "foreach": "@outputs('Get_events_(V4)_with_task_category')?['body/value']",
+                "actions": {
+                  "Append_to_array_variable": {
+                    "runAfter": {},
+                    "metadata": {
+                      "operationMetadataId": "9a5980d8-c521-4ec6-9710-733dd96aa174"
+                    },
+                    "type": "AppendToArrayVariable",
+                    "inputs": {
+                      "name": "eventSubjects",
+                      "value": "@items('Remember_all_subjects')?['subject']"
+                    }
+                  }
+                },
+                "runAfter": {},
+                "metadata": {
+                  "operationMetadataId": "c6df4440-5e66-4649-a52d-6aaa0ecf2681"
+                },
+                "type": "Foreach"
+              }
+            }
+          },
+          "expression": {
+            "equals": [
+              "@triggerBody()['boolean']",
+              "@true"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "f66b6363-e7a9-42fc-a2ca-84b8bee12879"
+          },
+          "type": "If"
+        },
+        "List_all_to-do_lists_(V2)": {
+          "runAfter": {
+            "Check_if_existing_calendar_events_should_be_deleted": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "490c5b3a-0b81-40b1-8ebc-65ce6249ca44"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_todo",
+              "operationId": "GetAllTodoListsV2",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_todo"
+            },
+            "parameters": {},
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Iterate_over_all_To-Do_lists": {
+          "foreach": "@body('List_all_to-do_lists_(V2)')",
+          "actions": {
+            "List_to-do's_by_folder_(V2)": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "507c7b52-a1d3-4ab3-ba20-dda961bb6ac2"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_todo",
+                  "operationId": "ListToDosByFolderV2",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_todo"
+                },
+                "parameters": {
+                  "folderId": "@items('Iterate_over_all_To-Do_lists')?['id']",
+                  "$top": 999
+                },
+                "authentication": {
+                  "type": "Raw",
+                  "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                }
+              }
+            },
+            "Iterate_over_all_tasks": {
+              "foreach": "@body('List_to-do''s_by_folder_(V2)')",
+              "actions": {
+                "Check_due_date_is_set,_event_doesn't_exist,_task_not_completed": {
+                  "actions": {
+                    "Convert_time_zone_of_due_date": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "a95af025-b6e8-4d29-a68a-0df90706364b"
+                      },
+                      "type": "Expression",
+                      "kind": "ConvertTimeZone",
+                      "inputs": {
+                        "baseTime": "@{items('Iterate_over_all_tasks')?['dueDateTime/dateTime']}",
+                        "formatString": "yyyy-MM-dd",
+                        "sourceTimeZone": "UTC",
+                        "destinationTimeZone": "Central Europe Standard Time"
+                      }
+                    },
+                    "Check_if_due_date_is_in_requested_range": {
+                      "actions": {
+                        "Create_event_(V4)_for_To-Do_task": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "08f27dcb-2e03-48e3-b9fc-10c796ec916f"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_office365",
+                              "operationId": "V4CalendarPostItem",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+                            },
+                            "parameters": {
+                              "table": "@variables('calendar-id')",
+                              "item/subject": "☑️ @{item()?['title']}",
+                              "item/start": "@concat(body('Convert_time_zone_of_due_date'), 'T06:00:00')",
+                              "item/end": "@concat(body('Convert_time_zone_of_due_date'), 'T06:50:00')",
+                              "item/timeZone": "(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna",
+                              "item/body": "<p>@{concat('https://to-do.office.com/tasks/id/', items('Iterate_over_all_tasks')?['id'], '/details')}</p>",
+                              "item/isReminderOn": false,
+                              "item/showAs": "free",
+                              "item/sensitivity": "private"
+                            },
+                            "authentication": {
+                              "type": "Raw",
+                              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                            }
+                          }
+                        },
+                        "Send_an_HTTP_request": {
+                          "runAfter": {
+                            "Create_event_(V4)_for_To-Do_task": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "430271fc-60de-4796-962c-e238b683bc8f"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_office365",
+                              "operationId": "HttpRequest",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+                            },
+                            "parameters": {
+                              "Uri": "https://graph.microsoft.com/v1.0/me/calendar/events/@{outputs('Create_event_(V4)_for_To-Do_task')?['body/id']}",
+                              "Method": "PATCH",
+                              "Body": "{\n    \"categories\":[\"Tasks\"]\n}",
+                              "ContentType": "application/json"
+                            },
+                            "authentication": {
+                              "type": "Raw",
+                              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                            }
+                          }
+                        }
+                      },
+                      "runAfter": {
+                        "Convert_time_zone_of_due_date": [
+                          "Succeeded"
+                        ]
+                      },
+                      "expression": {
+                        "and": [
+                          {
+                            "greaterOrEquals": [
+                              "@body('Convert_time_zone_of_due_date')",
+                              "@triggerBody()['date']"
+                            ]
+                          },
+                          {
+                            "lessOrEquals": [
+                              "@body('Convert_time_zone_of_due_date')",
+                              "@triggerBody()['date_1']"
+                            ]
+                          }
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "19df881f-348f-423f-a143-9bcb0a90d5ad"
+                      },
+                      "type": "If"
+                    }
+                  },
+                  "runAfter": {},
+                  "expression": {
+                    "and": [
+                      {
+                        "equals": [
+                          "@empty(item()?['dueDateTime/dateTime'])",
+                          "@false"
+                        ]
+                      },
+                      {
+                        "not": {
+                          "contains": [
+                            "@variables('eventSubjects')",
+                            "@concat('☑️ ', items('Iterate_over_all_tasks')?['title'])"
+                          ]
+                        }
+                      },
+                      {
+                        "not": {
+                          "equals": [
+                            "@item()?['status']",
+                            "completed"
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "1eb37813-d054-4a78-bc08-480a57c0d854"
+                  },
+                  "type": "If"
+                }
+              },
+              "runAfter": {
+                "List_to-do's_by_folder_(V2)": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "98498ec6-fd49-4d08-9285-a48cc7671189"
+              },
+              "type": "Foreach"
+            }
+          },
+          "runAfter": {
+            "List_all_to-do_lists_(V2)": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "10c99965-0f08-402a-8e7c-319be0a9d216"
+          },
+          "type": "Foreach"
+        },
+        "List_my_tasks": {
+          "runAfter": {
+            "Check_if_existing_calendar_events_should_be_deleted": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "872ba8da-9f1b-450e-adf4-0ea79c84a837"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_planner",
+              "operationId": "ListMyTasks_V2",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_planner"
+            },
+            "parameters": {},
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Iterate_over_all_my_Planner_tasks": {
+          "foreach": "@outputs('List_my_tasks')?['body/value']",
+          "actions": {
+            "Check_due_date_is_set,_event_doesn't_exist,_task_not_completed_2": {
+              "actions": {
+                "Convert_time_zone_of_due_date_2": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "a95af025-b6e8-4d29-a68a-0df90706364b"
+                  },
+                  "type": "Expression",
+                  "kind": "ConvertTimeZone",
+                  "inputs": {
+                    "baseTime": "@items('Iterate_over_all_my_Planner_tasks')?['dueDateTime']",
+                    "formatString": "yyyy-MM-dd",
+                    "sourceTimeZone": "UTC",
+                    "destinationTimeZone": "Central Europe Standard Time"
+                  }
+                },
+                "Check_if_due_date_is_in_requested_range_2": {
+                  "actions": {
+                    "Create_event_(V4)_for_To-Do_task_2": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "08f27dcb-2e03-48e3-b9fc-10c796ec916f"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_office365",
+                          "operationId": "V4CalendarPostItem",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+                        },
+                        "parameters": {
+                          "table": "@variables('calendar-id')",
+                          "item/subject": "☑️ @{items('Iterate_over_all_my_Planner_tasks')?['title']}",
+                          "item/start": "@concat(body('Convert_time_zone_of_due_date_2'), 'T06:00:00')",
+                          "item/end": "@concat(body('Convert_time_zone_of_due_date_2'), 'T06:50:00')",
+                          "item/timeZone": "(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna",
+                          "item/body": "<p>@{concat('https://tasks.office.com/4psede.onmicrosoft.com/Home/Task/', items('Iterate_over_all_my_planner_tasks')?['id'])}</p>",
+                          "item/isReminderOn": false,
+                          "item/showAs": "free",
+                          "item/sensitivity": "private"
+                        },
+                        "authentication": {
+                          "type": "Raw",
+                          "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                        }
+                      }
+                    },
+                    "Send_an_HTTP_request_2": {
+                      "runAfter": {
+                        "Create_event_(V4)_for_To-Do_task_2": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "6d669b1e-807b-4ac8-b4f3-c4b1001f7f39"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_office365",
+                          "operationId": "HttpRequest",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+                        },
+                        "parameters": {
+                          "Uri": "https://graph.microsoft.com/v1.0/me/calendar/events/@{outputs('Create_event_(V4)_for_To-Do_task_2')?['body/id']}",
+                          "Method": "PATCH",
+                          "Body": "{\n    \"categories\":[\"Tasks\"]\n}",
+                          "ContentType": "application/json"
+                        },
+                        "authentication": {
+                          "type": "Raw",
+                          "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                        }
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "Convert_time_zone_of_due_date_2": [
+                      "Succeeded"
+                    ]
+                  },
+                  "expression": {
+                    "and": [
+                      {
+                        "greaterOrEquals": [
+                          "@body('Convert_time_zone_of_due_date_2')",
+                          "@triggerBody()['date']"
+                        ]
+                      },
+                      {
+                        "lessOrEquals": [
+                          "@body('Convert_time_zone_of_due_date_2')",
+                          "@triggerBody()['date_1']"
+                        ]
+                      }
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "19df881f-348f-423f-a143-9bcb0a90d5ad"
+                  },
+                  "type": "If"
+                }
+              },
+              "runAfter": {},
+              "expression": {
+                "and": [
+                  {
+                    "equals": [
+                      "@empty(items('Iterate_over_all_my_Planner_tasks')?['dueDateTime'])",
+                      "@false"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "contains": [
+                        "@variables('eventSubjects')",
+                        "@concat('☑️ ', items('Iterate_over_all_my_Planner_tasks')?['title'])"
+                      ]
+                    }
+                  },
+                  {
+                    "less": [
+                      "@items('Iterate_over_all_my_Planner_tasks')?['percentComplete']",
+                      100
+                    ]
+                  }
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "19df881f-348f-423f-a143-9bcb0a90d5ad"
+              },
+              "type": "If"
+            }
+          },
+          "runAfter": {
+            "List_my_tasks": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "57758642-f75f-4db5-ae34-be9ac0c496e5"
+          },
+          "type": "Foreach"
+        },
+        "Get_default_calendar_id": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "130db0a1-8a5e-49bc-b1b9-e9862875375c"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_office365",
+              "operationId": "HttpRequest",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+            },
+            "parameters": {
+              "Uri": "https://graph.microsoft.com/v1.0/me/calendar",
+              "Method": "GET",
+              "ContentType": "application/json"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Initialize_variable": {
+          "runAfter": {
+            "Get_default_calendar_id": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "199a342f-075c-45c4-b52b-60aad779ca5c"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "calendar-id",
+                "type": "string",
+                "value": "@{body('get_default_calendar_id')?['id']}"
+              }
+            ]
+          }
+        },
+        "Get_events_(V4)_with_task_category": {
+          "runAfter": {
+            "Initialize_variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "0053ace6-ac9f-4804-b8a3-d1d4f6880fe9"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_office365",
+              "operationId": "V4CalendarGetItems",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+            },
+            "parameters": {
+              "table": "@variables('calendar-id')",
+              "$filter": "categories/any(c:c+eq+'Tasks') and start/dateTime gt '@{triggerBody()['date']}T00:00:00' and end/dateTime lt '@{triggerBody()['date_1']}T23:59:59'"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Initialize_variable_2": {
+          "runAfter": {
+            "Get_events_(V4)_with_task_category": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "664d1192-331f-4677-b706-4598322c662c"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "eventSubjects",
+                "type": "array",
+                "value": []
+              }
+            ]
+          }
+        },
+        "Scope": {
+          "actions": {
+            "Respond_to_a_PowerApp_or_flow_2": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "8d60920e-d260-4b30-aa85-e9435bbe2fa2"
+              },
+              "type": "Response",
+              "kind": "PowerApp",
+              "inputs": {
+                "statusCode": 200,
+                "body": {},
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "Iterate_over_all_my_Planner_tasks": [
+              "Succeeded"
+            ],
+            "Iterate_over_all_To-Do_lists": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "289afabf-a806-4d5c-bd5c-0eee0081e249"
+          },
+          "type": "Scope"
+        },
+        "Set_variable": {
+          "runAfter": {
+            "Scope": [
+              "Failed",
+              "TimedOut"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "3b43b610-f745-48b2-a59f-d1afea1fee58"
+          },
+          "type": "SetVariable",
+          "inputs": {
+            "name": "calendar-id",
+            "value": "dont care"
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}
