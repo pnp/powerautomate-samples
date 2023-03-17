@@ -50,7 +50,7 @@
             "body": {
               "date": "@body('Create_start_date')",
               "date_1": "@body('Create_end_date')",
-              "boolean": true
+              "boolean": false
             }
           }
         },
@@ -80,7 +80,7 @@
           "type": "Expression",
           "kind": "ConvertTimeZone",
           "inputs": {
-            "baseTime": "@{addDays(utcNow(),10)}",
+            "baseTime": "@{addDays(utcNow(),1)}",
             "formatString": "yyyy-MM-dd",
             "sourceTimeZone": "UTC",
             "destinationTimeZone": "W. Europe Standard Time"
