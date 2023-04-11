@@ -55,16 +55,14 @@ Follow below steps to create an Azure OpenAI resource and deploy a model in adva
 
 1. In the browser open the page to create [Azure OpenAI service](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_openai_tip#create/Microsoft.CognitiveServicesOpenAI) and login with your credentials
 2. On the `Basics` page provide information described bellow and click `Next` button
-Field|Description
---------|---------
-Subscription | Select the Azure subscription used in your OpenAI onboarding application
-Resource group | The Azure resource group that will contain your OpenAI resource. You can create a new group or add it to a pre-existing group.
-Region | The location of your instance. Different locations may introduce latency, but have no impact on the runtime availability of your resource.
-Name | A descriptive name for your cognitive services resource. For example, MyOpenAIResource.
-Pricing Tier | Only 1 pricing tier is available for the service currently
+* `Subscription`: Select the Azure subscription used in your OpenAI onboarding application
+* `Resource group`: The Azure resource group that will contain your OpenAI resource. You can create a new group or add it to a pre-existing group.
+* `Region`: The location of your instance. Different locations may introduce latency, but have no impact on the runtime availability of your resource.
+* `Name`: A descriptive name for your cognitive services resource. For example, MyOpenAIResource.
+* `Pricing Tier`: Only 1 pricing tier is available for the service currently
 ![Create Azure OpenAI service](./assets/AzureOpenAI_Basics.png)
 3. On the `Tags` screen click the `Next` button
-4. On the `Review +submit` screen click the `Create` button
+4. On the `Review + submit` screen click the `Create` button
 
 ### Deploy a model
 1. Open the Azure OpenAI resource created in the previous step
