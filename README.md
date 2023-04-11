@@ -4,8 +4,8 @@
 
 This custom connector enables to create and send a POST request to the Azure OpenAI service to get required information. The output received from the Azure OpenAI service stored in JSON schema and can be used in different flows and apps. 
 
-[General information of the custom connector](./assets/CustomConnector_GeneralInformation.png)
-[Definition configuration of the custom connector](./assets/CustomConnector_Definition.png)
+![General information of the custom connector](./assets/CustomConnector_GeneralInformation.png)
+![Definition configuration of the custom connector](./assets/CustomConnector_Definition.png)
 
 ## Applies to
 
@@ -24,7 +24,7 @@ This custom connector enables to create and send a POST request to the Azure Ope
 
 Solution|Author(s)
 --------|---------
-azure-openai-custom-connector | [Katerina Chernevskaya](https://github.com/Katerina-Chernevskaya) ([LinkedIn](https://www.linkedin.com/in/katerinachernevskaya/)), Awara IT Academy
+Get-required-info-with-AzureOpenAI_CustomConnector | [Katerina Chernevskaya](https://github.com/Katerina-Chernevskaya) ([LinkedIn](https://www.linkedin.com/in/katerinachernevskaya/)), Awara IT Academy
 
 ## Version history
 
@@ -51,18 +51,18 @@ Follow below steps to create an Azure OpenAI resource and deploy a model in adva
 
 ### Create Azure OpenAI resource
 
-> Currently, access to Azure OpenAI service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access).
+*Currently, access to Azure OpenAI service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access).*
 
 1. In the browser open the page to create [Azure OpenAI service](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_openai_tip#create/Microsoft.CognitiveServicesOpenAI) and login with your credentials
 2. On the `Basics` page provide information described bellow and click `Next` button
 Field|Description
------|----
-Subscription|Select the Azure subscription used in your OpenAI onboarding application
-Resource group|The Azure resource group that will contain your OpenAI resource. You can create a new group or add it to a pre-existing group.
-Region|The location of your instance. Different locations may introduce latency, but have no impact on the runtime availability of your resource.
-Name|A descriptive name for your cognitive services resource. For example, MyOpenAIResource.
-Pricing Tier|Only 1 pricing tier is available for the service currently
-[Create Azure OpenAI service](./assets/AzureOpenAI_Basics.png)
+--------|---------
+Subscription | Select the Azure subscription used in your OpenAI onboarding application
+Resource group | The Azure resource group that will contain your OpenAI resource. You can create a new group or add it to a pre-existing group.
+Region | The location of your instance. Different locations may introduce latency, but have no impact on the runtime availability of your resource.
+Name | A descriptive name for your cognitive services resource. For example, MyOpenAIResource.
+Pricing Tier | Only 1 pricing tier is available for the service currently
+![Create Azure OpenAI service](./assets/AzureOpenAI_Basics.png)
 3. On the `Tags` screen click the `Next` button
 4. On the `Review +submit` screen click the `Create` button
 
@@ -74,37 +74,37 @@ Pricing Tier|Only 1 pricing tier is available for the service currently
 ### Save parameters
 To launch this custom connector you will need following information: host, base URL and API key. Save this information for later.
 1. Go to the `Overview` tab of your Azure OpenAI service and copy `Endpoint` value
-[Copy Endpoint value](./assets/AzureOpenAI_HostSave.png)
+![Copy Endpoint value](./assets/AzureOpenAI_HostSave.png)
 2. Go to the `Keys and Endpoint` tab and copy `KEY 1` value
-[Copy api-key value](./assets/AzureOpenAI_ApiKeySave.png)
+![Copy api-key value](./assets/AzureOpenAI_ApiKeySave.png)
 3. Go to the `Model deployments` tab, select your model and click on the `Go to Azure OpenAI Studio` button
-[Go to Azure OpenAI Studio](./assets/AzureOpenAI_OpenStudio.png)
+![Go to Azure OpenAI Studio](./assets/AzureOpenAI_OpenStudio.png)
 In the opened window click the `Completions playground` button
-[Completions playground](./assets/AzureOpenAI_Playground.png)
+![Completions playground](./assets/AzureOpenAI_Playground.png)
 In the Playground click the `View code` button
-[View Code](./assets/AzureOpenAI_ViewCode.png)
+![View Code](./assets/AzureOpenAI_ViewCode.png)
 In the pop-up window switch to the `json` format and copy Base URL (marked in yellow on the screenshot below)
-[Save Base URL](./assets/AzureOpenAI_BaseUrlSave.png)
+![Save Base URL](./assets/AzureOpenAI_BaseUrlSave.png)
 
 ## Minimal Path to Awesome
 
-* [Download](./solution/Sample.zip) the `.zip` from the `solution` folder
+* Download the `.zip` from the `solution` folder
 * Go to [Power Automate Studio](https://make.powerautomate.com/), go to `Solutions` and click `Import solution`
-[Import solution - step 1](./assets/Import_Step1.png)
+![Import solution - step 1](./assets/Import_Step1.png)
 * Select the solution by clicking `Brows` button and press the `Next` button 
 * Review all fields on the next screen and click `Next` button
-[Import solution - step 2](./assets/Import_Step2.png)
+![Import solution - step 2](./assets/Import_Step2.png)
 * On the next screen provide information that you stored as prerequsines:
 For the `BaseURL` field use the value that you copied from the Playground.
 For the `Host` field use the value that you copied from the `Endpoint` field.
 Once you are ready - click `Import` button.
-[Import solution - step 3](./assets/Import_Step3.png)
+![Import solution - step 3](./assets/Import_Step3.png)
 
 *After the solution will be imported successfully - you will see the notification and the solution will be available in the list.*
-[Import solution - done](./assets/Import_Done.png)
+![Import solution - done](./assets/Import_Done.png)
 
 * Open the solution `AzureOpenAI_CustomConnector` and update Environmental Variables value.
-[Update Environment Variable](./assets/UpdateVariable.png)
+![Update Environment Variable](./assets/UpdateVariable.png)
 
 *Once all steps will be completed you can use this custom connector to create connections and leverage its capabilities in your solutions.*
 
