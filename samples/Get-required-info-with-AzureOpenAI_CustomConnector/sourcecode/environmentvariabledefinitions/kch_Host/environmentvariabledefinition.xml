@@ -1,0 +1,13 @@
+<environmentvariabledefinition schemaname="kch_Host">
+  <description default="Put Azure Open AI host name. Sample: YOURNAME.openai.azure.com">
+    <label description="Put Azure Open AI host name. Sample: YOURNAME.openai.azure.com" languagecode="1033" />
+  </description>
+  <displayname default="Host">
+    <label description="Host" languagecode="1033" />
+  </displayname>
+  <introducedversion>1.0.0.0</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <secretstore>0</secretstore>
+  <type>100000000</type>
+</environmentvariabledefinition>

@@ -1,0 +1,13 @@
+<environmentvariabledefinition schemaname="kch_BaseURL">
+  <description default="Put your Azure Open AI base UL. Sample: /openai/deployments/YOURMODELNAME/completions">
+    <label description="Put your Azure Open AI base UL. Sample: /openai/deployments/YOURMODELNAME/completions" languagecode="1033" />
+  </description>
+  <displayname default="BaseURL">
+    <label description="BaseURL" languagecode="1033" />
+  </displayname>
+  <introducedversion>1.0.0.0</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <secretstore>0</secretstore>
+  <type>100000000</type>
+</environmentvariabledefinition>

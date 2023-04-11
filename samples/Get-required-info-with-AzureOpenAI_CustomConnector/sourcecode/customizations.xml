@@ -1,0 +1,30 @@
+<ImportExportXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Entities></Entities>
+  <Roles></Roles>
+  <Workflows></Workflows>
+  <FieldSecurityProfiles></FieldSecurityProfiles>
+  <Templates />
+  <EntityMaps />
+  <EntityRelationships />
+  <OrganizationSettings />
+  <optionsets />
+  <CustomControls />
+  <EntityDataProviders />
+  <Connectors>
+    <Connector>
+      <connectorid>a5b380c8-5874-4bf2-8f78-c579bd454f1e</connectorid>
+      <description></description>
+      <displayname>Azure Open AI for CRM</displayname>
+      <iconbrandcolor>#007ee5</iconbrandcolor>
+      <name>kch_5Fazure-20open-20ai-20for-20crm</name>
+      <connectortype>1</connectortype>
+      <openapidefinition>/Connector/kch_5Fazure-20open-20ai-20for-20crm_openapidefinition.json</openapidefinition>
+      <connectionparameters>/Connector/kch_5Fazure-20open-20ai-20for-20crm_connectionparameters.json</connectionparameters>
+      <policytemplateinstances>/Connector/kch_5Fazure-20open-20ai-20for-20crm_policytemplateinstances.json</policytemplateinstances>
+      <iconblob>/Connector/kch_5Fazure-20open-20ai-20for-20crm_iconblob.Png</iconblob>
+    </Connector>
+  </Connectors>
+  <Languages>
+    <Language>1033</Language>
+  </Languages>
+</ImportExportXml>
