@@ -46,7 +46,7 @@ This solution includes 5 objects:
 * Connection References `CustomerConnectorConnection` and `DataverseConnection`
 * Flow `Get data for Account using Azure Open AI`
 * Table `Account` with 4 colums:
-![Account Table Columns](./assets/AccountTableColumns.png =1000x)
+![Account Table Columns](./assets/AccountTableColumns.png)
 
 ## Prerequisites
 
@@ -61,19 +61,19 @@ Please follow steps described in the [Prerequisites](https://github.com/Katerina
 * Download the `.zip` from the `solution` folder
 * Go to [Power Automate Studio](https://make.powerautomate.com/), go to `Solutions` and click `Import solution`
 * Select the solution by clicking `Brows` button and press the `Next` button 
-![Import solution - step 1](./assets/Import_step1.png =1000x)
+![Import solution - step 1](./assets/Import_step1.png)
 * Review all fields on the next screen and click `Next` button
 * On the next screen configure connections - to the custom connector and to the Dataverse
-![Import solution - step 2](./assets/Import_step2.png =1000x)
+![Import solution - step 2](./assets/Import_step2.png)
 Once both connections are configured - click `Next` button
 * On the next screen provide the API key from your Azure OpenAI service and click the `Import` button
 
 
 *After the solution will be imported successfully - you will see the notification and the solution will be available in the list.*
-![Import solution - done](./assets/Import_done.png =1000x)
+![Import solution - done](./assets/Import_done.png)
 
 * Open the solution `Get-validate-save-customer-data-using-AzureOpenAI` and update Environmental Variable value with your API key.
-![Update Environment Variable](./assets/UpdateVariable.png =1000x)
+![Update Environment Variable](./assets/UpdateVariable.png)
 
 *Once all steps will be completed you can use this flow for your Account table, for example for your CRM.*
 
