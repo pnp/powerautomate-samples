@@ -73,7 +73,7 @@ Once both connections are configured - click `Next` button
 ![Import solution - done](./assets/Import_done.png)
 
 * Open the solution `Get-validate-save-customer-data-using-AzureOpenAI` and update Environmental Variable value with your API key.
-![Update Environment Variable](./assets/UpdateVariable.png)
+![Update Environment Variable](./assets/Import_UpdateVariable.png)
 
 *Once all steps will be completed you can use this flow for your Account table, for example for your CRM.*
 
