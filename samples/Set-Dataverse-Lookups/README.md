@@ -51,7 +51,7 @@ This flow creates records in Dataverse. You will need a connection to Dataverse 
 
 ## Minimal Path to Awesome
 
-* [Download](./solution/set-dataverse-lookups) the `.zip` from the `solution` folder
+* [Download](https://github.com/pnp/powerautomate-samples/blob/main/samples/Set-Dataverse-Lookups/solution/Set-Dataverse-Lookups_20221215171538.zip) the `.zip` from the `solution` folder
 * Browse to [Power Automate](https://flow.microsoft.com/manage/environments) and select the environment where you wish to import the sample
 * From the toolbar, select **Import**
 * In the **Import package** page, select **Upload** and choose the `.zip` file containing the sample flow.
