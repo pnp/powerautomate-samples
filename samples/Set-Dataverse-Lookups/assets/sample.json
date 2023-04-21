@@ -1,0 +1,70 @@
+[
+    {
+        "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
+        "name": "Setting-Dataverse-Lookups",
+        "version": "1.0.0.0",
+        "source": "pnp",
+        "creationDateTime": "2022-12-20T00:00:00.000Z",
+        "updateDateTime": "2022-12-20T00:00:00.000Z",
+        "title": "Pattern: Setting Dataverse Lookups",
+        "shortDescription": "A pattern that shows two ways to set a Dataverse lookup field with both an expression and the 'relate rows' action",
+        "longDescription": [
+            "A pattern that shows two ways to set a Dataverse lookup field with both an expression and the 'relate rows' action"
+        ],
+        "url": "https://github.com/pnp/powerautomate-samples/tree/main/samples/Set-Dataverse-Lookups",
+        "products": [
+            "Power Automate",
+            "Power Platform",
+            "Dataverse"
+        ],
+        "tags": [
+            "DATAVERSE",
+            "PERMISSIONS"
+        ],
+        "categories": [
+            "POWERAUTOMATE"
+        ],
+        "metadata": [
+            {
+                "key": "POWERAUTOMATE-PREMIUM",
+                "value": "yes"
+            },
+            {
+                "key": "POWERAUTOMATE-ONPREM",
+                "value": "No"
+            },
+            {
+                "key": "POWERAUTOMATE-CUSTOMCONNECTOR",
+                "value": "No"
+            }
+        ],
+        "thumbnails": [
+            {
+                "type": "image",
+                "order": 100,
+                "url": "https://raw.githubusercontent.com/pnp/powerautomate-samples/blob/main/samples/Set-Dataverse-Lookups/assets/screenshot1.png",
+                "alt": "Preview of the solution"
+            }
+        ],
+        "authors": [
+            {
+                "gitHubAccount": "BecktoldTaylor",
+                "name": "Taylor Becktod",
+                "pictureUrl": "https://pbs.twimg.com/profile_images/1270378191627128832/RijLVMx4_400x400.jpg",
+                "twitter": "BecktoldTaylor"
+            }
+        ],
+        "references": [
+            {
+                "name": "Create your first flow",
+                "description": "Anyone from a basic business user to an IT professional can create automated processes using Power Automate's no-code/low-code platform.",
+                "url": "https://docs.microsoft.com/en-us/power-automate/getting-started#create-your-first-flow"
+            },
+            {
+                "name": "Microsoft Power Automate documentation",
+                "description": "Power Automate is a service that helps you create automated workflows between your favorite apps and services to synchronize files, get notifications, collect data, and more.",
+                "url": "https://docs.microsoft.com/en-us/power-automate/"
+            }
+        ]
+    }
+]
