@@ -1,0 +1,14 @@
+Column 	Type
+Title		Single line of text	
+caption	Multiple lines of text	
+permalink	Single line of text	
+timestamp	Single line of text	
+username	Single line of text	
+mediaUrl	Multiple lines of text	
+thumbnailUrl	Multiple lines of text	
+mediaId	Single line of text	
+mediaType	Single line of text	
+Modified	Date and Time	
+Created	Date and Time	
+Created By	Person or Group	
+Modified By	Person or Group

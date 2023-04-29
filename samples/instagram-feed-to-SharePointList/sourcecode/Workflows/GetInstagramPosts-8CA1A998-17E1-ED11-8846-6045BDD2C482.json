@@ -1,0 +1,217 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_instagrambasicdispip": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "cr715_InstagramBasicDisplay"
+        },
+        "api": {
+          "name": "shared_instagrambasicdispip"
+        }
+      },
+      "shared_sharepointonline_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "cr715_sharedsharepointonline_fed15"
+        },
+        "api": {
+          "name": "shared_sharepointonline"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "Site Url (cr715_SiteUrl)": {
+          "defaultValue": "https://reshmeeauckloo.sharepoint.com/sites/Instagram",
+          "type": "String",
+          "metadata": {
+            "schemaName": "cr715_SiteUrl"
+          }
+        },
+        "List (cr715_List)": {
+          "defaultValue": "451ec7fd-7430-4d57-a2b8-b871a80cb380",
+          "type": "String",
+          "metadata": {
+            "schemaName": "cr715_List"
+          }
+        }
+      },
+      "triggers": {
+        "Recurrence": {
+          "recurrence": {
+            "frequency": "Hour",
+            "interval": 1,
+            "startTime": "2023-04-22T09:00:00Z"
+          },
+          "metadata": {
+            "operationMetadataId": "1da261a3-3e19-4089-b113-7775ad1fbc52"
+          },
+          "type": "Recurrence"
+        }
+      },
+      "actions": {
+        "Get_my_Media": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "dbe2456f-ebed-41a7-9b4b-48b0727d0cc4"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_instagrambasicdispip",
+              "operationId": "GetMyMedia",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_instagrambasicdispip"
+            },
+            "parameters": {
+              "fields": "caption,media_type,media_url,permalink,timestamp,username,thumbnail_url"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Apply_to_each": {
+          "foreach": "@outputs('Get_my_Media')?['body/data']",
+          "actions": {
+            "If_media_Id_is_not_present_in_list": {
+              "actions": {
+                "Create_Instagram_Post_in_list": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "896e6e50-bfe8-42c1-85cb-99c2643eb39a"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_sharepointonline_1",
+                      "operationId": "PostItem",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+                    },
+                    "parameters": {
+                      "dataset": "@parameters('Site Url (cr715_SiteUrl)')",
+                      "table": "@parameters('List (cr715_List)')",
+                      "item/Title": "@items('Apply_to_each')?['id']",
+                      "item/Caption": "@items('Apply_to_each')?['caption']",
+                      "item/permalink": "@items('Apply_to_each')?['permalink']",
+                      "item/timestamp": "@items('Apply_to_each')?['timestamp']",
+                      "item/username": "@items('Apply_to_each')?['username']",
+                      "item/mediaUrl": "@items('Apply_to_each')?['media_url']",
+                      "item/thumbnailUrl": "@items('Apply_to_each')?['thumbnail_url']",
+                      "item/mediaId": "@items('Apply_to_each')?['id']",
+                      "item/mediaType": "@items('Apply_to_each')?['media_type']"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {
+                "Check_whether_any_value_has_been_returned": [
+                  "Succeeded"
+                ]
+              },
+              "else": {
+                "actions": {
+                  "Apply_to_each_2": {
+                    "foreach": "@outputs('Get_items_By_Media_Id')?['body/value']",
+                    "actions": {
+                      "Update_item": {
+                        "runAfter": {},
+                        "metadata": {
+                          "operationMetadataId": "568460ec-9c4b-4847-8ad4-50d5e06f5ccd"
+                        },
+                        "type": "OpenApiConnection",
+                        "inputs": {
+                          "host": {
+                            "connectionName": "shared_sharepointonline_1",
+                            "operationId": "PatchItem",
+                            "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+                          },
+                          "parameters": {
+                            "dataset": "@parameters('Site Url (cr715_SiteUrl)')",
+                            "table": "@parameters('List (cr715_List)')",
+                            "id": "@items('Apply_to_each_2')?['ID']",
+                            "item/Title": "@items('Apply_to_each')?['id']",
+                            "item/mediaUrl": "@items('Apply_to_each')?['media_url']",
+                            "item/thumbnailUrl": "@items('Apply_to_each')?['thumbnail_url']"
+                          },
+                          "authentication": "@parameters('$authentication')"
+                        }
+                      }
+                    },
+                    "runAfter": {},
+                    "metadata": {
+                      "operationMetadataId": "8d243e42-3e90-49a1-b02b-e30e5e759ee5"
+                    },
+                    "type": "Foreach"
+                  }
+                }
+              },
+              "expression": {
+                "equals": [
+                  "@outputs('Check_whether_any_value_has_been_returned')",
+                  "@true"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "d46c952e-48fa-45e7-ae33-f3919c2da395"
+              },
+              "type": "If"
+            },
+            "Get_items_By_Media_Id": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "f4cde0d0-d3d8-42d2-936d-5aaf3b6adca9"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_sharepointonline_1",
+                  "operationId": "GetItems",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+                },
+                "parameters": {
+                  "dataset": "@parameters('Site Url (cr715_SiteUrl)')",
+                  "table": "@parameters('List (cr715_List)')",
+                  "$filter": "mediaId eq '@{items('Apply_to_each')?['id']}'"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Check_whether_any_value_has_been_returned": {
+              "runAfter": {
+                "Get_items_By_Media_Id": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "2027e932-fe09-4775-bb79-5fb2311437bf"
+              },
+              "type": "Compose",
+              "inputs": "@empty(outputs('Get_items_By_Media_Id')?['body/value'])"
+            }
+          },
+          "runAfter": {
+            "Get_my_Media": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "0346ef48-de47-464a-980a-1c274613f7ea"
+          },
+          "type": "Foreach"
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}
