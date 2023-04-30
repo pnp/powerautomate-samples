@@ -43,7 +43,6 @@ Create a list with the following details
 | Column | Type            |
 | --------- | ----------------- |
 | caption     | Multiple lines of text  |
-| 1.0     | January 4, 2021 |
 | permalink    | Single line of text    |
 | timestamp    | Single line of text    |
 | username    | Single line of text    |
