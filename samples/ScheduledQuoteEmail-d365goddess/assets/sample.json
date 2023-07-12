@@ -42,7 +42,7 @@
             {
                 "type": "image",
                 "order": 100,
-                "url": "https://github.com/pnp/powerautomate-samples/blob/main/samples/ScheduledQuoteEmail-d365goddess/assets/ScheduledQuoteEmailFlow.webp?raw=true",
+                "url": "https://raw.githubusercontent.com/pnp/powerautomate-samples/main/samples/ScheduledQuoteEmail-d365goddess/assets/ScheduledQuoteEmailFlow.PNG",
                 "alt": "Preview of the solution"
             }
         ],
