@@ -1,22 +1,8 @@
-# Title of the sample
-
-> When naming your sample, try to give it a friendly name that describes what it does. Avoid using terms like `PowerAutomate`, `Power Automate`, `Flow`, etc. -- because that's what all the samples in this repo are all about.
-> GOOD 👍:
->     Transmographier
-> BAD 👎:
->     Power Automate Sample
->
-> DELETE THIS PARAGRAPH BEFORE SUBMITTING
-
+# Outlook - Check if meeting conflicts with lucnh
 
 ## Summary
 
-Short summary on functionality and used technologies.
-
-> Please provide a high-quality screenshot of your flow below. It should be stored in a folder called `assets`.
-> If possible, use a resolution of 1920x1080.
-> You can add as many screen shots as you'd like to help users understand your sample without having to download it and install it.
-> DELETE THIS PARAGRAPH BEFORE SUBMITTING
+This flow checks when new appointments are added to your outlook calendar. If checks to see if an existing appointment titled "Lunch"
 
 ![picture of the sample](assets/preview.png)
 
