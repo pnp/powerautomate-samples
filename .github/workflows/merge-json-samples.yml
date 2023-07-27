@@ -1,0 +1,37 @@
+name: Merge sample metadata
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      # When someone push to `main` branch
+      - main
+    paths:
+      - 'samples/**/assets/sample.json'
+
+jobs:
+  build:
+    name: 'Merge all sample.json files to samples.json'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v2
+        with:
+          ref: main
+          path: main
+      - name: Join samples  
+        run: |
+          jq -s '[.[][]]' ./main/samples/**/assets/sample.json > ./main/.metadata/samples.json
+      - name: Validate JSON
+        uses: docker://orrosenblatt/validate-json-action:latest
+        env:
+          INPUT_SCHEMA: ./main/templates/metadata-schema.json
+          INPUT_JSONS: ./main/.metadata/samples.json
+      - name: Commit samples.json to main
+        uses: EndBug/add-and-commit@v6
+        with:
+          cwd: ./main
+          branch: main
+          add: 'main/.metadata/samples.json --force'
+          push: true
+          token: ${{ secrets.GITHUB_TOKEN }}
