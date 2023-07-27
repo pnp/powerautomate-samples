@@ -2,20 +2,18 @@
 
 ## Summary
 
-This flow checks when new appointments are added to your outlook calendar. If checks to see if an existing appointment titled "Lunch"
+This flow checks when new appointments are added to your outlook calendar. If checks to see if an existing appointment titled "Lunch". If the appointment that was sent clashes with the Lunch appointment you have in your Outlook Calendar, it sends a reply to the person. This is configurable to the domain the person sent it from. In this sample, it rejects the appointment if it's sent by someone internally and tentatively accepts if sent externally. Both have configurable messages to each of the replies.
 
-![picture of the sample](assets/preview.png)
+![Collapsed Flow](assets/CollapseFlow.png)
+![Check Conditions](assets/CheckConditions.png)
+![Whole Flow](assets/WholeFlow.png)
 
 ## Applies to
 
 * [Microsoft Power Automate](https://docs.microsoft.com/power-automate/)
-
-> Update accordingly as needed.
-> DELETE THIS PARAGRAPH BEFORE SUBMITTING
+* [Microsof Outlook](https://learn.microsoft.com/en-us/outlook/)
 
 ## Compatibility
-
-> Don't worry about this section, we'll take care of it. Unless you really want to...
 
 ![Premium License](https://img.shields.io/badge/Premium%20License-Not%20Required-green.svg "Premium license not required")
 ![On-Premises Connectors](https://img.shields.io/badge/On--Premises%20Connectors-No-green.svg "Does not use on-premise connectors")
@@ -23,34 +21,25 @@ This flow checks when new appointments are added to your outlook calendar. If ch
 
 ## Authors
 
-> One author per line, please
-> DELETE THIS PARAGRAPH BEFORE SUBMITTING
-
 Solution|Author(s)
 --------|---------
-folder name | [Author Name](LinkToYourGitHubProfile) ([@yourtwitterhandle](https://twitter.com/yourtwitterhandle)), Company
+folder name | [Matt Collins-Jones](https://github.com/MattCollins-Jones) ([@D365Geek](https://github.com/MattCollins-Jones))
 
 ## Version history
 
 Version|Date|Comments
 -------|----|--------
-1.1|September 2, 2021|Update comment
-1.0|August 29, 2021|Initial release
+1.0|Feburary 11, 2022|Initial release
 
 ## Features
 
-> Description of the sample with possible additional details than in short summary.
+This sample demonstrates:
 
-This sample illustrates the following concepts:
+* Triggering a flow from an Outlook Appointment being receieved
+* Filtering an Outlook Calendar to and retrieving entries using the time from the trigger and a keyword "Lunch"
+* Replying to the appointment
+* Customisable message for people internal or external to the company you work but this can be customised further for specific email domains
 
-* topic 1
-* topic 2
-* topic 3
-
-## Prerequisites
-
-> Any special pre-requisites? Include anything that needs to be done for this sample to work (anything in addition to importing the `.zip` and data sources).
-> DELETE THIS PARAGRAPH BEFORE SUBMITTING
 
 ## Minimal Path to Awesome
 
@@ -75,7 +64,6 @@ You can also use the [Power Apps CLI](https://docs.microsoft.com/powerapps/devel
 
 ## Help
 
-> Note: don't worry about this section, we'll update the links.
 
 We do not support samples, but we this community is always willing to help, and we want to improve these samples. We use GitHub to track issues, which makes it easy for  community members to volunteer their time and help resolve issues.
 
@@ -93,6 +81,3 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 
 <img src="https://telemetry.sharepointpnp.com/powerautomate-samples/samples/readme-template" />
 
----
-> Note that better pictures and documentation will increase the sample usage and the value you are providing for others. Thanks for your submissions in advance! You rock ❤.
-> DELETE THIS PARAGRAPH BEFORE SUBMITTING
