@@ -4,8 +4,8 @@
       "name": "teams-adaptive-card-reminders-from-lists",
       "version": "1.0.0.0",
       "source": "pnp",
-      "creationDateTime": "2021-02-28T00:00:00.000Z",
-      "updateDateTime": "2021-02-28T00:00:00.000Z",
+      "creationDateTime": "2021-02-28",
+      "updateDateTime": "2021-02-28",
       "title": "Teams Adaptive Card Reminders From Lists",
       "shortDescription": "This sample will send a Microsoft Teams adaptive card reminder from Microsoft Lists to the item owner in advance of the due date using Power Automate.",
       "longDescription": [

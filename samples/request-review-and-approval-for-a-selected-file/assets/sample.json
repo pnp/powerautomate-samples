@@ -4,8 +4,8 @@
         "name": "pnp-powerautomate-samples-site-design-homepage",
         "version": "1.0.0.0",
         "source": "pnp",
-        "creationDateTime": "2021-10-11T00:00:00.000Z",
-        "updateDateTime": "2021-10-11T00:00:00.000Z",
+        "creationDateTime": "2021-10-11",
+        "updateDateTime": "2021-10-11",
         "title": "Request Review and Approval for a Selected File",
         "shortDescription": "This flow provides a way to request review and approval for a selected file",
         "longDescription": [

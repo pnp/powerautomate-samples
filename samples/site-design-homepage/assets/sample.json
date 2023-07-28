@@ -4,8 +4,8 @@
         "name": "pnp-powerautomate-samples-site-design-homepage",
         "version": "1.0.0.0",
         "source": "pnp",
-        "creationDateTime": "2021-06-09T00:00:00.000Z",
-        "updateDateTime": "2021-06-09T00:00:00.000Z",
+        "creationDateTime": "2021-06-09",
+        "updateDateTime": "2021-06-09",
         "title": "Set Home Page Template after Site Design is applied",
         "shortDescription": "This will set a Home page with Web Parts on a newly created Site using a Site Design",
         "longDescription": [

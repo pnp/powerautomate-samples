@@ -4,8 +4,8 @@
       "name": "o365groups-graph-create-group",
       "version": "1.0.0.0",
       "source": "pnp",
-      "creationDateTime": "2021-02-28T00:00:00.000Z",
-      "updateDateTime": "2021-02-28T00:00:00.000Z",
+      "creationDateTime": "2021-02-28",
+      "updateDateTime": "2021-02-28",
       "title": "Create Microsoft 365 Groups using the Groups Connector and Microsoft Graph",
       "shortDescription": "Creates Microsoft 365 Groups using the Office 365 Groups Connector action 'Send an HTTP Request' and the Microsoft Graph Groups endpoint. Adds members to the group if specified.",
       "longDescription": [

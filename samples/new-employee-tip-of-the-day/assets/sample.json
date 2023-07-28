@@ -1,44 +1,24 @@
 [
     {
         "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
-<<<<<<< Updated upstream
         "name": "pnp-powerautomate-samples-new-employee-tip-of-the-day",
         "version": "1.0.0.0",
         "source": "pnp",
-        "creationDateTime": "2021-10-07T00:00:00.000Z",
-        "updateDateTime": "2021-10-07T00:00:00.000Z",
+        "creationDateTime": "2021-10-07",
+        "updateDateTime": "2021-10-07",
         "title": "New Employee Tip Notification Flow",
         "shortDescription": "Sends a daily tip of the day",
         "longDescription": [
             "Improve new employee onboarding by giving them an automated tip of the day with Power Automate."
         ],
         "url": "https://github.com/pnp/powerautomate-samples/tree/main/samples/new-employee-tip-of-the-day",
-=======
-        "name": "pnp-powerautomate-samples-exception-handing-in-do-until-loop",
-        "version": "1.0.0.0",
-        "source": "pnp",
-        "creationDateTime": "2021-05-01T00:00:00.000Z",
-        "updateDateTime": "2021-05-01T00:00:00.000Z",
-        "title": "Pattern: Exception handing in 'Do until'-loop",
-        "shortDescription": "A pattern for breaking out of a 'Do Until'-loop in Power Automate when an exception occurs.",
-        "longDescription": [
-            "A pattern for breaking out of a 'Do Until'-loop in Power Automate when an exception occurs."
-        ],
-        "url": "https://github.com/pnp/powerautomate-samples/tree/main/samples/exception-handing-in-do-until-loop",
->>>>>>> Stashed changes
         "products": [
             "Power Automate",
             "Power Platform"
         ],
         "tags": [
-<<<<<<< Updated upstream
             "TIPS",
             "ONBOARDING"
-=======
-            "PATTERNS",
-            "EXCEPTION-HANDLING",
-            "DO-UNTIL-LOOP"
->>>>>>> Stashed changes
         ],
         "categories": [
             "POWERAUTOMATE"
@@ -61,27 +41,16 @@
             {
                 "type": "image",
                 "order": 100,
-<<<<<<< Updated upstream
                 "url": "https://github.com/pnp/powerautomate-samples/blob/main/samples/new-employee-tip-of-the-day/assets/flow.png?raw=true",
-=======
-                "url": "https://github.com/pnp/powerautomate-samples/blob/main/samples/exception-handing-in-do-until-loop/assets/flow.png?raw=true",
->>>>>>> Stashed changes
                 "alt": "Preview of the solution"
             }
         ],
         "authors": [
             {
-<<<<<<< Updated upstream
                 "gitHubAccount": "Adam-it",
                 "name": "Adam Wójcik",
                 "pictureUrl": "https://github.com/Adam-it.png"
             }
-=======
-        "gitHubAccount": "remyblok",
-        "name": "Remy Blok",
-        "pictureUrl": "https://github.com/remyblok.png"
-      }
->>>>>>> Stashed changes
         ],
         "references": [
             {
@@ -96,8 +65,4 @@
             }
         ]
     }
-<<<<<<< Updated upstream
 ]
-=======
-]
->>>>>>> Stashed changes

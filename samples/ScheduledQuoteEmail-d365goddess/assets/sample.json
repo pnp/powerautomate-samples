@@ -4,8 +4,8 @@
         "name": "pnp-powerautomate-samples-ScheduledQuoteEmail",
         "version": "1.0.0.0",
         "source": "pnp",
-        "creationDateTime": "2023-02-01T00:00:00.000Z",
-        "updateDateTime": "2023-02-01T00:00:00.000Z",
+        "creationDateTime": "2023-02-01",
+        "updateDateTime": "2023-02-01",
         "title": "Scheduled Quote Email - D365",
         "shortDescription": "Schedule a weekly email send containing a list of quote rows that need follow up, including a clickable link to each quote row.",
         "longDescription": [

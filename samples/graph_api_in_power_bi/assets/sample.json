@@ -4,8 +4,8 @@
         "name": "pnp-powerautomate-samples-graph_api_in_power_bi",
         "version": "1.0.0.0",
         "source": "pnp",
-        "creationDateTime": "2021-06-09T00:00:00.000Z",
-        "updateDateTime": "2021-06-09T00:00:00.000Z",
+        "creationDateTime": "2021-06-09",
+        "updateDateTime": "2021-06-09",
         "title": "Refresh Graph API data in Power BI Flow",
         "shortDescription": "This sample project enables Graph API data to be refreshed within the Power BI Service.",
         "longDescription": [

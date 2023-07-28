@@ -4,8 +4,8 @@
         "name": "pnp-powerautomate-samples-Try-Catch-Finally",
         "version": "1.0.0.0",
         "source": "pnp",
-        "creationDateTime": "2021-05-01T00:00:00.000Z",
-        "updateDateTime": "2021-05-01T00:00:00.000Z",
+        "creationDateTime": "2021-05-01",
+        "updateDateTime": "2021-05-01",
         "title": "Pattern: Try-Catch-Finally",
         "shortDescription": "A pattern for Try-Catch-Finally.",
         "longDescription": [

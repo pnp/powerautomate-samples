@@ -4,8 +4,8 @@
         "name": "Setting-Dataverse-Lookups",
         "version": "1.0.0.0",
         "source": "pnp",
-        "creationDateTime": "2022-12-20T00:00:00.000Z",
-        "updateDateTime": "2022-12-20T00:00:00.000Z",
+        "creationDateTime": "2022-12-20",
+        "updateDateTime": "2022-12-20",
         "title": "Pattern: Setting Dataverse Lookups",
         "shortDescription": "A pattern that shows two ways to set a Dataverse lookup field with both an expression and the 'relate rows' action",
         "longDescription": [

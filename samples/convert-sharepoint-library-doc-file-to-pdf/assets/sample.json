@@ -4,8 +4,8 @@
         "name": "convert-sharepoint-library-doc-file-to-pdf",
         "version": "1.0.0.0",
         "source": "pnp",
-        "creationDateTime": "2022-09-20T00:00:00.000Z",
-        "updateDateTime": "2022-09-20T00:00:00.000Z",
+        "creationDateTime": "2022-09-20",
+        "updateDateTime": "2022-09-20",
         "title": "Convert sharepoint library document file to pdf.",
         "shortDescription": "This sample shows how to convert a doc file to a pdf in the document library.",
         "longDescription": [

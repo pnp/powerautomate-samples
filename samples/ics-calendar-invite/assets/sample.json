@@ -4,8 +4,8 @@
       "name": "pnp-powerautomate-samples-ics-calendar-invite",
       "version": "1.0.0.0",
       "source": "pnp",
-      "creationDateTime": "2021-05-04T00:00:00.000Z",
-      "updateDateTime": "2021-05-04T00:00:00.000Z",
+      "creationDateTime": "2021-05-04",
+      "updateDateTime": "2021-05-04",
       "title": "Send an .ICS Calendar Invite",
       "shortDescription": "Sends an .ics calendar invite when a new event is added to a SharePoint list",
       "longDescription": [

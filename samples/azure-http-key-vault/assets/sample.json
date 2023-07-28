@@ -4,8 +4,8 @@
         "name": "pnp-powerautomate-samples-azure-http-key-vault",
         "version": "1.0.0.0",
         "source": "pnp",
-        "creationDateTime": "2022-09-16T00:00:00.000Z",
-        "updateDateTime": "2021-09-16T00:00:00.000Z",
+        "creationDateTime": "2022-09-16",
+        "updateDateTime": "2021-09-16",
         "title": "Leveraging Graph API to get password from Azure Key Vault",
         "shortDescription": "A sample for geeting the keyvault details using graph api",
         "longDescription": [
