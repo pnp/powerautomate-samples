@@ -1,4 +1,4 @@
-# Outlook - Check if meeting conflicts with lucnh
+# Outlook - Check if meeting conflicts with lunch
 
 ## Summary
 
