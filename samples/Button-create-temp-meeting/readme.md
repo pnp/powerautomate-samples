@@ -4,9 +4,10 @@
 
 This flow checks when new appointments are added to your outlook calendar. If checks to see if an existing appointment titled "Lunch". If the appointment that was sent clashes with the Lunch appointment you have in your Outlook Calendar, it sends a reply to the person. This is configurable to the domain the person sent it from. In this sample, it rejects the appointment if it's sent by someone internally and tentatively accepts if sent externally. Both have configurable messages to each of the replies.
 
-![Collapsed Flow](assets/CollapseFlow.png)
-![Check Conditions](assets/CheckConditions.png)
-![Whole Flow](assets/WholeFlow.png)
+![Flow](assets/Flow.png)
+![Steam Deck Setup](assets/StreamDeckSetup.png)
+![Run Flow](assets/RunFlow.png)
+![Close Tab](assets/CloseTab.png)
 
 ## Applies to
 
