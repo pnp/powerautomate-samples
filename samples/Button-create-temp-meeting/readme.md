@@ -16,7 +16,7 @@ This flow checks when new appointments are added to your outlook calendar. If ch
 
 ## Compatibility
 
-![Premium License](https://img.shields.io/badge/Premium%20License-Not%20Required-green.svg "Premium license not required")
+![Premium License](https://img.shields.io/badge/Premium%20License-Not%20Required-green.svg "Premium license required")
 ![On-Premises Connectors](https://img.shields.io/badge/On--Premises%20Connectors-No-green.svg "Does not use on-premise connectors")
 ![Custom Connectors](https://img.shields.io/badge/Custom%20Connectors-Not%20Required-green.svg "Does not use custom connectors")
 
