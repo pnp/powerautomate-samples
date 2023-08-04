@@ -2,7 +2,7 @@
 
 ## Summary
 
-This flow checks when new appointments are added to your outlook calendar. If checks to see if an existing appointment titled "Lunch". If the appointment that was sent clashes with the Lunch appointment you have in your Outlook Calendar, it sends a reply to the person. This is configurable to the domain the person sent it from. In this sample, it rejects the appointment if it's sent by someone internally and tentatively accepts if sent externally. Both have configurable messages to each of the replies.
+This flow allows you to create an ad-hoc meeting on demand, with just 1 click. Have you ever had a colleague who just asked for a 5 minute chat on teams? Or were you in an office and some just wants to grab you for 10 minutes to get your input in somnething. Then get to the end of the week and can't remember what you did for your timesheet? 😅 We've all been there, this allows you to quickly and easily, pop in a meeting in your outlook calendar and then you can update the time and description later.
 
 ![Flow](assets/Flow.png)
 ![Steam Deck Setup](assets/StreamDeckSetup.png)
@@ -30,16 +30,15 @@ folder name | [Matt Collins-Jones](https://github.com/MattCollins-Jones) ([@D365
 
 Version|Date|Comments
 -------|----|--------
-1.0|Feburary 11, 2022|Initial release
+1.0|November 16, 2022|Initial release
 
 ## Features
 
 This sample demonstrates:
 
-* Triggering a flow from an Outlook Appointment being receieved
-* Filtering an Outlook Calendar to and retrieving entries using the time from the trigger and a keyword "Lunch"
-* Replying to the appointment
-* Customisable message for people internal or external to the company you work but this can be customised further for specific email domains
+* Triggering a flow from a webhook
+* Adding a item to your outlook calendar
+* Filtering the current date and time to put the meeting in immediately
 
 
 ## Minimal Path to Awesome
