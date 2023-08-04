@@ -16,7 +16,7 @@ This flow allows you to create an ad-hoc meeting on demand, with just 1 click. H
 
 ## Compatibility
 
-![Premium License](https://img.shields.io/badge/Premium%20License-Not%20Required-green.svg "Premium license required")
+![Premium License](https://img.shields.io/badge/Premium%20License-Required-green.svg "required")
 ![On-Premises Connectors](https://img.shields.io/badge/On--Premises%20Connectors-No-green.svg "Does not use on-premise connectors")
 ![Custom Connectors](https://img.shields.io/badge/Custom%20Connectors-Not%20Required-green.svg "Does not use custom connectors")
 
