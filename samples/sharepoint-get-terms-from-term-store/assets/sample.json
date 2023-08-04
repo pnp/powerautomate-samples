@@ -4,8 +4,8 @@
         "name": "sharepoint-get-terms-from-term-store",
         "version": "1.0.0.0",
         "source": "pnp",
-        "creationDateTime": "2022-07-29T00:00:00.000Z",
-        "updateDateTime": "2022-07-29T00:00:00.000Z",
+        "creationDateTime": "2022-07-29",
+        "updateDateTime": "2022-07-29",
         "title": "Get SharePoint terms from Term Store",
         "shortDescription": "Get SharePoint terms by group Id",
         "longDescription": [

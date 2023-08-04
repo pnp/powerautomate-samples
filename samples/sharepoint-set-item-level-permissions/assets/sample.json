@@ -4,8 +4,8 @@
         "name": "sharepoint-set-item-level-permissions",
         "version": "1.0.0.0",
         "source": "pnp",
-        "creationDateTime": "2022-06-29T00:00:00.000Z",
-        "updateDateTime": "2022-06-29T00:00:00.000Z",
+        "creationDateTime": "2022-06-29",
+        "updateDateTime": "2022-06-29",
         "title": "Set item level permissions",
         "shortDescription": "This sample flow set item level permissions",
         "longDescription": [

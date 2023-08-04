@@ -1,14 +1,12 @@
 [
-    {
-      "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
-      "name": "pnp-powerautomate-samples-notify-on-last-working-day"
+
     {
       "$schema": "https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json",
       "name": "pnp-powerautomate-samples-notify-on-last-working-day",
       "version": "1.0.0.0",
       "source": "pnp",
-      "creationDateTime": "2022-03-08T00:00:00.000Z",
-      "updateDateTime": "2022-03-08T00:00:00.000Z",
+      "creationDateTime": "2022-03-08",
+      "updateDateTime": "2022-03-08",
       "title": "Be notified about the last working day of the month (except holidays)",
       "shortDescription": "Send an e-mail notification on the last **working** day of the month. ",
       "longDescription": [

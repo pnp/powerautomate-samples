@@ -4,8 +4,8 @@
       "name": "pnp-powerautomate-planner-task-from-flagged-email",
       "version": "1.0.0.0",
       "source": "pnp",
-      "creationDateTime": "2021-05-04T00:00:00.000Z",
-      "updateDateTime": "2021-05-04T00:00:00.000Z",
+      "creationDateTime": "2021-05-04",
+      "updateDateTime": "2021-05-04",
       "title": "Flagged Email to Planner",
       "shortDescription": "Create Planner Task from flagged emails",
       "longDescription": [

@@ -4,8 +4,8 @@
         "name": "pnp-powerautomate-samples-exception-handing-in-do-until-loop",
         "version": "1.0.0.0",
         "source": "pnp",
-        "creationDateTime": "2021-05-01T00:00:00.000Z",
-        "updateDateTime": "2021-05-01T00:00:00.000Z",
+        "creationDateTime": "2021-05-01",
+        "updateDateTime": "2021-05-01",
         "title": "Pattern: Exception handing in 'Do until'-loop",
         "shortDescription": "A pattern for breaking out of a 'Do Until'-loop in Power Automate when an exception occurs.",
         "longDescription": [
