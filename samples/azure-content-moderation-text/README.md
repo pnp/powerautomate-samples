@@ -46,7 +46,7 @@ This app uses Content Moderation resource and Http Premium Connector.
 
 4. Using the Keys and endpoint invoke the flow with the appropriate parametess
 
-![picture of the flow](assets/PowerPlatformRunOutput.png)
+![picture of the flow](assets/PowerplatformRunOutput.png)
 
 ## Minimal Path to Awesome
 
