@@ -42,7 +42,7 @@ This app uses Content Moderation resource and Http Premium Connector.
 ![picture of the flow](assets/AzureContentModerationResourceProvision.png)
 
 3. Once the resource is provisioned,navigate to the **Resource** > **Content moderation* > **Keys and Endpoint** 
-![picture of the flow](assets/AzureKeysAndEndpoint.png)
+![picture of the flow](assets/AzureKeysAndEndPoint.png)
 
 4. Using the Keys and endpoint invoke the flow with the appropriate parametess
 
