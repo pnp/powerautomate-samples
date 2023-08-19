@@ -27,7 +27,7 @@ azure-content-moderation-text | [Divya Akula](https://github.com/divya-akula)
 
 Version|Date|Comments
 -------|----|--------
-1.0|Sep 18, 2022|Initial release
+1.0|Aug 19, 2023|Initial release
 
 ## Features
 Azure Content moderation helps to streamline or moderate the data which includes text , image and video . These services can be used by any application by the API endpoints provided by azure.
