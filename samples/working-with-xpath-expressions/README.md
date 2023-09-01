@@ -9,14 +9,8 @@ This flow will do the following:
  - Once in XML format, we'll use XPath expressions to query the data effectively. 
  - Finally we can revert the data back to its JSON format for subsequent use within the flow.
 
-
-> Please provide a high-quality screenshot of your flow below. It should be stored in a folder called `assets`.
-> If possible, use a resolution of 1920x1080.
-> You can add as many screen shots as you'd like to help users understand your sample without having to download it and install it.
-> DELETE THIS PARAGRAPH BEFORE SUBMITTING
-
-![](assets/preview01.png)
-![](assets/preview02.png)
+![](assets/Preview01.png)
+![](assets/Preview02.png)
 
 ## Applies to
 
@@ -78,7 +72,3 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 
 
 <img src="https://telemetry.sharepointpnp.com/powerautomate-samples/samples/working-with-xpath-expressions" />
-
----
-> Note that better pictures and documentation will increase the sample usage and the value you are providing for others. Thanks for your submissions in advance! You rock ❤.
-> DELETE THIS PARAGRAPH BEFORE SUBMITTING
