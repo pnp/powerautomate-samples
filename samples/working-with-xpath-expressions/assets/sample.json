@@ -1,0 +1,864 @@
+{
+  "customers": [
+    {
+      "id": "001",
+      "personalInfo": {
+        "firstName": "Luke",
+        "lastName": "Skywalker",
+        "email": "luke@rebellion.net",
+        "phone": "123-456-7890",
+        "address": {
+          "street": "Tatooine Farm",
+          "city": "Mos Eisley",
+          "state": "Tatooine",
+          "postalCode": "00001",
+          "country": "Galactic Empire"
+        },
+        "birthdate": "1980-05-25",
+        "gender": "Male",
+        "preferredLanguage": "Galactic Basic"
+      },
+      "purchases": [
+        {
+          "product": {
+            "name": "Lightsaber",
+            "category": "Weapons"
+          },
+          "price": 400,
+          "quantity": 1,
+          "date": "2023-08-21"
+        },
+        {
+          "product": {
+            "name": "X-Wing Starfighter",
+            "category": "Starships"
+          },
+          "price": 80000,
+          "quantity": 1,
+          "date": "2023-04-11"
+        }
+      ],
+      "preferences": {
+        "categories": [
+          "Starships",
+          "Weapons"
+        ],
+        "colors": [
+          "Blue",
+          "Green"
+        ],
+        "shipping": {
+          "method": "Hyperdrive",
+          "address": {
+            "street": "Tatooine Farm",
+            "city": "Mos Eisley",
+            "state": "Tatooine",
+            "postalCode": "00001",
+            "country": "Galactic Empire"
+          }
+        }
+      },
+      "loyalty": {
+        "status": "Jedi Knight",
+        "points": 10000,
+        "tierBenefits": {
+          "discount": 10,
+          "freeShipping": "Yes",
+          "exclusiveOffers": "Yes"
+        }
+      },
+      "wishlist": [
+        {
+          "product": {
+            "name": "Death Star Plans",
+            "category": "Intelligence"
+          },
+          "priority": 1
+        }
+      ],
+      "reviews": [
+        {
+          "product": {
+            "name": "Lightsaber",
+            "category": "Weapons"
+          },
+          "rating": 5,
+          "text": "The Force is strong with this one."
+        }
+      ],
+      "interactions": [
+        {
+          "type": "Battle",
+          "date": "2023-05-04",
+          "subject": "Destruction of Death Star"
+        }
+      ]
+    },
+    {
+      "id": "002",
+      "personalInfo": {
+        "firstName": "Leia",
+        "lastName": "Organa",
+        "email": "leia@rebellion.net",
+        "phone": "234-567-8901",
+        "address": {
+          "street": "Alderaan Palace",
+          "city": "Aldera",
+          "state": "Alderaan",
+          "postalCode": "00002",
+          "country": "Galactic Empire"
+        },
+        "birthdate": "1980-04-22",
+        "gender": "Female",
+        "preferredLanguage": "Galactic Basic"
+      },
+      "purchases": [
+        {
+          "product": {
+            "name": "Blaster Pistol",
+            "category": "Weapons"
+          },
+          "price": 300,
+          "quantity": 1,
+          "date": "2023-02-13"
+        },
+        {
+          "product": {
+            "name": "Tantive IV",
+            "category": "Starships"
+          },
+          "price": 50000,
+          "quantity": 1,
+          "date": "2023-05-18"
+        }
+      ],
+      "preferences": {
+        "categories": [
+          "Starships",
+          "Weapons"
+        ],
+        "colors": [
+          "White",
+          "Red"
+        ],
+        "shipping": {
+          "method": "Hyperdrive",
+          "address": {
+            "street": "Alderaan Palace",
+            "city": "Aldera",
+            "state": "Alderaan",
+            "postalCode": "00002",
+            "country": "Galactic Empire"
+          }
+        }
+      },
+      "loyalty": {
+        "status": "Rebel Leader",
+        "points": 15000,
+        "tierBenefits": {
+          "discount": 15,
+          "freeShipping": "Yes",
+          "exclusiveOffers": "Yes"
+        }
+      },
+      "wishlist": [
+        {
+          "product": {
+            "name": "Death Star Plans",
+            "category": "Intelligence"
+          },
+          "priority": 1
+        }
+      ],
+      "reviews": [
+        {
+          "product": {
+            "name": "Blaster Pistol",
+            "category": "Weapons"
+          },
+          "rating": 4,
+          "text": "Accurate and reliable in combat situations."
+        }
+      ],
+      "interactions": [
+        {
+          "type": "Mission",
+          "date": "2023-06-06",
+          "subject": "Rescue of Han Solo"
+        }
+      ]
+    },
+    {
+      "id": "003",
+      "personalInfo": {
+        "firstName": "Han",
+        "lastName": "Solo",
+        "email": "han@rebellion.net",
+        "phone": "345-678-9012",
+        "address": {
+          "street": "Millennium Falcon",
+          "city": "Mos Eisley",
+          "state": "Tatooine",
+          "postalCode": "00003",
+          "country": "Galactic Empire"
+        },
+        "birthdate": "1977-07-18",
+        "gender": "Male",
+        "preferredLanguage": "Galactic Basic"
+      },
+      "purchases": [
+        {
+          "product": {
+            "name": "Blaster Pistol",
+            "category": "Weapons"
+          },
+          "price": 300,
+          "quantity": 1,
+          "date": "2023-03-14"
+        },
+        {
+          "product": {
+            "name": "Millennium Falcon",
+            "category": "Starships"
+          },
+          "price": 100000,
+          "quantity": 1,
+          "date": "2023-05-19"
+        }
+      ],
+      "preferences": {
+        "categories": [
+          "Starships",
+          "Weapons"
+        ],
+        "colors": [
+          "Black",
+          "Brown"
+        ],
+        "shipping": {
+          "method": "Hyperdrive",
+          "address": {
+            "street": "Millennium Falcon",
+            "city": "Mos Eisley",
+            "state": "Tatooine",
+            "postalCode": "00003",
+            "country": "Galactic Empire"
+          }
+        }
+      },
+      "loyalty": {
+        "status": "Smuggler",
+        "points": 12000,
+        "tierBenefits": {
+          "discount": 10,
+          "freeShipping": "Yes",
+          "exclusiveOffers": "Yes"
+        }
+      },
+      "wishlist": [
+        {
+          "product": {
+            "name": "Death Star Plans",
+            "category": "Intelligence"
+          },
+          "priority": 1
+        }
+      ],
+      "reviews": [
+        {
+          "product": {
+            "name": "Blaster Pistol",
+            "category": "Weapons"
+          },
+          "rating": 5,
+          "text": "Perfect for any situation, a real lifesaver."
+        }
+      ],
+      "interactions": [
+        {
+          "type": "Mission",
+          "date": "2023-07-07",
+          "subject": "Kessel Run"
+        }
+      ]
+    },
+    {
+      "id": "004",
+      "personalInfo": {
+        "firstName": "Chewbacca",
+        "lastName": "",
+        "email": "chewie@rebellion.net",
+        "phone": "456-789-0123",
+        "address": {
+          "street": "Millennium Falcon",
+          "city": "Mos Eisley",
+          "state": "Tatooine",
+          "postalCode": "00004",
+          "country": "Galactic Empire"
+        },
+        "birthdate": "180-05-20",
+        "gender": "Male",
+        "preferredLanguage": "Shyriiwook"
+      },
+      "purchases": [
+        {
+          "product": {
+            "name": "Bowcaster",
+            "category": "Weapons"
+          },
+          "price": 500,
+          "quantity": 1,
+          "date": "2023-01-11"
+        },
+        {
+          "product": {
+            "name": "Porg",
+            "category": "Pets"
+          },
+          "price": 20,
+          "quantity": 1,
+          "date": "2023-05-22"
+        }
+      ],
+      "preferences": {
+        "categories": [
+          "Weapons",
+          "Pets"
+        ],
+        "colors": [
+          "Brown",
+          "Black"
+        ],
+        "shipping": {
+          "method": "Hyperdrive",
+          "address": {
+            "street": "Millennium Falcon",
+            "city": "Mos Eisley",
+            "state": "Tatooine",
+            "postalCode": "00004",
+            "country": "Galactic Empire"
+          }
+        }
+      },
+      "loyalty": {
+        "status": "Co-pilot",
+        "points": 11000,
+        "tierBenefits": {
+          "discount": 10,
+          "freeShipping": "Yes",
+          "exclusiveOffers": "Yes"
+        }
+      },
+      "wishlist": [
+        {
+          "product": {
+            "name": "Death Star Plans",
+            "category": "Intelligence"
+          },
+          "priority": 1
+        }
+      ],
+      "reviews": [
+        {
+          "product": {
+            "name": "Bowcaster",
+            "category": "Weapons"
+          },
+          "rating": 5,
+          "text": "Powerful and accurate, a Wookiee's best friend."
+        }
+      ],
+      "interactions": [
+        {
+          "type": "Mission",
+          "date": "2023-08-08",
+          "subject": "Rescue of Princess Leia"
+        }
+      ]
+    },
+    {
+      "id": "005",
+      "personalInfo": {
+        "firstName": "Darth",
+        "lastName": "Vader",
+        "email": "vader@empire.net",
+        "phone": "567-890-1234",
+        "address": {
+          "street": "Death Star",
+          "city": "Galactic Center",
+          "state": "Galactic Empire",
+          "postalCode": "00005",
+          "country": "Galactic Empire"
+        },
+        "birthdate": "1944-03-22",
+        "gender": "Male",
+        "preferredLanguage": "Galactic Basic"
+      },
+      "purchases": [
+        {
+          "product": {
+            "name": "Lightsaber",
+            "category": "Weapons"
+          },
+          "price": 400,
+          "quantity": 1,
+          "date": "2023-04-20"
+        },
+        {
+          "product": {
+            "name": "TIE Advanced x1",
+            "category": "Starships"
+          },
+          "price": 75000,
+          "quantity": 1,
+          "date": "2023-05-23"
+        }
+      ],
+      "preferences": {
+        "categories": [
+          "Starships",
+          "Weapons"
+        ],
+        "colors": [
+          "Black",
+          "Red"
+        ],
+        "shipping": {
+          "method": "Hyperdrive",
+          "address": {
+            "street": "Death Star",
+            "city": "Galactic Center",
+            "state": "Galactic Empire",
+            "postalCode": "00005",
+            "country": "Galactic Empire"
+          }
+        }
+      },
+      "loyalty": {
+        "status": "Sith Lord",
+        "points": 20000,
+        "tierBenefits": {
+          "discount": 20,
+          "freeShipping": "Yes",
+          "exclusiveOffers": "Yes"
+        }
+      },
+      "wishlist": [
+        {
+          "product": {
+            "name": "Death Star Plans",
+            "category": "Intelligence"
+          },
+          "priority": 1
+        }
+      ],
+      "reviews": [
+        {
+          "product": {
+            "name": "Lightsaber",
+            "category": "Weapons"
+          },
+          "rating": 5,
+          "text": "I am your Father."
+        }
+      ],
+      "interactions": [
+        {
+          "type": "Battle",
+          "date": "2023-09-09",
+          "subject": "Duel with Obi-Wan Kenobi"
+        }
+      ]
+    },
+    {
+      "id": "006",
+      "personalInfo": {
+        "firstName": "Obi-Wan",
+        "lastName": "Kenobi",
+        "email": "kenobi@jediorder.net",
+        "phone": "678-901-2345",
+        "address": {
+          "street": "Ben's Hut",
+          "city": "Dune Sea",
+          "state": "Tatooine",
+          "postalCode": "00006",
+          "country": "Galactic Empire"
+        },
+        "birthdate": "1932-07-10",
+        "gender": "Male",
+        "preferredLanguage": "Galactic Basic"
+      },
+      "purchases": [
+        {
+          "product": {
+            "name": "Lightsaber",
+            "category": "Weapons"
+          },
+          "price": 400,
+          "quantity": 1,
+          "date": "2023-06-03"
+        }
+      ],
+      "preferences": {
+        "categories": [
+          "Weapons"
+        ],
+        "colors": [
+          "Blue"
+        ],
+        "shipping": {
+          "method": "Hyperdrive",
+          "address": {
+            "street": "Ben's Hut",
+            "city": "Dune Sea",
+            "state": "Tatooine",
+            "postalCode": "00006",
+            "country": "Galactic Empire"
+          }
+        }
+      },
+      "loyalty": {
+        "status": "Jedi Master",
+        "points": 20000,
+        "tierBenefits": {
+          "discount": 20,
+          "freeShipping": "Yes",
+          "exclusiveOffers": "Yes"
+        }
+      },
+      "wishlist": [
+        {
+          "product": {
+            "name": "Death Star Plans",
+            "category": "Intelligence"
+          },
+          "priority": 1
+        }
+      ],
+      "reviews": [
+        {
+          "product": {
+            "name": "Lightsaber",
+            "category": "Weapons"
+          },
+          "rating": 5,
+          "text": "The weapon of a Jedi Knight. Not as clumsy or random as a blaster."
+        }
+      ],
+      "interactions": [
+        {
+          "type": "Battle",
+          "date": "2023-09-09",
+          "subject": "Duel with Darth Vader"
+        }
+      ]
+    },
+    {
+      "id": "007",
+      "personalInfo": {
+        "firstName": "Yoda",
+        "lastName": "",
+        "email": "yoda@jediorder.net",
+        "phone": "789-012-3456",
+        "address": {
+          "street": "Yoda's Hut",
+          "city": "Swamp",
+          "state": "Dagobah",
+          "postalCode": "00007",
+          "country": "Galactic Empire"
+        },
+        "birthdate": "896-02-15",
+        "gender": "Male",
+        "preferredLanguage": "Galactic Basic"
+      },
+      "purchases": [
+        {
+          "product": {
+            "name": "Lightsaber",
+            "category": "Weapons"
+          },
+          "price": 400,
+          "quantity": 1,
+          "date": "2023-01-04"
+        }
+      ],
+      "preferences": {
+        "categories": [
+          "Weapons"
+        ],
+        "colors": [
+          "Green"
+        ],
+        "shipping": {
+          "method": "Hyperdrive",
+          "address": {
+            "street": "Yoda's Hut",
+            "city": "Swamp",
+            "state": "Dagobah",
+            "postalCode": "00007",
+            "country": "Galactic Empire"
+          }
+        }
+      },
+      "loyalty": {
+        "status": "Jedi Master",
+        "points": 25000,
+        "tierBenefits": {
+          "discount": 25,
+          "freeShipping": "Yes",
+          "exclusiveOffers": "Yes"
+        }
+      },
+      "wishlist": [],
+      "reviews": [
+        {
+          "product": {
+            "name": "Lightsaber",
+            "category": "Weapons"
+          },
+          "rating": 5,
+          "text": "A Jedi's weapon, this is."
+        }
+      ],
+      "interactions": [
+        {
+          "type": "Training",
+          "date": "2023-06-06",
+          "subject": "Training Luke Skywalker"
+        }
+      ]
+    },
+    {
+      "id": "008",
+      "personalInfo": {
+        "firstName": "Lando",
+        "lastName": "Calrissian",
+        "email": "lando@cloudcity.net",
+        "phone": "890-123-4567",
+        "address": {
+          "street": "Cloud City",
+          "city": "Bespin",
+          "state": "Outer Rim Territories",
+          "postalCode": "00008",
+          "country": "Galactic Empire"
+        },
+        "birthdate": "1937-04-27",
+        "gender": "Male",
+        "preferredLanguage": "Galactic Basic"
+      },
+      "purchases": [
+        {
+          "product": {
+            "name": "Bespin Guard Blaster",
+            "category": "Weapons"
+          },
+          "price": 300,
+          "quantity": 1,
+          "date": "2023-03-13"
+        }
+      ],
+      "preferences": {
+        "categories": [
+          "Weapons"
+        ],
+        "colors": [
+          "Blue"
+        ],
+        "shipping": {
+          "method": "Hyperdrive",
+          "address": {
+            "street": "Cloud City",
+            "city": "Bespin",
+            "state": "Outer Rim Territories",
+            "postalCode": "00008",
+            "country": "Galactic Empire"
+          }
+        }
+      },
+      "loyalty": {
+        "status": "Baron Administrator",
+        "points": 15000,
+        "tierBenefits": {
+          "discount": 15,
+          "freeShipping": "Yes",
+          "exclusiveOffers": "Yes"
+        }
+      },
+      "wishlist": [
+        {
+          "product": {
+            "name": "Millennium Falcon",
+            "category": "Starships"
+          },
+          "priority": 1
+        }
+      ],
+      "reviews": [
+        {
+          "product": {
+            "name": "Bespin Guard Blaster",
+            "category": "Weapons"
+          },
+          "rating": 4,
+          "text": "Sturdy and reliable, just what I needed."
+        }
+      ],
+      "interactions": [
+        {
+          "type": "Deal",
+          "date": "2023-07-07",
+          "subject": "Deal with Darth Vader"
+        }
+      ]
+    },
+    {
+      "id": "009",
+      "personalInfo": {
+        "firstName": "C-3PO",
+        "lastName": "",
+        "email": "c3po@droids.net",
+        "phone": "901-234-5678",
+        "address": {
+          "street": "Rebel Base",
+          "city": "Yavin IV",
+          "state": "Outer Rim Territories",
+          "postalCode": "00009",
+          "country": "Rebel Alliance"
+        },
+        "birthdate": "112-12-10",
+        "gender": "Droid",
+        "preferredLanguage": "Over 6 million forms of communication"
+      },
+      "purchases": [
+        {
+          "product": {
+            "name": "Oil Bath",
+            "category": "Maintenance"
+          },
+          "price": 10,
+          "quantity": 1,
+          "date": "2023-02-14"
+        }
+      ],
+      "preferences": {
+        "categories": [
+          "Maintenance"
+        ],
+        "colors": [
+          "Gold"
+        ],
+        "shipping": {
+          "method": "Hyperdrive",
+          "address": {
+            "street": "Rebel Base",
+            "city": "Yavin IV",
+            "state": "Outer Rim Territories",
+            "postalCode": "00009",
+            "country": "Rebel Alliance"
+          }
+        }
+      },
+      "loyalty": {
+        "status": "Protocol Droid",
+        "points": 1000,
+        "tierBenefits": {
+          "discount": 5,
+          "freeShipping": "Yes",
+          "exclusiveOffers": "Yes"
+        }
+      },
+      "wishlist": [
+        {
+          "product": {
+            "name": "Oil Bath",
+            "category": "Maintenance"
+          },
+          "priority": 1
+        }
+      ],
+      "reviews": [],
+      "interactions": [
+        {
+          "type": "Mission",
+          "date": "2023-05-05",
+          "subject": "Aid in Destruction of Death Star"
+        }
+      ]
+    },
+    {
+      "id": "010",
+      "personalInfo": {
+        "firstName": "R2-D2",
+        "lastName": "",
+        "email": "r2d2@droids.net",
+        "phone": "012-345-6789",
+        "address": {
+          "street": "Rebel Base",
+          "city": "Yavin IV",
+          "state": "Outer Rim Territories",
+          "postalCode": "00010",
+          "country": "Rebel Alliance"
+        },
+        "birthdate": "112-12-10",
+        "gender": "Droid",
+        "preferredLanguage": "Beeps and Whistles"
+      },
+      "purchases": [
+        {
+          "product": {
+            "name": "Astromech Tools",
+            "category": "Maintenance"
+          },
+          "price": 50,
+          "quantity": 1,
+          "date": "2023-03-15"
+        }
+      ],
+      "preferences": {
+        "categories": [
+          "Maintenance"
+        ],
+        "colors": [
+          "White",
+          "Blue"
+        ],
+        "shipping": {
+          "method": "Hyperdrive",
+          "address": {
+            "street": "Rebel Base",
+            "city": "Yavin IV",
+            "state": "Outer Rim Territories",
+            "postalCode": "00010",
+            "country": "Rebel Alliance"
+          }
+        }
+      },
+      "loyalty": {
+        "status": "Astromech Droid",
+        "points": 2000,
+        "tierBenefits": {
+          "discount": 10,
+          "freeShipping": "Yes",
+          "exclusiveOffers": "Yes"
+        }
+      },
+      "wishlist": [
+        {
+          "product": {
+            "name": "Astromech Tools",
+            "category": "Maintenance"
+          },
+          "priority": 1
+        }
+      ],
+      "reviews": [],
+      "interactions": [
+        {
+          "type": "Mission",
+          "date": "2023-04-04",
+          "subject": "Deliver Death Star Plans to Obi-Wan Kenobi"
+        }
+      ]
+    }
+  ]
+}

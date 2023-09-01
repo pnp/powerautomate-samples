@@ -9,9 +9,9 @@ This flow will do the following:
  - Once in XML format, we'll use XPath expressions to query the data effectively. 
  - Finally the output data will be converted back to JSON format for subsequent use within the flow.
 
-![Preview01](assets/Preview01.png)
-![Preview02](assets/Preview02.png)
-![Preview03](assets/Preview03.png)
+![preview01](assets/preview01.png)
+![preview02](assets/preview02.png)
+![preview03](assets/preview03.png)
 
 ## Applies to
 
@@ -45,6 +45,7 @@ This sample illustrates the following concepts:
 ## Minimal Path to Awesome
 
 * [Download](solution/working-with-xpath-expressions.zip) the `.zip` from the `solution` folder
+* [Download](assets/sample.json) the `sample.json` from the `assets` folder
 * [Import](https://flow.microsoft.com/en-us/blog/import-export-bap-packages/) the `.zip` file using **My Flows** > **Import** > **Upload** within Microsoft Flow.
 
 
