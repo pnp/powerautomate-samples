@@ -7,7 +7,7 @@ When working with REST APIs, the response can be an array of objects in JSON for
 This flow will do the following:
  - We'll start by converting the JSON data to XML. 
  - Once in XML format, we'll use XPath expressions to query the data effectively. 
- - Finally we can revert the data back to its JSON format for subsequent use within the flow.
+ - Finally the output data will be converted back to JSON format for subsequent use within the flow.
 
 ![](assets/Preview01.png)
 ![](assets/Preview02.png)
