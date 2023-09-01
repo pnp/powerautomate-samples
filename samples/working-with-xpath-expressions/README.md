@@ -28,7 +28,7 @@ This flow will do the following:
 
 Solution|Author(s)
 --------|---------
-working-with-xpath-expressions | [Gabriel Koolman](LinkToYourGitHubProfile)
+working-with-xpath-expressions | [Gabriel Koolman](https://www.linkedin.com/in/gabrielkoolman/)
 
 ## Version history
 
