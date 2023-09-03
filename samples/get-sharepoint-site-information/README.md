@@ -49,7 +49,7 @@ You can also use the [Power Apps CLI](https://docs.microsoft.com/powerapps/devel
   pac solution pack --zipfile pathtodestinationfile --folder pathtosourcefolder --processCanvasApps
   ```
   Making sure to replace `pathtosourcefolder` to point to the path to this sample's `sourcecode` folder, and `pathtodestinationfile` to point to the path of this solution's `.zip` file (located under the `solution` folder)
-* Within **Power Automate Studio**, import the solution `.zip` file using **Solutions** > **Import Solution** and select the `.zip` file you just packed.
+* Within **Power Automate Studio**, import the `.zip` file using **My Flows** > **Import** > **Upload** within Microsoft Flow.
 
 ## Disclaimer
 
