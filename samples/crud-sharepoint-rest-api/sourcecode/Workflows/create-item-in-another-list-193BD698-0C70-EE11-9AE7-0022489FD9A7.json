@@ -1,0 +1,384 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_sharepointonline_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "ggk_SharePointDemo"
+        },
+        "api": {
+          "name": "shared_sharepointonline"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "SPsite (ggk_SPsite)": {
+          "defaultValue": "https://shocoitsolutions.sharepoint.com/sites/SharePoint-REST-API",
+          "type": "String",
+          "metadata": {
+            "schemaName": "ggk_SPsite"
+          }
+        },
+        "SPcreateList (ggk_SPcreateList)": {
+          "defaultValue": "3127e441-45e2-4ccb-800d-573c57f91c45",
+          "type": "String",
+          "metadata": {
+            "schemaName": "ggk_SPcreateList"
+          }
+        },
+        "SPlistSettings (ggk_SPlistSettings)": {
+          "defaultValue": {
+            "siteUrl": "https://shocoitsolutions.sharepoint.com/sites/SharePoint-REST-API",
+            "createList": {
+              "listName": "CreateList",
+              "spData": "SP.Data.CreateListListItem"
+            },
+            "targetList": {
+              "listName": "TargetList",
+              "spData": "SP.Data.TargetListListItem"
+            },
+            "ownersPrincipleId": 3,
+            "membersPrincipleId": 5,
+            "visitorPrincipleId": 4,
+            "ownersPermissionMask": 1073741829,
+            "membersPermissionMask": 1073741827,
+            "visitorPermissionMask": 1073741826
+          },
+          "type": "Object",
+          "metadata": {
+            "schemaName": "ggk_SPlistSettings"
+          }
+        }
+      },
+      "triggers": {
+        "When_an_item_is_created_in_CreateList": {
+          "recurrence": {
+            "interval": 1,
+            "frequency": "Minute"
+          },
+          "splitOn": "@triggerOutputs()?['body/value']",
+          "metadata": {
+            "operationMetadataId": "0fbfe796-23b8-401a-baf6-49f262c3fbd8"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_sharepointonline_1",
+              "operationId": "GetOnNewItems",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+            },
+            "parameters": {
+              "dataset": "@parameters('SPsite (ggk_SPsite)')",
+              "table": "@parameters('SPcreateList (ggk_SPcreateList)')"
+            },
+            "authentication": "@parameters('$authentication')"
+          },
+          "description": "The flow triggers when a new item is created. Adjust the trigger condition for your convenience."
+        }
+      },
+      "actions": {
+        "Try": {
+          "actions": {
+            "Send_an_HTTP_request_to_SharePoint_-_Get_additional_info": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "5d7ea9ed-ed7c-40f3-8ad2-78d35a8c883f"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_sharepointonline_1",
+                  "operationId": "HttpRequest",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+                },
+                "parameters": {
+                  "dataset": "@parameters('SPsite (ggk_SPsite)')",
+                  "parameters/method": "GET",
+                  "parameters/uri": "_api/web/lists/getbytitle('@{variables('Settings')['createList']?['listName']}')/items(@{triggerOutputs()?['body/ID']})?$select=*,MultipleUsers/Id,MultipleUsers/Title, MultipleUsers/EMail, MultipleUsers/Name&$expand=MultipleUsers",
+                  "parameters/headers": {
+                    "accept": "application/json; odata=verbose"
+                  }
+                },
+                "authentication": "@parameters('$authentication')"
+              },
+              "description": "Here we perform 'Get item'. The wildcard symbol '*', selects all columns. For the 'MultipleUsers' lookup field, properties are selected first, followed by the use of '$expand' to obtain the additional properties associated with this field."
+            },
+            "Compose_-_XPath_root": {
+              "runAfter": {
+                "Send_an_HTTP_request_to_SharePoint_-_Get_additional_info": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "48d8ff84-3c81-4b30-bfd7-9a53c5b8956d"
+              },
+              "type": "Compose",
+              "inputs": {
+                "root": {
+                  "body": "@body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')"
+                }
+              },
+              "description": "Converting this JSON structure to XML enables XPath expressions for data navigation. Although XPath can be applied directly from the preceding action, including a root object here provides better organization and clarity."
+            },
+            "Condition_-_Check_if_Date_and_DateAndTime_fields_are_null": {
+              "actions": {
+                "Send_an_HTTP_request_to_SharePoint_-_Create_list_item_in_TargetList": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "5d7ea9ed-ed7c-40f3-8ad2-78d35a8c883f"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_sharepointonline_1",
+                      "operationId": "HttpRequest",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+                    },
+                    "parameters": {
+                      "dataset": "@parameters('SPsite (ggk_SPsite)')",
+                      "parameters/method": "POST",
+                      "parameters/uri": "_api/web/lists/getbytitle('@{variables('Settings')['targetList']?['listName']}')/items",
+                      "parameters/headers": {
+                        "accept": "application/json; odata=verbose",
+                        "content-type": "application/json; odata=verbose"
+                      },
+                      "parameters/body": "{\n  \"__metadata\": { \"type\": \"@{variables('Settings')['targetList']?['spData']}\" },\n  \"Title\": \"@{triggerOutputs()?['body/Title']}\",\n\"Number\": @{coalesce(body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['Number'], 0)},\n\"SingleUserId\": @{coalesce(body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['SingleUserId'], 'null')},\n  \"MultipleUsersId\": {\"results\": @{if(empty(body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['MultipleUsersId']), json('[]'), xpath(xml(outputs('Compose_-_XPath_root')), '/root/body/d/MultipleUsers/results/Id/text()'))}},\n\"Hyperlink\": {\"__metadata\": { \"type\": \"SP.FieldUrlValue\" },\n                        \"Description\": \"@{if(empty(body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['Hyperlink']), null,body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['Hyperlink']?['Description'])}\",\n                        \"Url\": \"@{if(empty(body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['Hyperlink']), null,body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['Hyperlink']?['Url'])}\"\n                    },\n\"YesNo\": \"@{coalesce(body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['YesNo'], 'False')}\",\n\"Choice\": \"@{coalesce(body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['Choice'], null)}\",\n\"MultipleChoice\": {\"results\": @{if(empty(body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['MultipleChoice']), json('[]'), xpath(xml(outputs('Compose_-_XPath_root')), '/root/body/d/MultipleChoice/results/text()'))}},\n\"ContentTypeId\": \"@{body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['ContentTypeId']}\"\n}"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  },
+                  "description": "Date and DateAndTime fields are excluded from the request body because they contain null values, which would cause the API call to fail."
+                },
+                "Send_an_HTTP_request_to_SharePoint_-_Set_Date_and_DateAndTime": {
+                  "runAfter": {
+                    "Send_an_HTTP_request_to_SharePoint_-_Create_list_item_in_TargetList": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "5d7ea9ed-ed7c-40f3-8ad2-78d35a8c883f"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_sharepointonline_1",
+                      "operationId": "HttpRequest",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+                    },
+                    "parameters": {
+                      "dataset": "@parameters('SPsite (ggk_SPsite)')",
+                      "parameters/method": "POST",
+                      "parameters/uri": "_api/web/lists/getbytitle('@{variables('Settings')['targetList']?['listName']}')/items(@{body('Send_an_HTTP_request_to_SharePoint_-_Create_list_item_in_TargetList')?['d']?['ID']})/validateUpdateListItem",
+                      "parameters/headers": {
+                        "accept": "application/json; odata=verbose",
+                        "content-type": "application/json; odata=verbose"
+                      },
+                      "parameters/body": "{\n  \"formValues\": [\n {\n      \"FieldName\": \"Date\",\n      \"FieldValue\": \"@{if(empty(body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['Date']), null, convertFromUtc(body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['Date'], 'W. Europe Standard Time', 'dd-M-yyyy HH:mm'))}\"\n    },\n {\n      \"FieldName\": \"DateAndTime\",\n      \"FieldValue\": \"@{if(empty(body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['DateAndTime']), null, convertFromUtc(body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['DateAndTime'], 'W. Europe Standard Time', 'dd-M-yyyy HH:mm'))}\"\n    }\n  ],\n  \"bNewDocumentUpdate\": false\n}"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  },
+                  "description": " This API call serves as a workaround, enabling you to set values for Date or DateAndTime fields if they are null. Modify \"bNewDocumentUpdate\" to \"true\" if you do not want this update action to create a new version on SP for the newly created item."
+                }
+              },
+              "runAfter": {
+                "Compose_-_XPath_root": [
+                  "Succeeded"
+                ]
+              },
+              "else": {
+                "actions": {
+                  "Send_an_HTTP_request_to_SharePoint_-_Create_list_item_in_TargetList_2": {
+                    "runAfter": {},
+                    "metadata": {
+                      "operationMetadataId": "5d7ea9ed-ed7c-40f3-8ad2-78d35a8c883f"
+                    },
+                    "type": "OpenApiConnection",
+                    "inputs": {
+                      "host": {
+                        "connectionName": "shared_sharepointonline_1",
+                        "operationId": "HttpRequest",
+                        "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+                      },
+                      "parameters": {
+                        "dataset": "@parameters('SPsite (ggk_SPsite)')",
+                        "parameters/method": "POST",
+                        "parameters/uri": "_api/web/lists/getbytitle('@{variables('Settings')['targetList']?['listName']}')/items",
+                        "parameters/headers": {
+                          "accept": "application/json; odata=verbose",
+                          "content-type": "application/json; odata=verbose"
+                        },
+                        "parameters/body": "{\n  \"__metadata\": { \"type\": \"@{variables('Settings')['targetList']?['spData']}\" },\n  \"Title\": \"@{triggerOutputs()?['body/Title']}\",\n\"Number\": @{coalesce(body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['Number'], 0)},\n\"SingleUserId\": @{coalesce(body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['SingleUserId'], 'null')},\n  \"MultipleUsersId\": {\"results\": @{if(empty(body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['MultipleUsersId']), json('[]'), xpath(xml(outputs('Compose_-_XPath_root')), '/root/body/d/MultipleUsers/results/Id/text()'))}},\n\"Hyperlink\": {\"__metadata\": { \"type\": \"SP.FieldUrlValue\" },\n                        \"Description\": \"@{if(empty(body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['Hyperlink']), null, body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['Hyperlink']?['Description'])}\",\n                        \"Url\": \"@{if(empty(body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['Hyperlink']), null, body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['Hyperlink']?['Url'])}\"\n                    },\n\"Date\": \"@{convertFromUtc(body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['Date'], 'W. Europe Standard Time', 'dd-M-yyyy HH:mm')}\",\n\"DateAndTime\": \"@{convertFromUtc(body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['DateAndTime'], 'W. Europe Standard Time', 'dd-M-yyyy HH:mm')}\",\n\"YesNo\": \"@{coalesce(body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['YesNo'], 'False')}\",\n\"Choice\": \"@{coalesce(body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['Choice'], null)}\",\n\"MultipleChoice\": {\"results\": @{if(empty(body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['MultipleChoice']), json('[]'), xpath(xml(outputs('Compose_-_XPath_root')), '/root/body/d/MultipleChoice/results/text()'))}},\n\"ContentTypeId\": \"@{body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['ContentTypeId']}\"\n}"
+                      },
+                      "authentication": "@parameters('$authentication')"
+                    },
+                    "description": "In this case, the Date and DateTime fields are not null and are included in the request body."
+                  }
+                }
+              },
+              "expression": {
+                "or": [
+                  {
+                    "equals": [
+                      "@empty(body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['Date'])",
+                      "@true"
+                    ]
+                  },
+                  {
+                    "equals": [
+                      "@empty(body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['DateAndTime'])",
+                      "@true"
+                    ]
+                  }
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "98729e01-b945-422b-81c7-ca029885fcf7"
+              },
+              "type": "If",
+              "description": " If Date and DateAndTime fields contain null values, they cannot be created in the TargetList using SharePoint REST API. This condition guides the workflow in the right direction."
+            }
+          },
+          "runAfter": {
+            "Initialize_variable_-_Settings": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "4f8a6002-b5ee-4e80-83c5-494e65500d2c"
+          },
+          "type": "Scope"
+        },
+        "Initialize_variable_-_Settings": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "89c7bf76-8b24-49ba-a09f-024dbd0f6628"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Settings",
+                "type": "object",
+                "value": "@parameters('SPlistSettings (ggk_SPlistSettings)')"
+              }
+            ]
+          },
+          "description": "The value of the environment variable 'SPlistSettings' is stored within this object variable, as 'SPlistSettings' is of JSON data type. This allows for referencing this variable in later actions using the variables() expression."
+        },
+        "Catch": {
+          "actions": {
+            "Cancel_workflow": {
+              "runAfter": {
+                "Condition_-_Check_if_item_has_been_created": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "771bdff5-1082-480f-bd4d-0cb2db663855"
+              },
+              "type": "Terminate",
+              "inputs": {
+                "runStatus": "Cancelled"
+              }
+            },
+            "Condition_-_Check_if_item_has_been_created": {
+              "actions": {},
+              "runAfter": {
+                "Send_an_HTTP_request_to_SharePoint_-_Check_if_item_exist_in_TargetList": [
+                  "Succeeded"
+                ]
+              },
+              "else": {
+                "actions": {
+                  "Send_an_HTTP_request_to_SharePoint_-_Delete_item_from_TargetList": {
+                    "runAfter": {},
+                    "metadata": {
+                      "operationMetadataId": "5d7ea9ed-ed7c-40f3-8ad2-78d35a8c883f"
+                    },
+                    "type": "OpenApiConnection",
+                    "inputs": {
+                      "host": {
+                        "connectionName": "shared_sharepointonline_1",
+                        "operationId": "HttpRequest",
+                        "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+                      },
+                      "parameters": {
+                        "dataset": "@parameters('SPsite (ggk_SPsite)')",
+                        "parameters/method": "POST",
+                        "parameters/uri": " _api/web/lists/getbytitle('@{variables('Settings')['targetList']?['listName']}')/items(@{body('Send_an_HTTP_request_to_SharePoint_-_Create_list_item_in_TargetList')?['d']?['ID']})",
+                        "parameters/headers": {
+                          "accept": "application/json;odata=verbose",
+                          "content-type": "application/json;odata=verbose",
+                          "if-match": "*"
+                        }
+                      },
+                      "authentication": "@parameters('$authentication')"
+                    },
+                    "description": "This action demonstrates how to delete an item using the SharePoint REST API, utilizing the ID obtained from either the 'Create list item in TargetList' or 'Create list item in TargetList_2' actions."
+                  }
+                }
+              },
+              "expression": {
+                "equals": [
+                  "@empty(body('Send_an_HTTP_request_to_SharePoint_-_Check_if_item_exist_in_TargetList')?['value'])",
+                  "@true"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "a5bba7f4-2752-496d-bbdf-bdb5c1d25e48"
+              },
+              "type": "If",
+              "description": "This condition will evaluate whether the value property of the above action is empty. If yes, this mean that the item does not exist. If no, the item does exist, and the flow will proceed to delete the item."
+            },
+            "Send_an_HTTP_request_to_SharePoint_-_Check_if_item_exist_in_TargetList": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "5d7ea9ed-ed7c-40f3-8ad2-78d35a8c883f"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_sharepointonline_1",
+                  "operationId": "HttpRequest",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+                },
+                "parameters": {
+                  "dataset": "@parameters('SPsite (ggk_SPsite)')",
+                  "parameters/method": "GET",
+                  "parameters/uri": "_api/web/lists/getbytitle('@{variables('Settings')['targetList']?['listName']}')/items?$filter=ID eq @{if(or(empty(body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['Date']), empty(body('Send_an_HTTP_request_to_SharePoint_-_Get_additional_info')?['d']?['DateAndTime'])), body('Send_an_HTTP_request_to_SharePoint_-_Create_list_item_in_TargetList')?['d']?['ID'], body('Send_an_HTTP_request_to_SharePoint_-_Create_list_item_in_TargetList_2')?['d']?['ID'])}",
+                  "parameters/headers": {
+                    "accept": "application/json; odata=nometadata"
+                  }
+                },
+                "authentication": "@parameters('$authentication')"
+              },
+              "description": "The filter will determine whether the item was created based on the itemID. If it returns an empty result, it signifies that the item was not created, and the value property will contain an empty array as its value."
+            }
+          },
+          "runAfter": {
+            "Try": [
+              "Failed",
+              "TimedOut"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "dd22ea7e-154e-4318-8450-5cb112467abb"
+          },
+          "type": "Scope"
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

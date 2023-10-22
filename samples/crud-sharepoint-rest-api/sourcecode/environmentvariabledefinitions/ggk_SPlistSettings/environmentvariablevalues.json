@@ -1,0 +1,9 @@
+{
+  "environmentvariablevalues": {
+    "environmentvariablevalue": {
+      "@environmentvariablevalueid": "ca077984-1e70-ee11-9ae7-0022489fd9dd",
+      "iscustomizable": "1",
+      "value": "{     \"siteUrl\": \"insert your sharepoint site url here\",     \"createList\": {         \"listName\": \"CreateList\",         \"spData\": \"SP.Data.CreateListListItem\"     },     \"targetList\": {         \"listName\": \"TargetList\",         \"spData\": \"SP.Data.TargetListListItem\"     } }"
+    }
+  }
+}

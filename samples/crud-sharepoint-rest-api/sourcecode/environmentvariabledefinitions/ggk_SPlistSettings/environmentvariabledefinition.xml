@@ -1,0 +1,10 @@
+<environmentvariabledefinition schemaname="ggk_SPlistSettings">
+  <displayname default="SPlistSettings">
+    <label description="SPlistSettings" languagecode="1033" />
+  </displayname>
+  <introducedversion>1.0.0.0</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <secretstore>0</secretstore>
+  <type>100000003</type>
+</environmentvariabledefinition>

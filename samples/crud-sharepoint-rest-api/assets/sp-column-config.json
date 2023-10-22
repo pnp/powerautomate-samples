@@ -1,0 +1,70 @@
+{
+  "fields": [
+    {
+      "internalName": "Title",
+      "displayName": "Title",
+      "description": "Leave blank",
+      "type": "Single Line of Text"
+    },
+    {
+      "internalName": "Choice",
+      "displayName": "Choice",
+      "description": "Type each choice on a separate line",
+      "type": "Single Choice",
+      "choices": ["Submitted", "Pending Approval", "Approved", "Rejected"],
+      "displayAs": "Drop-Down Menu",
+      "defaultValue": "Submitted"
+    },
+    {
+      "internalName": "MultipleChoice",
+      "displayName": "MultipleChoice",
+      "description": "Type each choice on a separate line",
+      "type": "Multi-select Choice",
+      "choices": ["Blue", "Green", "Yellow", "Red"],
+      "displayAs": "Checkboxes",
+      "allowMultipleSelections": true
+    },
+    {
+      "internalName": "Date",
+      "displayName": "Date",
+      "type": "Date",
+      "format": "Date Only"
+    },
+    {
+      "internalName": "DateAndTime",
+      "displayName": "DateAndTime",
+      "type": "Date and Time",
+      "format": "Date & Time"
+    },
+    {
+      "internalName": "Number",
+      "displayName": "Number",
+      "type": "Number",
+      "defaultValue": "0"
+    },
+    {
+      "internalName": "YesNo",
+      "displayName": "YesNo",
+      "type": "Yes/No",
+      "defaultValue": "No"
+    },
+    {
+      "internalName": "Hyperlink",
+      "displayName": "Hyperlink",
+      "type": "Hyperlink",
+      "format": "Hyperlink"
+    },
+    {
+      "internalName": "SingleUser",
+      "displayName": "SingleUser",
+      "type": "Single People Picker",
+      "allowMultipleSelections": false
+    },
+    {
+      "internalName": "MultipleUsers",
+      "displayName": "MultipleUsers",
+      "type": "Multi-select People Picker",
+      "allowMultipleSelections": true
+    }
+  ]
+}
