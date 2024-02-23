@@ -1,0 +1,196 @@
+{
+    "name": "eb363614-010c-4115-b7f2-f6a4d17504e1",
+    "id": "/providers/Microsoft.Flow/flows/eb363614-010c-4115-b7f2-f6a4d17504e1",
+    "type": "Microsoft.Flow/flows",
+    "properties": {
+        "apiId": "/providers/Microsoft.PowerApps/apis/shared_logicflows",
+        "displayName": "Move file to SharePoint from Shared Drive",
+        "definition": {
+            "metadata": {
+                "workflowEntityId": null,
+                "processAdvisorMetadata": null,
+                "flowChargedByPaygo": null,
+                "flowclientsuspensionreason": "None",
+                "flowclientsuspensiontime": null,
+                "flowclientsuspensionreasondetails": null,
+                "creator": {
+                    "id": "1f4d8f35-7a35-4146-9a02-c579e47041a8",
+                    "type": "User",
+                    "tenantId": "ee560e77-afeb-419b-8b24-043d8da097a2"
+                },
+                "provisioningMethod": "FromDefinition",
+                "failureAlertSubscription": true,
+                "clientLastModifiedTime": "2023-10-25T11:53:27.6979027Z"
+            },
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "contentVersion": "1.0.0.0",
+            "parameters": {
+                "$connections": {
+                    "defaultValue": {},
+                    "type": "Object"
+                },
+                "$authentication": {
+                    "defaultValue": {},
+                    "type": "SecureObject"
+                }
+            },
+            "triggers": {
+                "When_a_file_is_created_(properties_only)": {
+                    "recurrence": {
+                        "frequency": "Minute",
+                        "interval": 5
+                    },
+                    "metadata": {
+                        "XFxrcmwtZnMwM1xJbnZvaWNlc1xQcm9k": "\\\\sharedDrive\\folder",
+                        "operationMetadataId": "8e0b0f84-fa31-4552-94ce-6ad1f0451f1d",
+                        "flowSystemMetadata": {
+                            "swaggerOperationId": "OnNewFiles"
+                        },
+                        "XFxrcmwtZnMwM1xJbnZvaWNlc1xVQVQ=": "\\\\sharedDrive\\folder"
+                    },
+                    "type": "ApiConnection",
+                    "inputs": {
+                        "host": {
+                            "connection": {
+                                "name": "@parameters('$connections')['shared_filesystem']['connectionId']"
+                            },
+                            "api": {
+                                "runtimeUrl": "https://flow-apim-msmanaged-na-northcentralus-01.azure-apim.net/apim/filesystem"
+                            }
+                        },
+                        "method": "get",
+                        "path": "/datasets/default/triggers/batch/onnewfile",
+                        "queries": {
+                            "folderId": "\\\\sharedDrive\\folder",
+                            "maxFileCount": 1
+                        },
+                        "authentication": "@parameters('$authentication')"
+                    }
+                }
+            },
+            "actions": {
+                "Each_file": {
+                    "foreach": "@triggerBody()",
+                    "actions": {
+                        "Get_file_content_from_Shared_Drive": {
+                            "runAfter": {},
+                            "metadata": {
+                                "operationMetadataId": "2067e2ae-cb1e-4b70-a6d4-192e57717142",
+                                "flowSystemMetadata": {
+                                    "swaggerOperationId": "GetFileContent"
+                                }
+                            },
+                            "type": "ApiConnection",
+                            "inputs": {
+                                "host": {
+                                    "connection": {
+                                        "name": "@parameters('$connections')['shared_filesystem']['connectionId']"
+                                    },
+                                    "api": {
+                                        "runtimeUrl": "https://flow-apim-msmanaged-na-northcentralus-01.azure-apim.net/apim/filesystem"
+                                    }
+                                },
+                                "method": "get",
+                                "path": "/datasets/default/files/@{encodeURIComponent(encodeURIComponent(items('Each_file')?['Id']))}/content",
+                                "queries": {
+                                    "inferContentType": true
+                                },
+                                "authentication": "@parameters('$authentication')"
+                            }
+                        },
+                        "Move_file_to_SharePoint_Document_Library": {
+                            "runAfter": {
+                                "Get_file_content_from_Shared_Drive": [
+                                    "Succeeded"
+                                ]
+                            },
+                            "metadata": {
+                                "operationMetadataId": "f8b63710-8b91-4bb0-8283-afe3e7248db5",
+                                "flowSystemMetadata": {
+                                    "swaggerOperationId": "CreateFile"
+                                }
+                            },
+                            "type": "ApiConnection",
+                            "inputs": {
+                                "host": {
+                                    "connection": {
+                                        "name": "@parameters('$connections')['shared_sharepointonline_1']['connectionId']"
+                                    },
+                                    "api": {
+                                        "runtimeUrl": "https://flow-apim-msmanaged-na-eastus-01.azure-apim.net/apim/sharepointonline"
+                                    }
+                                },
+                                "method": "post",
+                                "body": "@body('Get_file_content_from_Shared_Drive')",
+                                "path": "/datasets/@{encodeURIComponent(encodeURIComponent('https://dphasis.sharepoint.com/sites/Samples'))}/files",
+                                "queries": {
+                                    "folderPath": "/Shared Documents",
+                                    "name": "@items('Each_file')?['Name']",
+                                    "queryParametersSingleEncoded": true
+                                },
+                                "authentication": "@parameters('$authentication')"
+                            },
+                            "runtimeConfiguration": {
+                                "contentTransfer": {
+                                    "transferMode": "Chunked"
+                                }
+                            }
+                        },
+                        "Delete_file_of_Shared_Drive": {
+                            "runAfter": {
+                                "Move_file_to_SharePoint_Document_Library": [
+                                    "Succeeded"
+                                ]
+                            },
+                            "metadata": {
+                                "operationMetadataId": "22329b06-faa0-40c2-8e8e-b0e0d9c0a629",
+                                "flowSystemMetadata": {
+                                    "swaggerOperationId": "DeleteFile"
+                                }
+                            },
+                            "type": "ApiConnection",
+                            "inputs": {
+                                "host": {
+                                    "connection": {
+                                        "name": "@parameters('$connections')['shared_filesystem']['connectionId']"
+                                    },
+                                    "api": {
+                                        "runtimeUrl": "https://flow-apim-msmanaged-na-northcentralus-01.azure-apim.net/apim/filesystem"
+                                    }
+                                },
+                                "method": "delete",
+                                "headers": {
+                                    "SkipDeleteIfFileNotFoundOnServer": false
+                                },
+                                "path": "/datasets/default/files/@{encodeURIComponent(encodeURIComponent(items('Each_file')?['Id']))}",
+                                "authentication": "@parameters('$authentication')"
+                            }
+                        }
+                    },
+                    "runAfter": {},
+                    "metadata": {
+                        "operationMetadataId": "05421767-bdb5-4775-b06e-001fbfd46c2f"
+                    },
+                    "type": "Foreach"
+                }
+            },
+            "outputs": {}
+        },
+        "connectionReferences": {
+            "shared_filesystem": {
+                "connectionName": "shared-filesystem-97f717ca-eec5-48f7-96d5-6552c50bc2ac",
+                "source": "Embedded",
+                "id": "/providers/Microsoft.PowerApps/apis/shared_filesystem",
+                "tier": "NotSpecified"
+            },
+            "shared_sharepointonline_1": {
+                "connectionName": "shared-sharepointonl-e69b4628-d9d4-488c-9dbe-6bdd72bae4e4",
+                "source": "Embedded",
+                "id": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
+                "tier": "NotSpecified"
+            }
+        },
+        "flowFailureAlertSubscribed": false,
+        "isManaged": false
+    }
+}
