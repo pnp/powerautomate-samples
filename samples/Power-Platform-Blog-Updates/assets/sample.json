@@ -11,7 +11,7 @@
     "longDescription": [
       "Having multiple RSS flows per Power Platform product can get messy. More over, it's not always user friendly accessing these updates through the Power Automate notifications. This solution will retrieve all Power Platform product blog updates and summarize them into product categories through a neat HTML template. Then once a week, users can receive a summary of all blog updates via email with links to each individual blog post."
     ],
-    "url": "https://github.com/pnp/powerautomate-samples/tree/main/samples/Power-Platform-Blog-Update-Flow",
+    "url": "https://github.com/pnp/powerautomate-samples/tree/main/samples/Power-Platform-Blog-Updates",
       "products": [
         "Power Automate",
         "Power Platform"
@@ -44,7 +44,7 @@
       {
         "type": "image",
         "order": 100,
-        "url": "https://raw.githubusercontent.com/pnp/powerautomate-samples/main/samples/Power-Platform-Blog-Update-Flow/assets/images/Flow.gif",
+        "url": "https://raw.githubusercontent.com/pnp/powerautomate-samples/main/samples/Power-Platform-Blog-Updates/assets/images/Flow.gif",
         "alt": "Flow gif"
       }
     ],
