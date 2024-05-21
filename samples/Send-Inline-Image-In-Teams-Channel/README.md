@@ -57,16 +57,16 @@ This sample illustrates the following concepts:
 1.   Import the Flow Solution. Open  [https://make.powerautomate.com/](https://make.powerautomate.com/). Open **My Flows**, **Import Package(Legacy)**.
 1.   Browse to the file you downloaded and select **Upload**.
 1.   In the **Import package** screen, under **Review Package Content** click **Select during import** and choose an existing connection or create a new connections for "SharePoint" and "Microsoft Teams"
-     ![Import](/samples/Send-Inline-Image-In-Teams-Channel/assets/import.png)
+     ![Import](/samples/Send-Inline-Image-In-Teams-Channel/assets/Import.png)
 1.   Once complete, select **Import**.
 
 ### Configure Flow
 
 1. Once the solution is imported, edit it
 1. Select **Get file content** action and replace the **Site Address** and the **File Identifier** to point to your SharePoint site and image file.
-   ![Configure Get file content action](./assets/configure1.png)
+   ![Configure Get file content action](./assets/config1.png)
 1. Select **Get team** action and choose a team from the drop down.
-   ![Configure Get team action](./assets/configure2.png)
+   ![Configure Get team action](./assets/config2.png)
 1. Save and test the flow.
 
 
