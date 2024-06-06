@@ -52,8 +52,8 @@ The solution includes two connection references.
 
 ## Minimal Path to Awesome
 
-* [Download](./solution/Send-Inline-Image-In-Teams-Channel.zip) the '.zip' from the 'solution' folder
-* [Import](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/import-update-export-solutions) the '.zip file using **Solutions** > **Import Solution**.
+* [Download](./solution/Send-Inline-Image-In-Teams-Channel.zip) the `.zip` from the `solution` folder
+* [Import](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/import-update-export-solutions) the `.zip` file using **Solutions** > **Import Solution**.
 
 ### Configure Flow
 
@@ -74,7 +74,7 @@ The solution includes two connection references.
 You can also use the [Power Apps CLI](https://docs.microsoft.com/powerapps/developer/data-platform/powerapps-cli) to pack the source code by following these steps:
 
 * Clone the repository to a local drive
-* Pack the source files back into a solution '.zip' file:
+* Pack the source files back into a solution `.zip` file:
 
   ```bash
   pac solution pack --zipfile pathtodestinationfile --folder pathtosourcefolder --processCanvasApps
