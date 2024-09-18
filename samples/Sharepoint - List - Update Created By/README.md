@@ -56,12 +56,12 @@ This Power Automate flow updates the “Created By” field of a Microsoft List 
 
 5. Select **Manually trigger a flow** and add the following inputs:
 
-  |  Type  |       Name       |                 Description                  |
-  | ------ | ---------------- | -------------------------------------------- |
-  |  Text  |    List Name     |          Name of the list to update          |
-  | Number |     List ID      |            List item ID to update            |
-  |  Text  | Created By Email | Email address of the person to set as Author |
-  |  Text  |   Site Address   |            Site address of the list          |
+|  Type  |       Name       |                 Description                  |
+| ------ | ---------------- | -------------------------------------------- |
+|  Text  |    List Name     |          Name of the list to update          |
+| Number |     List ID      |            List item ID to update            |
+|  Text  | Created By Email | Email address of the person to set as Author |
+|  Text  |   Site Address   |            Site address of the list          |
 
   ![Step 5](assets/Step%205.jpg)
 
@@ -73,8 +73,6 @@ This Power Automate flow updates the “Created By” field of a Microsoft List 
 > You can search for "HTTP" in the search box to find this action quickly.
 
 7. Configure the action as follows:
-
-  ![Step 7](assets/Step%207.jpg)
 
   - **Site Address**
 
@@ -99,6 +97,7 @@ This Power Automate flow updates the “Created By” field of a Microsoft List 
     ``` HTML
     _api/web/lists/getbytitle('List Name')/items('ID')/validateUpdateListItem
     ```
+    
     File: [sourcecode/Uri.html](sourcecode/Uri.html)
 
   - **Body**
@@ -113,6 +112,7 @@ This Power Automate flow updates the “Created By” field of a Microsoft List 
       ]
     }
     ```
+    
     File: [sourcecode/Body-Sample.json](sourcecode/Body-Sample.json)
 
   > [!NOTE]
@@ -128,7 +128,10 @@ This Power Automate flow updates the “Created By” field of a Microsoft List 
       ]
     }
     ```
+    
     File: [sourcecode/Body.json](sourcecode/Body.json)
+
+    ![Step 7](assets/Step%207.jpg)
 
 8. Add a **Respond to a Power App or flow** action.
 
@@ -177,6 +180,7 @@ I have several Power Automate flows that create items in various Microsoft Lists
 While this is acceptable in some instances, there are cases where I need a specific individual to appear as the author of the item. For example, when a Microsoft Form triggers my flow, I may want the list item to reflect the form responder as the list item author.
 
 This Power Automate flow updates the “Created By” field in Microsoft Lists, replacing the default account with a specified user based on their email address, using an HTTP request to SharePoint.
+
 ## Help
 
 We do not support samples, but this community is always willing to help, and we want to improve these samples. We use GitHub to track issues, which makes it easy for  community members to volunteer their time and help resolve issues.
@@ -194,6 +198,7 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 ## Post Script
 
 I stumbled onto a Microsoft Community post titled "[Update 'Created By' and 'Modified By' fields.](https://techcommunity.microsoft.com/t5/power-apps-and-power-automate-in/update-created-by-and-modified-by-fields/m-p/3672675/highlight/true#M6072)", with an answer by [Rob Elliott](https://techcommunity.microsoft.com/t5/user/viewprofilepage/user-id/174092#profile) which gave me the idea and framework for my solution.
+
 ### Acknowledgements
 - [Rob Elliott](https://techcommunity.microsoft.com/t5/user/viewprofilepage/user-id/174092#profile)
 
