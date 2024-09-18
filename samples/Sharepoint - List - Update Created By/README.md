@@ -117,7 +117,7 @@ File: `sourcecode/Body-Sample.json`
 > [!NOTE]
 > If you've followed the exact sequence in step 5, you can use the provided JSON without modification. Otherwise, adjust as needed.
 
-File: `sourcecode/Body.json`
+File: `[sourcecode/Body.json](sourcecode/Body.json)` 
 
 ``` JSON
 {
