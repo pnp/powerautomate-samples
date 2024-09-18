@@ -28,7 +28,7 @@ This Power Automate flow updates the “Created By” field of a Microsoft List 
 
 ## Prerequisites
 
-- **Microsoft Lists*
+- **Microsoft Lists**
   - A configured Microsoft List
 
 ## Minimal path to awesome
