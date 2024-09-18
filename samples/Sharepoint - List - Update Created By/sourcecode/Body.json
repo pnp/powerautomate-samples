@@ -2,7 +2,7 @@
 	"formValues":[
 		{
 			"FieldName": "Author",
-			"FieldValue": "[{'Key':'i:0#.f|membership|EMAIL_ADDRESS'}]"
+			"FieldValue": "[{'Key':'i:0#.f|membership|user@example.com'}]"
 		}
 	]
 }
