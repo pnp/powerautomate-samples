@@ -75,12 +75,12 @@ This Power Automate flow updates the “Created By” field of a Microsoft List 
 
 ![Step 7](assets/Step%207.jpg)
 
-**Site Address**
+  - **Site Address**
 
-Select the **Site Address** dynamic content created in step 5, or enter the relevant SharePoint site address.
+    Select the **Site Address** dynamic content created in step 5, or enter the relevant SharePoint site address.
 
-> [!TIP] 
-> If you want this automation to work dynamically across multiple SharePoint sites, add the **Site Address** at step 5. Alternatively, you can set this as a fixed value if your use case means the SharePoint site will not change.
+    > [!TIP] 
+    > If you want this automation to work dynamically across multiple SharePoint sites, add the **Site Address** at step 5. Alternatively, you can set this as a fixed value if your use case means the SharePoint site will not change.
 
 **Method**
 Post
