@@ -82,6 +82,7 @@ This Power Automate flow updates the “Created By” field of a Microsoft List 
   > If you want this automation to work dynamically across multiple SharePoint sites, add the **Site Address** at step 5. Alternatively, you can set this as a fixed value if your use case means the SharePoint site will not change.
 
   - **Method**
+    
     Post
 
   - **Uri**
@@ -89,6 +90,7 @@ This Power Automate flow updates the “Created By” field of a Microsoft List 
     ``` HTML
     _api/web/lists/getbytitle('@{triggerBody()?'text'}')/items('@{triggerBody()?'number'}')/validateUpdateListItem
     ```
+    
     File: [sourcecode/Uri-Sample.html](sourcecode/Uri-Sample.html)
 
   > [!NOTE]
@@ -98,7 +100,7 @@ This Power Automate flow updates the “Created By” field of a Microsoft List 
     _api/web/lists/getbytitle('List Name')/items('ID')/validateUpdateListItem
     ```
     
-    File: [sourcecode/Uri.html](sourcecode/Uri.html)
+    **File:** [sourcecode/Uri.html](sourcecode/Uri.html)
 
   - **Body**
 
@@ -113,7 +115,7 @@ This Power Automate flow updates the “Created By” field of a Microsoft List 
     }
     ```
     
-    File: [sourcecode/Body-Sample.json](sourcecode/Body-Sample.json)
+    **File:** [sourcecode/Body-Sample.json](sourcecode/Body-Sample.json)
 
   > [!NOTE]
   > If you've followed the exact sequence in step 5, you can use the provided JSON without modification. Otherwise, adjust as needed.
