@@ -88,24 +88,20 @@ This Power Automate flow updates the “Created By” field of a Microsoft List 
 
   - **Uri**
 
+    ``` HTML
+    _api/web/lists/getbytitle('@{triggerBody()?'text'}')/items('@{triggerBody()?'number'}')/validateUpdateListItem
+    ```
     File: [sourcecode/Uri-Sample.html](sourcecode/Uri-Sample.html)
-
-      ``` HTML
-      _api/web/lists/getbytitle('@{triggerBody()?'text'}')/items('@{triggerBody()?'number'}')/validateUpdateListItem
-      ```
 
   > [!NOTE]
   > If you've followed the exact sequence in step 5, you can use the provided Uri without modification. Otherwise, adjust as needed.
 
-    File: [sourcecode/Uri.html](sourcecode/Uri.html)
-
     ``` HTML
     _api/web/lists/getbytitle('List Name')/items('ID')/validateUpdateListItem
     ```
+    File: [sourcecode/Uri.html](sourcecode/Uri.html)
 
   - **Body**
-
-    File: [sourcecode/Body-Sample.json](sourcecode/Body-Sample.json)
 
     ``` JSON
     {
@@ -117,11 +113,10 @@ This Power Automate flow updates the “Created By” field of a Microsoft List 
       ]
     }
     ```
+    File: [sourcecode/Body-Sample.json](sourcecode/Body-Sample.json)
 
   > [!NOTE]
   > If you've followed the exact sequence in step 5, you can use the provided JSON without modification. Otherwise, adjust as needed.
-
-    File: [sourcecode/Body.json](sourcecode/Body.json)
 
     ``` JSON
     {
@@ -133,6 +128,7 @@ This Power Automate flow updates the “Created By” field of a Microsoft List 
       ]
     }
     ```
+    File: [sourcecode/Body.json](sourcecode/Body.json)
 
 8. Add a **Respond to a Power App or flow** action.
 
