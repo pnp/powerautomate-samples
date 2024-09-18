@@ -75,7 +75,7 @@ This Power Automate flow updates the “Created By” field of a Microsoft List 
 
 ![Step 7](assets/Step%207.jpg)
 
-### Site Address
+**Site Address**
 
 Select the **Site Address** dynamic content created in step 5, or enter the relevant SharePoint site address.
 
@@ -147,7 +147,7 @@ File: [sourcecode/Body.json](sourcecode/Body.json)
     - Select a connection to use.
     - Select **Save**
 
-> [!TIP]
+> [!IMPORTANT]
 > This is to ensure that the autoamtion can be run when using the "Run a child flow" action.
 
 And that’s it! Now, whenever you need to update the “Created By” field in a Microsoft List item, use the **Run a Child Flow** action, select this automation, and input your dynamic content into the fields you set up in step 5.
