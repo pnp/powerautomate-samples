@@ -44,11 +44,14 @@ This Power Automate flow updates the “Created By” field of a Microsoft List 
 3. Choose the solution where you want to create the automation, or [create a new solution](https://learn.microsoft.com/en-us/power-automate/overview-solution-flows).
 4. Create a new automation:
   - In the top menu, select **New** > **Automation** > **Cloud Flow** > **Instant**.
-![Step 4a](assets/Step%204a.jpg)
-- Enter a **Flow name**. (I called mine "Update Created By". Original, right? 🤓)
-- Select **Manually trigger a flow** as the trigger.
-- Select **Create**.
-![Step 4b](assets/Step%204a.jpg)
+
+    ![Step 4a](assets/Step%204a.jpg)
+
+  - Enter a **Flow name**. (I called mine "Update Created By". Original, right? 🤓)
+  - Select **Manually trigger a flow** as the trigger.
+  - Select **Create**.
+
+    ![Step 4b](assets/Step%204a.jpg)
 
 5. Select **Manually trigger a flow** and add the following inputs:
 
