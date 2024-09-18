@@ -84,7 +84,7 @@ Post
 
 **Uri**
 
-File: `sourcecode/Uri-Sample.html`
+File: [sourcecode/Uri-Sample.html](sourcecode/Uri-Sample.html)
 
 ``` HTML
 _api/web/lists/getbytitle('@{triggerBody()?'text'}')/items('@{triggerBody()?'number'}')/validateUpdateListItem
@@ -93,7 +93,7 @@ _api/web/lists/getbytitle('@{triggerBody()?'text'}')/items('@{triggerBody()?'num
 > [!NOTE]
 > If you've followed the exact sequence in step 5, you can use the provided Uri without modification. Otherwise, adjust as needed.
 
-File: `sourcecode/Uri.html`
+File: [sourcecode/Uri.html](sourcecode/Uri.html)
 
 ``` HTML
 _api/web/lists/getbytitle('List Name')/items('ID')/validateUpdateListItem
@@ -101,7 +101,7 @@ _api/web/lists/getbytitle('List Name')/items('ID')/validateUpdateListItem
 
 **Body**
 
-File: `sourcecode/Body-Sample.json`
+File: [sourcecode/Body-Sample.json](sourcecode/Body-Sample.json)
 
 ``` JSON
 {
@@ -117,7 +117,7 @@ File: `sourcecode/Body-Sample.json`
 > [!NOTE]
 > If you've followed the exact sequence in step 5, you can use the provided JSON without modification. Otherwise, adjust as needed.
 
-File: `[sourcecode/Body.json](sourcecode/Body.json)` 
+File: [sourcecode/Body.json](sourcecode/Body.json)
 
 ``` JSON
 {
