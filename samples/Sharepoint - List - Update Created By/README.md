@@ -4,7 +4,7 @@
 
 This Power Automate flow updates the “Created By” field of a Microsoft List item, replacing the account with a specified user based on their email address, using an HTTP request to SharePoint.
 
-![Overview](.assets/Overview.jpg)
+![Overview](assets/Overview.jpg)
 
 ## Applies to
 
