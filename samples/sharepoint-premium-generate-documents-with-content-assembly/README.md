@@ -5,7 +5,7 @@
 This sample demonstrates how to use the syntex content assembly feature via Power Automate. This feature helps us to create documents based on Modern Templates which is part of SharePoint Premium aka. Microsoft Syntex
 
 ![picture of the sample](./assets/ModernTemplate.png)
-![picture of the sample](./assets/flow-overview.png)
+![picture of the sample](./assets/flowoverview.png)
 
 ## Applies to
 
