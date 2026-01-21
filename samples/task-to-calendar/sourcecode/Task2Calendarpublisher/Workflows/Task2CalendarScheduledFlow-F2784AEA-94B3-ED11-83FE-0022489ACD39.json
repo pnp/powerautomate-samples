@@ -1,0 +1,94 @@
+{
+  "properties": {
+    "connectionReferences": {},
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Recurrence": {
+          "recurrence": {
+            "frequency": "Day",
+            "interval": 1,
+            "timeZone": "W. Europe Standard Time",
+            "startTime": "2023-02-26T01:01:01",
+            "schedule": {
+              "hours": [
+                "18"
+              ],
+              "minutes": [
+                0
+              ]
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "7fa0b082-88c5-41ed-b1aa-5ec427ae424f"
+          },
+          "type": "Recurrence"
+        }
+      },
+      "actions": {
+        "Run_manual_Task2Calendar_flow": {
+          "runAfter": {
+            "Create_end_date": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "0b7f593d-02e3-4dcf-a268-65c9f7d49157"
+          },
+          "type": "Workflow",
+          "inputs": {
+            "host": {
+              "workflowReferenceName": "b8befeee-91b3-ed11-83fe-0022489acd39"
+            },
+            "body": {
+              "date": "@body('Create_start_date')",
+              "date_1": "@body('Create_end_date')",
+              "boolean": false
+            }
+          }
+        },
+        "Create_start_date": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "843237e7-66e7-47f6-9954-5485f1e82d02"
+          },
+          "type": "Expression",
+          "kind": "ConvertTimeZone",
+          "inputs": {
+            "baseTime": "@{addDays(utcNow(),1)}",
+            "formatString": "yyyy-MM-dd",
+            "sourceTimeZone": "UTC",
+            "destinationTimeZone": "W. Europe Standard Time"
+          }
+        },
+        "Create_end_date": {
+          "runAfter": {
+            "Create_start_date": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "a4f2c942-e535-44bf-9676-369713e53a5d"
+          },
+          "type": "Expression",
+          "kind": "ConvertTimeZone",
+          "inputs": {
+            "baseTime": "@{addDays(utcNow(),1)}",
+            "formatString": "yyyy-MM-dd",
+            "sourceTimeZone": "UTC",
+            "destinationTimeZone": "W. Europe Standard Time"
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}
