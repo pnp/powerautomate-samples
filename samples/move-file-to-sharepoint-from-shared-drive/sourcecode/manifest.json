@@ -1,0 +1,83 @@
+{
+    "schema": "1.0",
+    "details": {
+        "displayName": "move-file-to-sharepoint-from-shared-drive",
+        "description": "",
+        "createdTime": "2023-10-25T11:55:11.4908059Z",
+        "packageTelemetryId": "e29b4cc3-4501-45a4-9d82-f8ef73c545c8",
+        "creator": "N/A",
+        "sourceEnvironment": ""
+    },
+    "resources": {
+        "f702ab78-02f3-4713-9fea-2b7bbe3ac59d": {
+            "type": "Microsoft.Flow/flows",
+            "suggestedCreationType": "Update",
+            "creationType": "Existing, New, Update",
+            "details": {
+                "displayName": "Move file to SharePoint from Shared Drive"
+            },
+            "configurableBy": "User",
+            "hierarchy": "Root",
+            "dependsOn": [
+                "68d594b2-c9da-48aa-bca4-b6f4dc7f602f",
+                "2d2a70d3-e1b5-4973-837e-e76a98b42b83",
+                "32e1fc5c-5601-4eb7-a33e-4e2e23817c17",
+                "165a6813-2185-4c58-a8ab-d3acbeec32e1"
+            ]
+        },
+        "68d594b2-c9da-48aa-bca4-b6f4dc7f602f": {
+            "id": "/providers/Microsoft.PowerApps/apis/shared_filesystem",
+            "name": "shared_filesystem",
+            "type": "Microsoft.PowerApps/apis",
+            "suggestedCreationType": "Existing",
+            "details": {
+                "displayName": "File System",
+                "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1654/1.0.1654.3414/filesystem/icon.png"
+            },
+            "configurableBy": "System",
+            "hierarchy": "Child",
+            "dependsOn": []
+        },
+        "2d2a70d3-e1b5-4973-837e-e76a98b42b83": {
+            "type": "Microsoft.PowerApps/apis/connections",
+            "suggestedCreationType": "Existing",
+            "creationType": "Existing",
+            "details": {
+                "displayName": "On-Premises-Shared-Drive-Documents",
+                "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1625/1.0.1625.3226/filesystem/icon.png"
+            },
+            "configurableBy": "User",
+            "hierarchy": "Child",
+            "dependsOn": [
+                "68d594b2-c9da-48aa-bca4-b6f4dc7f602f"
+            ]
+        },
+        "32e1fc5c-5601-4eb7-a33e-4e2e23817c17": {
+            "id": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
+            "name": "shared_sharepointonline",
+            "type": "Microsoft.PowerApps/apis",
+            "suggestedCreationType": "Existing",
+            "details": {
+                "displayName": "SharePoint",
+                "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1656/1.0.1656.3432/sharepointonline/icon.png"
+            },
+            "configurableBy": "System",
+            "hierarchy": "Child",
+            "dependsOn": []
+        },
+        "165a6813-2185-4c58-a8ab-d3acbeec32e1": {
+            "type": "Microsoft.PowerApps/apis/connections",
+            "suggestedCreationType": "Existing",
+            "creationType": "Existing",
+            "details": {
+                "displayName": "dinesh.girase@dphasis.onmicrosoft.com",
+                "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1623/1.0.1623.3210/sharepointonline/icon.png"
+            },
+            "configurableBy": "User",
+            "hierarchy": "Child",
+            "dependsOn": [
+                "32e1fc5c-5601-4eb7-a33e-4e2e23817c17"
+            ]
+        }
+    }
+}
