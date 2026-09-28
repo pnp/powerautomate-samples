@@ -5,11 +5,11 @@
 
 This repository contains community samples that demonstrate different usage patterns for Power Automate.
 
-## Community calls and demos
+## Join the community calls
 
-Join the weekly Copilot, Microsoft 365, and Power Platform [community calls](https://aka.ms/community/calls). Everyone is welcome.
+Stay up to date with the latest Copilot, Microsoft 365, and Power Platform topics by joining our weekly community calls. Everyone is welcome—come to learn, ask questions, and connect with the community.
 
-To share your learnings and input with the community, [sign up for a demo](https://aka.ms/community/request/demo).
+[View the call schedule and download the recurring invites](https://aka.ms/community/calls) so you don't miss an upcoming call.
 
 ## Code of Conduct
 
