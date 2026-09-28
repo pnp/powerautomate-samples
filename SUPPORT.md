@@ -1,6 +1,6 @@
 # Support Guidelines
 
-The Power Apps samples repository is maintained by the [Patterns and Practices](https://aka.ms/m365pnp) team and the community, who all volunteer their time.
+The Power Automate samples repository is maintained by the [Patterns and Practices](https://aka.ms/m365pnp) team and the community, who all volunteer their time.
 
 We track bugs, user questions, suggestions and sample requests through [GitHub issues](https://github.com/pnp/powerautomate-samples/issues).
 
@@ -12,7 +12,7 @@ Please help out as you can in response to issues and user questions.
 
 ## Have issues or questions?
 
-TODO
+Use the appropriate GitHub issue template so the community has the details needed to help.
 
 ### How to report a bug
 
@@ -25,14 +25,14 @@ We use GitHub issues to support user questions. To ask a question, [open a new i
 
 ### How to submit changes
 
-Please see our [Contributing Guidance](https://github.com/pnp/powerautomate-samples/blob/master/CONTRIBUTING.md).
+Submit new samples to the centralized [Power Platform samples repository](https://github.com/pnp/powerplatform-samples) and follow its [contribution guidance](https://github.com/pnp/powerplatform-samples/blob/main/CONTRIBUTING.md). For fixes to samples that remain in this repository, open a pull request against `main` and follow the pull request template.
 
 ### How to request an enhancement
 
-We use GitHub issues to support user suggestions. To request an enhanced, [open a new issue](https://github.com/pnp/powerautomate-samples/issues/new/choose) and select the suggestion template. 
+We use GitHub issues to support user suggestions. To request an enhancement, [open a new issue](https://github.com/pnp/powerautomate-samples/issues/new/choose) and select the suggestion template.
 
-### How to request an sample request
+### How to request a sample
 
-We use GitHub issues to support sample request. To request a new sample, [open a new issue](https://github.com/pnp/powerautomate-samples/issues/new/choose) and select the sample request template. 
+We use GitHub issues to support sample requests. To request a new sample, [open a new issue](https://github.com/pnp/powerautomate-samples/issues/new/choose) and select the sample request template.
 
-<img src="https://telemetry.sharepointpnp.com/powerautomate-samples/SUPPORT.md" />
+<img src="https://m365-visitor-stats.azurewebsites.net/powerautomate-samples/SUPPORT.md" />

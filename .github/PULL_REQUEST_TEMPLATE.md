@@ -1,5 +1,5 @@
-> We're so eager to add your sample to this repository as soon as possible, but we need all samples follow the same structure. 
-> To make sure we process it as soon as possible, make sure to follow [these instructions](https://github.com/pnp/powerautomate-samples/wiki/How-to-submit-a-Power-Automate-sample).
+> Submit new samples to the centralized [Power Platform samples repository](https://github.com/pnp/powerplatform-samples) and follow its [contribution guidance](https://github.com/pnp/powerplatform-samples/blob/main/CONTRIBUTING.md).
+> Use this template for fixes and maintenance updates to samples that remain in this repository.
 > Every sample README must end with `<img src="https://m365-visitor-stats.azurewebsites.net/powerautomate-samples/{sample-path}" />`.
 > Replace `{sample-path}` with the sample folder's repository-relative path, such as `samples/my-sample`.
 
@@ -7,7 +7,7 @@
 | --------------- | --------------------------------------- |
 | Bug fix?        | no - yes?                               |
 | New feature?    | no - yes?                               |
-| New sample?     | no - yes?                               |
+| Sample update?  | no - yes?                               |
 | Related issues? | fixes #X, partially #Y, mentioned in #Z |
 
 ## Solution Details
@@ -23,7 +23,7 @@
 
 > Please describe the changes in this PR. Sample description or details around bugs which are being fixed.
 > 
-> Note: for security reasons, we can only accept pull requests which consist of exported and unzipped Power Automate flows.
+> For sample changes, include the exported and unzipped Power Automate flow source rather than only a binary export.
 >
 > _(DELETE THIS PARAGRAPH AFTER READING)_
 

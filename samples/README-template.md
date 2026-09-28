@@ -69,11 +69,11 @@ This sample illustrates the following concepts:
 ## Minimal Path to Awesome
 
 * [Download](./solution/Sample.zip) the `.zip` from the `solution` folder
-* Within **Power Automate Studio**, import the solution `.zip` file using **Solutions** > **Import Solution** and select the `.zip` file you just packed.
+* In the [Power Automate maker portal](https://make.powerautomate.com/), import the solution `.zip` file using **Solutions** > **Import solution**.
 
 ## Using the Source Code
 
-You can also use the [Power Apps CLI](https://docs.microsoft.com/powerapps/developer/data-platform/powerapps-cli) to pack the source code by following these steps::
+You can also use the [Power Platform CLI](https://learn.microsoft.com/power-platform/developer/cli/introduction) to pack the source code by following these steps:
 
 * Clone the repository to a local drive
 * Pack the source files back into a solution `.zip` file:
@@ -81,7 +81,7 @@ You can also use the [Power Apps CLI](https://docs.microsoft.com/powerapps/devel
   pac solution pack --zipfile pathtodestinationfile --folder pathtosourcefolder --processCanvasApps
   ```
   Making sure to replace `pathtosourcefolder` to point to the path to this sample's `sourcecode` folder, and `pathtodestinationfile` to point to the path of this solution's `.zip` file (located under the `solution` folder)
-* Within **Power Automate Studio**, import the solution `.zip` file using **Solutions** > **Import Solution** and select the `.zip` file you just packed.
+* In the [Power Automate maker portal](https://make.powerautomate.com/), import the solution `.zip` file using **Solutions** > **Import solution**.
 
 ## Disclaimer
 
@@ -91,7 +91,7 @@ You can also use the [Power Apps CLI](https://docs.microsoft.com/powerapps/devel
 
 > Note: don't worry about this section, we'll update the links.
 
-We do not support samples, but we this community is always willing to help, and we want to improve these samples. We use GitHub to track issues, which makes it easy for  community members to volunteer their time and help resolve issues.
+We do not provide dedicated support for samples, but the community is always willing to help, and we want to improve these samples. We use GitHub to track issues, which makes it easy for community members to volunteer their time and help resolve issues.
 
 If you encounter any issues while using this sample, [create a new issue](https://github.com/pnp/powerautomate-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug-report.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20).
 

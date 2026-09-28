@@ -15,3 +15,5 @@ Replace `{sample-path}` with the sample folder's repository-relative path. For e
 ```html
 <img src="https://m365-visitor-stats.azurewebsites.net/powerautomate-samples/samples/my-sample" />
 ```
+
+Catalog metadata belongs at `assets/sample.json` within the sample folder and must reference the [PnP sample metadata schema](https://developer.microsoft.com/en-us/json-schemas/pnp/samples/v1.0/metadata-schema.json). The catalog workflow reads metadata only from that location. Keep its title, descriptions, sample URL, products, tags, authors, and references aligned with the sample-root `README.md`.
