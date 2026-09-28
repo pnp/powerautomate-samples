@@ -78,5 +78,5 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 - [Create your first flow](https://docs.microsoft.com/en-us/power-automate/getting-started#create-your-first-flow)
 - [Microsoft Power Automate documentation](https://docs.microsoft.com/en-us/power-automate/)
 
-
+<img src="https://m365-visitor-stats.azurewebsites.net/powerautomate-samples/samples/Set-Dataverse-Lookups" />
 

@@ -159,3 +159,4 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 
 ---
 
+<img src="https://m365-visitor-stats.azurewebsites.net/powerautomate-samples/samples/teams-adaptive-card-reminders-from-lists" />
