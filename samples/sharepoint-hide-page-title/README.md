@@ -82,3 +82,5 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 <img src="https://telemetry.sharepointpnp.com/powerautomate-samples/samples/readme-template" />
 
 ---
+
+<img src="https://m365-visitor-stats.azurewebsites.net/powerautomate-samples/samples/sharepoint-hide-page-title" />

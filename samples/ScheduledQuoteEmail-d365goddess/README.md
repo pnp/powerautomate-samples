@@ -83,3 +83,5 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 - [Microsoft Power Automate Documentation](https://learn.microsoft.com/en-us/power-automate/)
 
 <img src="https://telemetry.sharepointpnp.com/powerautomate-samples/samples/ScheduledQuoteEmail" />
+
+<img src="https://m365-visitor-stats.azurewebsites.net/powerautomate-samples/samples/ScheduledQuoteEmail-d365goddess" />

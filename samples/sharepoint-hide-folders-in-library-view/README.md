@@ -81,3 +81,5 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 ---
 > Note that better pictures and documentation will increase the sample usage and the value you are providing for others. Thanks for your submissions in advance! You rock ❤.
 > DELETE THIS PARAGRAPH BEFORE SUBMITTING
+
+<img src="https://m365-visitor-stats.azurewebsites.net/powerautomate-samples/samples/sharepoint-hide-folders-in-library-view" />

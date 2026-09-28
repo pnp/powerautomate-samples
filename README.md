@@ -1,9 +1,15 @@
 # Power Automate Samples
 
 > [!IMPORTANT]  
-> We are currently in the process to move all the samples from product-specific repositories like this repository to one repository for all Power Platform Samples. Please create Pull Requests (PRs) in that [repository](https://github.com/pnp/powerplatform-samples)
+> We are currently moving samples from product-specific repositories like this one to the centralized [Power Platform samples repository](https://github.com/pnp/powerplatform-samples). Submit new samples there and follow its [contribution guidance](https://github.com/pnp/powerplatform-samples/blob/main/CONTRIBUTING.md).
 
 This repository contains community samples that demonstrate different usage patterns for Power Automate.
+
+## Join the community calls
+
+Stay up to date with the latest Copilot, Microsoft 365, and Power Platform topics by joining our weekly community calls. Everyone is welcome. Come to learn, ask questions, and connect with the community.
+
+[View the call schedule and download the recurring invites](https://aka.ms/community/calls) so you don't miss an upcoming call.
 
 ## Code of Conduct
 

@@ -72,3 +72,5 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 - [Microsoft Power Automate documentation](https://docs.microsoft.com/en-us/power-automate/)
 
 <img src="https://telemetry.sharepointpnp.com/powerautomate-samples/samples/exception-handing-in-do-until-loop" />
+
+<img src="https://m365-visitor-stats.azurewebsites.net/powerautomate-samples/samples/exception-handing-in-do-until-loop" />
