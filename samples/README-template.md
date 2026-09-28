@@ -104,9 +104,12 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 - [Create your first flow](https://docs.microsoft.com/en-us/power-automate/getting-started#create-your-first-flow)
 - [Microsoft Power Automate documentation](https://docs.microsoft.com/en-us/power-automate/)
 
-
-<img src="https://telemetry.sharepointpnp.com/powerautomate-samples/samples/readme-template" />
-
 ---
 > Note that better pictures and documentation will increase the sample usage and the value you are providing for others. Thanks for your submissions in advance! You rock ❤.
 > DELETE THIS PARAGRAPH BEFORE SUBMITTING
+>
+> Replace `{sample-path}` below with this sample folder's repository-relative path, such as `samples/my-sample`.
+> The tracker image must remain the final line of the sample README.
+> DELETE THESE INSTRUCTIONS BEFORE SUBMITTING
+
+<img src="https://m365-visitor-stats.azurewebsites.net/powerautomate-samples/{sample-path}" />

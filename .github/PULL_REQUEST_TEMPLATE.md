@@ -1,5 +1,7 @@
 > We're so eager to add your sample to this repository as soon as possible, but we need all samples follow the same structure. 
 > To make sure we process it as soon as possible, make sure to follow [these instructions](https://github.com/pnp/powerautomate-samples/wiki/How-to-submit-a-Power-Automate-sample).
+> Every sample README must end with `<img src="https://m365-visitor-stats.azurewebsites.net/powerautomate-samples/{sample-path}" />`.
+> Replace `{sample-path}` with the sample folder's repository-relative path, such as `samples/my-sample`.
 
 |        Q        |                    A                    |
 | --------------- | --------------------------------------- |
@@ -33,6 +35,7 @@
 > 
 > *Please target your PR to `main` branch.*
 >
+> *Confirm that the final line of each sample README is the required M365 visitor tracker and uses the correct repository-relative sample path.*
+>
 > *Remember that this repository is maintained by community members who volunteer their time to help. Be courteous and patient.*
 > _(DELETE THIS SECTION AFTER READING)_
-
